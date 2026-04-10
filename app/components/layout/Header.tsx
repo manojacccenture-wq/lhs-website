@@ -19,8 +19,8 @@ export default function Header() {
   const pathname = usePathname();
 
   return (
-    <header className="w-full flex justify-center py-4">
-      <div className="w-full max-w-7xl px-4">
+    <header className="w-full flex justify-center py-4 bg-white shadow-md fixed top-0 left-0 z-50">
+      <div className="w-full max-w-7xl ">
 
         <div className="navbar flex items-center justify-between px-6 py-3">
 
