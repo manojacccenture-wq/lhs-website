@@ -1,0 +1,20 @@
+@import "tailwindcss";
+
+/* BASE */
+@import "./base/font.css";
+@import "./base/body.css";
+
+/* TOKENS */
+@import "./tokens/colors.css";
+@import "./tokens/radius.css";
+
+/* SEMANTIC */
+@import "./semantic/semantic.css";
+@import "./semantic/typography.css";
+
+/* COMPONENTS */
+@import "./components/button.css";
+@import "./components/card.css";
+@import "./components/navbar.css";
+@import "./components/footer.css";
+@import "./components/hero-bg.css";

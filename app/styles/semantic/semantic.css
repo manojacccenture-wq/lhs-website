@@ -1,0 +1,15 @@
+:root {
+  /* TEXT */
+  --color-text-title: var(--color-neutral-800);
+  --color-text-body: var(--color-neutral-600);
+
+  /* BACKGROUNDS */
+  --color-bg-page: var(--color-neutral-200);
+  --color-bg-card: var(--color-white);
+
+  /* BORDER */
+  --color-border: var(--color-neutral-300);
+
+  /* BRAND */
+  --color-brand: var(--color-primary-1);
+}

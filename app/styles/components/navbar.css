@@ -1,0 +1,52 @@
+/* ================= NAVBAR ================= */
+
+.navbar {
+  background: rgb(var(--color-primary-rgb), 0.08);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-full);
+  box-shadow: 0 4px 20px rgb(0, 0, 0, 0.04);
+}
+
+/* ================= LOGO ================= */
+
+.nav-logo {
+  color: var(--color-text-title);
+  font-weight: 600;
+}
+
+/* ================= LINKS ================= */
+
+.nav-link {
+  color: var(--color-text-title);
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.nav-link:hover {
+  color: var(--color-brand);
+}
+
+/* ACTIVE STATE */
+.nav-link-active {
+  color: var(--color-brand);
+  font-weight: 600;
+}
+
+/* ================= BUTTON ================= */
+
+.nav-button {
+  background: var(--color-brand);
+  color: var(--color-white);
+  border-radius: var(--radius-full);
+  padding: 8px 18px;
+  font-size: 14px;
+  font-weight: 500;
+  box-shadow: 0 6px 16px rgb(var(--color-primary-rgb), 0.25);
+  transition: all 0.2s ease;
+}
+
+.nav-button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 24px rgb(var(--color-primary-rgb), 0.35);
+}
