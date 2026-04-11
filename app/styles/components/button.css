@@ -54,4 +54,18 @@
     pointer-events: none;
     cursor: not-allowed; /* ✅ UX FIX */
   }
+
+  .btn-accordion {
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: 16px;
+  width: 100%;
+  text-align: left;
+  transition: all 0.3s ease;
+}
+
+.btn-accordion-active {
+  border: 1.5px solid var(--color-brand);
+  box-shadow: 0 8px 30px rgba(0, 194, 168, 0.08);
+}
 }

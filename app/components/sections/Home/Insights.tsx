@@ -1,15 +1,108 @@
-// =============================
-// Insights.tsx
-// =============================
+import Image from "next/image";
+
+type InsightCardProps = {
+  icon: string;
+  label: string;
+  value: string;
+  description: string;
+};
+
+function InsightCard({
+  icon,
+  label,
+  value,
+  description,
+}: InsightCardProps) {
+  return (
+    <div className="bg-[var(--color-bg-card)] border border-[var(--color-border)] rounded-2xl p-6 shadow-sm hover:shadow-md transition-all duration-300">
+
+      {/* TOP */}
+      <div className="flex items-center gap-3 mb-6">
+
+        {/* ICON */}
+        <div className="w-12 h-12 rounded-xl  flex items-center justify-center">
+          <Image src={icon} alt={label} width={35} height={35} />
+        </div>
+
+        {/* LABEL */}
+        <p className="font-medium">{label}</p>
+      </div>
+
+      {/* VALUE */}
+      <h2 className="mb-2">{value}</h2>
+
+      {/* DESCRIPTION */}
+      <p className="text-sm">
+        {description}
+      </p>
+    </div>
+  );
+}
+const insights = [
+  {
+    icon: "/Insights_One.svg",
+    label: "Avg. Team Age",
+    value: "35 Years",
+    description:
+      "We’ve launched high value websites generating returns across industries and worldwide.",
+  },
+  {
+    icon: "/Insights_Two.svg",
+    label: "Team members",
+    value: "175 +",
+    description:
+      "Empower campaigns handling large budgets, providing scalable systems",
+  },
+  {
+    icon: "/Insights_Three.svg",
+    label: "Years of experience",
+    value: "14+ Years",
+    description:
+      "Our outcomes are backed by tangible numbers that reflect measurable success and impact.",
+  },
+  {
+    icon: "/Insights_Four.svg",
+    label: "Retained for 15 Years",
+    value: "5 Clients",
+    description:
+      "We’ve launched high value websites generating returns across industries and worldwide.",
+  },
+  {
+    icon: "/Insights_Five.svg",
+    label: "Industry Verticals Served",
+    value: "20 +",
+    description:
+      "Empower campaigns handling large budgets, providing scalable systems",
+  },
+  {
+    icon: "/Insights_Six.svg",
+    label: "Projects via Referrals",
+    value: "93%",
+    description:
+      "Our outcomes are backed by tangible numbers that reflect measurable success and impact.",
+  },
+];
+
 export default function Insights() {
   return (
-    <section className="max-w-6xl mx-auto py-16 grid md:grid-cols-3 gap-6">
-      {[1, 2, 3].map((i) => (
-        <div key={i} className="p-6 bg-white rounded shadow">
-          <h3 className="text-2xl font-bold">35 Years</h3>
-          <p className="text-gray-500 text-sm">Experience</p>
-        </div>
-      ))}
+    <section className="py-20 px-4 relative">
+
+      {/* BACKGROUND GLOW */}
+      <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_center,rgba(0,194,168,0.15),transparent_60%)]" />
+
+      {/* HEADER */}
+      <div className="text-center mb-12">
+        <h3 className="text-primary ">— OUR NUMBERS</h3>
+        <h2 className="mt-2">Our’s Insight</h2>
+      </div>
+
+      {/* GRID */}
+      <div className="max-w-6xl mx-auto grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {insights.map((item, i) => (
+          <InsightCard key={i} {...item} />
+        ))}
+      </div>
+
     </section>
   );
 }

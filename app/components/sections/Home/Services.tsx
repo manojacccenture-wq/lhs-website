@@ -1,18 +1,131 @@
-// =============================
-// Services.tsx
-// =============================
-export default function Services() {
-  const items = [1, 2, 3, 4];
+import Image from "next/image";
+
+type ServiceCardProps = {
+  title: string;
+  description: string;
+  icon: string;
+  image: string;
+};
+
+function ServiceCard({
+  title,
+  description,
+  icon,
+  image,
+}: ServiceCardProps) {
   return (
-    <section className="max-w-6xl mx-auto py-16 grid md:grid-cols-2 gap-6">
-      {items.map((i) => (
-        <div key={i} className="p-6 bg-white rounded-xl shadow">
-          <h3 className="font-semibold">Service {i}</h3>
-          <p className="text-gray-500 text-sm">
-            Description about service.
+    <div className="group rounded-2xl bg-white shadow-md hover:shadow-xl transition ">
+
+      {/* IMAGE */}
+ <div className="relative w-full">
+
+  {/* IMAGE CONTAINER (ROUNDED) */}
+  <div className="relative h-[160px] sm:h-[180px] overflow-hidden rounded-xl z-0">
+    <Image
+      src={image}
+      alt={title}
+      fill
+      className="object-contain"
+    />
+  </div>
+
+  {/* GRADIENT (NOT ROUNDED) */}
+  <div className="absolute left-0 right-0 bottom-0 h-20 bg-gradient-to-b from-transparent via-[rgba(0,194,168,0.07)] to-[rgba(0,194,168,0.12)] z-10" />
+
+</div>
+
+      {/* CONTENT */}
+      <div className=" flex gap-3 items-center py-4 px-4">
+
+        {/* ICON */}
+        <div className="w-10 h-10 rounded-lg  flex items-center justify-center">
+          <Image src={icon} alt="icon" width={50} height={50} />
+        </div>
+
+        {/* TEXT */}
+        <div>
+          <h3 className="text-md font-semibold">{title}</h3>
+          <p className="text-xs text-neutral-600 mt-1">
+            {description}
           </p>
         </div>
-      ))}
+
+      </div>
+    </div>
+  );
+}
+
+const services = [
+  {
+    title: "Managed IT Workforce Solution",
+    description: "At LHS, we specialize in providing skilled IT manpower resources that enterprises can trust.",
+    image: "/Home_Service_Card_1.svg",
+    icon: "/Home_Service_Card_Icon_1.svg",
+  },
+  {
+    title: "Software Development & Maintenance",
+    description: "At LHS, we specialize in providing skilled IT manpower resources that enterprises can trust.",
+    image: "/Home_Service_Card_2.svg",
+    icon: "/Home_Service_Card_Icon_2.svg",
+  },
+  {
+    title: "Turnkey Project Development",
+    description: "At LHS, we specialize in providing skilled IT manpower resources that enterprises can trust.",
+    image: "/Home_Service_Card_3.svg",
+    icon: "/Home_Service_Card_Icon_3.svg",
+  },
+  {
+    title: "Innovation & Emerging Technologies",
+    description: "At LHS, we specialize in providing skilled IT manpower resources that enterprises can trust.",
+    image: "/Home_Service_Card_4.svg",
+    icon: "/Home_Service_Card_Icon_4.svg",
+  },
+  {
+    title: "Process Automation & Digitization",
+    description: "At LHS, we specialize in providing skilled IT manpower resources that enterprises can trust.",
+    image: "/Home_Service_Card_5.svg",
+    icon: "/Home_Service_Card_Icon_5.svg",
+  },
+];
+
+export default function Services() {
+  return (
+    <section className="max-w-7xl mx-auto mt-[4%] p-4 ">
+
+      {/* HEADER */}
+      <div className="text-center mb-[9%]">
+        <h2 className="text-primary ">— Scaling With</h2>
+        <h2 className="mt-2 ">
+          Building the future alongside global pioneers
+        </h2>
+      </div>
+
+      {/* MOBILE */}
+      <div className="mt-10 flex flex-col gap-6 lg:hidden">
+        {services.map((item, i) => (
+          <ServiceCard key={i} {...item} />
+        ))}
+      </div>
+
+      {/* DESKTOP */}
+      <div className="hidden lg:flex flex-col gap-6 mt-10">
+
+        {/* ROW 1 → 2 cards */}
+        <div className="grid grid-cols-2 gap-6">
+          {services.slice(0, 2).map((item, i) => (
+            <ServiceCard key={i} {...item} />
+          ))}
+        </div>
+
+        {/* ROW 2 → 3 cards */}
+        <div className="grid grid-cols-3 gap-6">
+          {services.slice(2, 5).map((item, i) => (
+            <ServiceCard key={i} {...item} />
+          ))}
+        </div>
+
+      </div>
+
     </section>
   );
 }
