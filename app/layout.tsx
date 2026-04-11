@@ -1,4 +1,5 @@
 import { Outfit, Afacad } from "next/font/google";
+import "./globals.css";
 
 const outfit = Outfit({
   subsets: ["latin"],
@@ -10,7 +11,13 @@ const afacad = Afacad({
   variable: "--font-afacad",
 });
 
-import "./globals.css";
+export const metadata = {
+  title: {
+    template: 'LHS', // Template for page titles
+    default: 'LHS | Home', // Fallback for pages without a title
+  },
+}
+
 
 export default function RootLayout({
   children,

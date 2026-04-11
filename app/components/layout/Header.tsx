@@ -2,7 +2,8 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import "@/app/styles/components/navbar.css";
+import Button from "../ui/Button";
+
 
 const nav = [
   { name: "Home", href: "/" },
@@ -19,7 +20,7 @@ export default function Header() {
   const pathname = usePathname();
 
   return (
-    <header className="w-full flex justify-center py-4 bg-white shadow-md fixed top-0 left-0 z-50">
+    <header className="w-full flex justify-center py-4 bg-white   fixed top-0 left-0 z-50">
       <div className="w-full max-w-7xl ">
 
         <div className="navbar flex items-center justify-between px-6 py-3">
@@ -39,9 +40,8 @@ export default function Header() {
                 <Link
                   key={item.name}
                   href={item.href}
-                  className={`nav-link ${
-                    isActive ? "nav-link-active" : ""
-                  }`}
+                  className={`nav-link ${isActive ? "nav-link-active" : ""
+                    }`}
                 >
                   {item.name}
                 </Link>
@@ -50,9 +50,9 @@ export default function Header() {
           </nav>
 
           {/* Button */}
-          <button className="nav-button">
+          <Button variant="primary" size="sm">
             Log In
-          </button>
+          </Button>
 
         </div>
       </div>

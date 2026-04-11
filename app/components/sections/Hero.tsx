@@ -1,29 +1,32 @@
-// =============================
-// Hero.tsx
-
 import HeroWrapper from "./HeroWrapper";
+import Button from "../ui/Button";
 
 // =============================
 export default function Hero() {
   return (
     <HeroWrapper>
       <section className="text-center py-20 px-4">
-        <p className="text-green-500 text-sm mb-2">
-          TECH-DRIVEN REAL WORLD SOLUTION
-        </p>
-        <h1 className="text-4xl md:text-5xl font-bold">
+        <h4 className="text-green-300">
+          From Concept to Scalable Code
+        </h4>
+
+        <h1>
           Turning Vision Into <br /> Scalable Reality
         </h1>
-        <p className="text-gray-500 mt-4 max-w-xl mx-auto">
-          Build scalable systems with real impact.
+
+        <p className="mx-auto max-w-xl md:max-w-lg lg:max-w-sm mt-4 ">
+          We build smart, scalable software that transforms
+          ideas into streamlined, real-world solutions.
         </p>
+
         <div className="mt-6 flex justify-center gap-4">
-          <button className="bg-green-500 text-white px-6 py-3 rounded-full">
+          <Button variant="primary" size="md">
             Get Started
-          </button>
-          <button className="border px-6 py-3 rounded-full">
+          </Button>
+
+          <Button variant="outline" size="md">
             Learn More
-          </button>
+          </Button>
         </div>
       </section>
     </HeroWrapper>

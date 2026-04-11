@@ -1,4 +1,57 @@
-.btn-primary {
-  background: var(--color-primary-1);
-  color: var(--color-white);
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center font-medium transition-all duration-200 rounded-full cursor-pointer;
+  }
+
+  /* ================= VARIANTS ================= */
+
+  .btn-primary {
+    background: var(--btn-primary-bg);
+    color: var(--btn-primary-text);
+  }
+
+  .btn-primary:hover {
+    opacity: var(--btn-hover-opacity);
+  }
+
+  .btn-secondary {
+    background: var(--btn-secondary-bg);
+    color: var(--btn-secondary-text);
+  }
+
+  .btn-outline {
+  
+    color: var(--btn-outline-text);
+    background: transparent;
+  }
+
+  .btn-ghost {
+    background: transparent;
+    color: var(--btn-ghost-text);
+  }
+
+  /* ================= SIZES (FLUID 🔥) ================= */
+
+  .btn-sm {
+    padding: clamp(6px, 1vw, 8px) clamp(12px, 2vw, 16px);
+    font-size: clamp(12px, 1.5vw, 14px);
+  }
+
+  .btn-md {
+    padding: clamp(8px, 1.2vw, 12px) clamp(16px, 2.5vw, 24px);
+    font-size: clamp(14px, 1.6vw, 16px);
+  }
+
+  .btn-lg {
+    padding: clamp(10px, 1.5vw, 16px) clamp(20px, 3vw, 32px);
+    font-size: clamp(16px, 2vw, 18px);
+  }
+
+  /* ================= STATES ================= */
+
+  .btn-disabled {
+    opacity: var(--btn-disabled-opacity);
+    pointer-events: none;
+    cursor: not-allowed; /* ✅ UX FIX */
+  }
 }

@@ -15,6 +15,6 @@
 /* COMPONENTS */
 @import "./components/button.css";
 @import "./components/card.css";
-@import "./components/navbar.css";
+@import "./components/header.css";
 @import "./components/footer.css";
 @import "./components/hero-bg.css";
