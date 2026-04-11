@@ -13,7 +13,7 @@
   /* BRAND */
   --color-brand: var(--color-primary-1);
 
-    /* BUTTON TOKENS */
+  /* BUTTON TOKENS */
   --btn-primary-bg: var(--color-primary-1);
   --btn-primary-text: var(--color-white);
 
@@ -28,4 +28,18 @@
   /* STATES */
   --btn-hover-opacity: 0.9;
   --btn-disabled-opacity: 0.6;
+
+
+  /* HEADER */
+  --header-bg:rgb(var(--color-primary-rgb)/ 0.12);
+  /* soft teal/grey */
+  --header-border: var(--color-neutral-200);
+
+  /* NAV LINK */
+  --nav-link-text: var(--color-neutral-700);
+  --nav-link-hover: var(--color-neutral-900);
+  --nav-link-active: var(--color-primary-1);
+
+  /* LOGO */
+  --nav-logo-text: var(--color-neutral-900);
 }

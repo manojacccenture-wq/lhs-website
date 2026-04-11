@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Button from "../ui/Button";
-
+import clsx from "clsx";
 
 const nav = [
   { name: "Home", href: "/" },
@@ -20,13 +20,12 @@ export default function Header() {
   const pathname = usePathname();
 
   return (
-    <header className="w-full flex justify-center py-4 bg-white   fixed top-0 left-0 z-50">
-      <div className="w-full max-w-7xl ">
-
-        <div className="navbar flex items-center justify-between px-6 py-3">
+    <header className="header header-bordered">
+      <div className="nav-container">
+        <div className="navbar">
 
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2 nav-logo">
+          <Link href="/" className="nav-logo">
             <span style={{ color: "var(--color-brand)" }}>●●●</span>
             Logo
           </Link>
@@ -40,8 +39,10 @@ export default function Header() {
                 <Link
                   key={item.name}
                   href={item.href}
-                  className={`nav-link ${isActive ? "nav-link-active" : ""
-                    }`}
+                  className={clsx(
+                    "nav-link",
+                    isActive && "nav-link-active"
+                  )}
                 >
                   {item.name}
                 </Link>
@@ -49,7 +50,7 @@ export default function Header() {
             })}
           </nav>
 
-          {/* Button */}
+          {/* CTA */}
           <Button variant="primary" size="sm">
             Log In
           </Button>

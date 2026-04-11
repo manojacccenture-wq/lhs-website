@@ -1,52 +1,50 @@
-/* ================= NAVBAR ================= */
+@layer components {
+  .header {
+    @apply w-full flex justify-center fixed top-1 left-0 z-50;
+  
+  }
 
-.navbar {
-  background: rgb(var(--color-primary-rgb)/ 0.08);
-  backdrop-filter: blur(12px);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-full);
-  box-shadow: 0 4px 20px rgb(0, 0, 0, 0.04);
-}
+  .nav-container {
+    @apply w-full max-w-7xl px-4;
+  }
 
-/* ================= LOGO ================= */
+  /* .navbar {
+    @apply flex items-center justify-between px-8 py-4 rounded-full;
+    background: var(--header-bg);
+  } */
 
-.nav-logo {
-  color: var(--color-text-title);
-  font-weight: 600;
-}
+    .navbar {
+    @apply flex items-center justify-between px-6 py-3;
 
-/* ================= LINKS ================= */
+    background: rgb(var(--color-primary-rgb) / 0.16);
+    backdrop-filter: blur(12px);
 
-.nav-link {
-  color: var(--color-text-title);
-  font-weight: 500;
-  transition: all 0.2s ease;
-}
+    /* border: 1px solid var(--color-border); */
+    border-radius: var(--radius-full);
 
-.nav-link:hover {
-  color: var(--color-brand);
-}
+    box-shadow: 0 4px 20px rgb(0 0 0 / 0.04);
+  }
 
-/* ACTIVE STATE */
-.nav-link-active {
-  color: var(--color-brand);
-  font-weight: 600;
-}
+  .nav-logo {
+    @apply flex items-center gap-2 font-semibold;
+    color: var(--nav-logo-text);
+  }
 
-/* ================= BUTTON ================= */
+  .nav-link {
+    @apply text-sm font-medium transition-colors duration-200;
+    color: var(--nav-link-text);
+  }
 
-.nav-button {
-  background: var(--color-brand);
-  color: var(--color-white);
-  border-radius: var(--radius-full);
-  padding: 8px 18px;
-  font-size: 14px;
-  font-weight: 500;
-  box-shadow: 0 6px 16px rgb(var(--color-primary-rgb), 0.25);
-  transition: all 0.2s ease;
-}
+  .nav-link:hover {
+    color: var(--nav-link-hover);
+  }
 
-.nav-button:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 10px 24px rgb(var(--color-primary-rgb), 0.35);
+  .nav-link-active {
+    color: var(--nav-link-active);
+  }
+
+  /* REMOVE border effect */
+  .header-bordered {
+    border: none;
+  }
 }
