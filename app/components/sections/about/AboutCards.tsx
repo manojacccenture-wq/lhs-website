@@ -4,95 +4,101 @@ interface AboutCardProps {
   title: string;
   description: string;
   image: string;
-  icon: React.ReactNode;
+  icon: string;
+  index?: number; // ⚠️ added for stagger control
 }
 
-function AboutCard({ title, description, image, icon }: AboutCardProps) {
+function AboutCard({ title, description, image, icon, index }: AboutCardProps) {
   return (
-    <div className="rounded-xl overflow-hidden bg-white border shadow-sm hover:shadow-md transition" style={{ borderColor: "var(--color-neutral-300)" }}>
+    <div
+      className={`
+        min-w-[260px] md:min-w-[300px] lg:min-w-[320px]
+        border-neutral-300
+        rounded-xl overflow-hidden bg-white border shadow-sm hover:shadow-md transition
+        ${index !== undefined && index % 2 !== 0 ? "lg:mt-8" : "lg:-mt-0"}
+      `}
+      
+    >
       {/* Image Container */}
-      <div className="relative h-40 md:h-48 overflow-hidden">
-        <img alt={title} className="w-full h-full object-cover" src={image} />
+      <div className="relative w-full h-[200px] md:h-[240px] flex items-center justify-center">
+        <Image
+          src={image}
+          alt={title}
+          width={180}
+          height={180}
+          className="object-contain"
+        />
       </div>
 
       {/* Content */}
-      <div className="p-4 md:p-6">
-        <div className="flex items-start gap-3 mb-3">
-          <div className="shrink-0 p-2 rounded-lg" style={{ backgroundColor: "var(--color-primary-1)", opacity: 0.1 }}>
-            {icon}
-          </div>
-          <h3 className="font-bold text-base md:text-lg" style={{ color: "var(--color-text-title)" }}>
-            {title}
-          </h3>
-        </div>
-        <p className="text-sm md:text-base" style={{ color: "var(--color-text-body)" }}>
-          {description}
-        </p>
-      </div>
+<div className="px-0 pb-4 pt-2 mx-auto relative text-center">
+
+  {/* ICON - absolute right */}
+  <div className="absolute top-2 right-4 p-2 rounded-full bg-teal-500/10">
+    <Image src={icon} alt={title} width={40} height={40} />
+  </div>
+
+  {/* TITLE */}
+  <h3 className="font-bold text-base md:text-lg">
+    {title}
+  </h3>
+
+  {/* DESCRIPTION */}
+  <p className="text-sm md:text-base mt-1">
+    {description}
+  </p>
+
+</div>
     </div>
   );
 }
 
 export default function AboutCards() {
-  const imgIcon = "http://localhost:3845/assets/2077f9833b9814c449be4283c49bc75707dbf8a6.svg";
-  const imgIcon1 = "http://localhost:3845/assets/2b1a89ef1d6568272c47ae2e5762e4ff4bfd4d9c.svg";
-  const imgIcon2 = "http://localhost:3845/assets/71579d6155b9261c42587a5acd4aa94e5e613b61.svg";
-  const imgIcon3 = "http://localhost:3845/assets/d67a9bf9816b328283ed7e3d3166d585cedb730e.svg";
+  const testImage1 = "/about/Title_1.svg"
+  const testImage2 = "/about/Title_2.svg"
+  const testImage3 = "/about/Title_3.svg"
+  const testImage4 = "/about/Title_4.svg"
+  const imgIcon1 = "/about/Title_Icon_1.svg";
+  const imgIcon2 = "/about/Title_Icon_2.svg";
+  const imgIcon3 = "/about/Title_Icon_3.svg";
+  const imgIcon4 = "/about/Title_Icon_4.svg";
 
-  const imgTitle = "http://localhost:3845/assets/f8156e968281e474ce8c0c066312d21ed7b0047f.png";
-  const imgTitle1 = "http://localhost:3845/assets/048d4a3546bafab7d4d3110f4d8a4a0a5d3077ec.png";
-  const imgTitle2 = "http://localhost:3845/assets/c8ab785534a3297601d94f1c9512fe7e30324183.png";
-  const imgTitle3 = "http://localhost:3845/assets/86df0ac9a84d672c76b0548e0620d5013e08e3b8.png";
+
 
   const cards: AboutCardProps[] = [
     {
       title: "Clarity Through Data",
       description: "Measure, track, improve",
-      image: imgTitle,
-      icon: (
-        <svg viewBox="0 0 24 24" className="w-6 h-6 fill-current text-white" style={{ color: "var(--color-primary-1)" }}>
-          <img src={imgIcon} alt="icon" className="w-6 h-6" />
-        </svg>
-      ),
+      image: testImage1,
+      icon: imgIcon1
     },
     {
       title: "Designed to Scale",
       description: "Built to scale seamlessly",
-      image: imgTitle1,
-      icon: (
-        <svg viewBox="0 0 24 24" className="w-6 h-6 fill-current text-white" style={{ color: "var(--color-primary-1)" }}>
-          <img src={imgIcon3} alt="icon" className="w-6 h-6" />
-        </svg>
-      ),
+      image: testImage2,
+      icon: imgIcon2
     },
     {
       title: "Built on Experience",
       description: "20 years shaping solutions",
-      image: imgTitle2,
-      icon: (
-        <svg viewBox="0 0 24 24" className="w-6 h-6 fill-current text-white" style={{ color: "var(--color-primary-1)" }}>
-          <img src={imgIcon2} alt="icon" className="w-6 h-6" />
-        </svg>
-      ),
+      image: testImage4,
+      icon: imgIcon3
     },
     {
       title: "People Who Execute",
       description: "Ownership beyond ideas",
-      image: imgTitle3,
-      icon: (
-        <svg viewBox="0 0 24 24" className="w-6 h-6 fill-current text-white" style={{ color: "var(--color-primary-1)" }}>
-          <img src={imgIcon1} alt="icon" className="w-6 h-6" />
-        </svg>
-      ),
+      image: testImage3,
+      icon: imgIcon4
     },
   ];
 
   return (
-    <section className="py-16 md:py-24 px-6">
-      <div className="max-w-6xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+    <section className="p-3">
+      <div className=" ">
+        {/* SCROLL CONTAINER */}
+        <div className="flex gap-3 md:gap-9 overflow-x-auto scrollbar-hide">
           {cards.map((card, idx) => (
-            <AboutCard key={idx} {...card} />
+            <AboutCard key={idx} {...card} index={idx} />
           ))}
         </div>
       </div>

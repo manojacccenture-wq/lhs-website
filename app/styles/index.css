@@ -2,11 +2,12 @@
 
 /* BASE */
 @import "./base/font.css";
-@import "./base/body.css";
+/* @import "./base/body.css"; */
 
 /* TOKENS */
 @import "./tokens/colors.css";
 @import "./tokens/shadows.css";
+@import "./tokens/border.css";
 @import "./tokens/radius.css";
 
 /* SEMANTIC */

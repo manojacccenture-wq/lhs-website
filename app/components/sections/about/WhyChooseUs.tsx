@@ -40,14 +40,14 @@ export default function WhyChooseUs() {
   ];
 
   return (
-    <section className="py-16 md:py-24 px-6" style={{ backgroundColor: "var(--color-neutral-200)" }}>
+    <section className="py-16 md:py-24 px-6" >
       <div className="max-w-6xl mx-auto">
         {/* Section Header */}
         <div className="text-center mb-12 md:mb-16">
-          <p className="text-primary uppercase mx-auto">
-            "We don't just meet expectations—we exceed them. Here's what sets us apart:"
+          <p className="text-primary font-bold uppercase mx-auto">
+            {"We don't just meet expectations—we exceed them. Here's what sets us apart:"}
           </p>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold" style={{ color: "var(--color-text-title)" }}>
+          <h2 className="mt-[1%] font-bold" >
             Why Choose Us?
           </h2>
         </div>
@@ -55,41 +55,100 @@ export default function WhyChooseUs() {
         {/* Timeline */}
         <div className="relative">
           {/* Vertical line with gradient */}
-          <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-0.5 bg-linear-to-b from-primary via-primary to-transparent" style={{ backgroundColor: "var(--color-primary-1)" }} />
+          <div className="absolute left-1/2 -translate-x-1/2 md:left-1/2 md:translate-x-0 top-0 bottom-0 w-0.5 bg-primary-vertical-gradient" />
 
           {/* Timeline Items */}
           <div className="space-y-8 md:space-y-12">
-            {timelineItems.map((item, idx) => (
-              <div key={idx} className={`relative pl-20 md:pl-0 ${idx % 2 === 0 ? "md:pr-1/2" : "md:pl-1/2"}`}>
-                {/* Dot */}
+            {timelineItems.map((item, idx) => {
+
+              const isLeft = idx % 2 == 0;
+              const cardLeft = idx % 2 !== 0;
+
+
+              return (
                 <div
-                  className="absolute left-0 md:left-1/2 -translate-x-1/2 top-2 w-4 h-4 rounded-full border-4"
-                  style={{ backgroundColor: "var(--color-neutral-200)", borderColor: "var(--color-primary-1)" }}
-                />
+                  key={idx}
+                  className={`relative pl-20 md:pl-0 ${isLeft ? "md:pr-1/2" : "md:pl-1/2"
+                    }`}
+                >
 
-                {/* Period Badge */}
-                <div className="absolute left-0 md:left-1/2 md:-translate-x-1/2 top-0 transform md:translate-y-12 z-10">
-                  <div className="px-3 py-1 rounded-full text-xs font-bold text-white" style={{ background: "linear-gradient(to right, var(--color-primary-1), #005c50)" }}>
-                    {item.period}
+                  {/* DOT */}
+                  <div className="absolute left-1/2 -translate-x-1/2 top-4 flex items-center justify-center">
+
+                    <div className="absolute w-10 h-10 rounded-full bg-primary-soft" />
+
+                    <div className="relative w-4 h-4 rounded-full border-4 border-primary bg-white" />
+
                   </div>
-                </div>
+                  {/* MOBILE VIEW */}
+                  <div className="flex flex-col items-center md:hidden mt-6">
 
-                {/* Card */}
-                <div className="pt-8 md:pt-0 md:w-5/12" style={{ marginLeft: idx % 2 === 0 ? "0" : "auto", marginRight: idx % 2 === 0 ? "auto" : "0" }}>
-                  <div className="p-4 md:p-6 rounded-xl bg-white border shadow-sm" style={{ borderColor: "var(--color-neutral-300)" }}>
-                    <p className="font-bold text-2xl md:text-3xl mb-2" style={{ color: "var(--color-primary-1)" }}>
+                    {/* PERIOD */}
+                    <span className="px-6 py-2 rounded-md text-xs font-bold text-white bg-primary-gradient mt-[5%]">
+                      {item.period}
+                    </span>
+
+                    {/* YEAR */}
+                    <p className="text-primary font-bold text-lg mt-2">
                       {item.year}
                     </p>
-                    <h3 className="font-bold text-lg md:text-xl mb-2" style={{ color: "var(--color-text-title)" }}>
-                      {item.title}
-                    </h3>
-                    <p className="text-sm md:text-base" style={{ color: "var(--color-text-body)" }}>
-                      {item.description}
-                    </p>
+
                   </div>
+
+                  {/* LEFT SIDE (Period OR Year) */}
+                  <div
+                    className={`
+          hidden md:block absolute top-2 text-primary font-bold text-sm md:text-base
+${isLeft
+                        ? "left-0 md:left-[calc(50%-24px)] md:-translate-x-full text-right pr-4"
+                        : "left-0 md:left-[calc(50%-24px)] md:-translate-x-full text-right pr-4"}
+        `}
+                  >
+                    {isLeft ? (
+                      <span className="px-6 py-2 rounded-md text-xs font-bold text-white bg-primary-gradient">
+                        {item.period}
+                      </span>
+                    ) : (
+                      item.year
+                    )}
+                  </div>
+
+                  {/* RIGHT SIDE (Year OR Period) */}
+
+                  <div
+                    className={`
+hidden md:block absolute top-2 text-primary font-bold text-sm md:text-base
+          ${isLeft
+                        ? "left-0 md:left-[calc(50%+24px)] pl-4"
+                        : "left-0 md:left-[calc(50%+24px)] pl-4"}
+        `}
+                  >
+                    {isLeft ? (
+                      item.year
+                    ) : (
+                      <span className="px-6 py-2 rounded-md text-xs font-bold  text-white bg-primary-gradient">
+                        {item.period}
+                      </span>
+                    )}
+                  </div>
+
+                  {/* CARD */}
+                  <div
+                    className={`pt-10  md:pt-12 w-full md:w-5/12 ${cardLeft ? "md:mr-auto" : "md:ml-auto"}`}
+                  >
+                    <div className="p-4 md:p-6 rounded-xl bg-white border border-neutral-300 shadow-sm ">
+                      <h3 className="font-bold text-lg md:text-xl mb-2">
+                        {item.title}
+                      </h3>
+                      <p className="text-sm md:text-base">
+                        {item.description}
+                      </p>
+                    </div>
+                  </div>
+
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </div>

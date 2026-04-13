@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 interface FeatureCard {
   title: string;
   description: string;
@@ -22,10 +24,18 @@ function FeatureCardComponent({ title, description, icon, highlighted = false }:
         className="w-12 h-12 rounded-lg flex items-center justify-center mb-4"
         style={{
           backgroundColor: highlighted ? "rgba(255, 255, 255, 0.1)" : "var(--color-primary-1)",
-          opacity: highlighted ? 1 : 0.1,
+          opacity: highlighted ? 1 : 1,
         }}
       >
-        <img src={icon} alt="" className="w-7 h-7" style={{ filter: highlighted ? "brightness(0) invert(1)" : undefined }} />
+        
+        <Image
+          src={icon}
+          alt=""
+          width={28}
+          height={28}
+          className="w-7 h-7"
+          style={{ filter: highlighted ? "brightness(0) invert(1)" : undefined }}
+        />
       </div>
 
       {/* Content */}
@@ -40,7 +50,7 @@ function FeatureCardComponent({ title, description, icon, highlighted = false }:
 }
 
 export default function WhatSetsUsApart() {
-  const imgIcon4 = "http://localhost:3845/assets/1cb32be2b146b37828224f243ffad11c8d3a465c.svg";
+  const imgIcon4 = "/about/gem.svg";
 
   const features: FeatureCard[] = [
     {
@@ -72,24 +82,49 @@ export default function WhatSetsUsApart() {
   ];
 
   return (
-    <section className="py-16 md:py-24 px-6">
+    <section className="">
       <div className="max-w-6xl mx-auto">
         {/* Section Header */}
         <div className="text-center mb-12 md:mb-16">
-          <p className="text-primary uppercase mx-auto">
-            "we exceed them. Here's what sets us apart:"
-          </p>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold" style={{ color: "var(--color-text-title)" }}>
+          <h3 className="text-primary font-bold tight tracking-widest uppercase mx-auto">
+            {"we exceed them. Here's what sets us apart:"}
+          </h3>
+          <h2 className=" font-bold mt-[2%]" >
             What Sets us apart
           </h2>
         </div>
+        <div className="mt-10 flex flex-col gap-6 lg:hidden">
+          {features.map((item, i) => (
+            <FeatureCardComponent key={i} {...item} />
+          ))}
+        </div>
+
+        {/* DESKTOP */}
+        <div className="hidden lg:flex flex-col gap-6 mt-10">
+
+          {/* ROW 1 → 2 cards */}
+          <div className="grid grid-cols-2 gap-6">
+            {features.slice(0, 2).map((item, i) => (
+              <FeatureCardComponent key={i} {...item} />
+            ))}
+          </div>
+
+          {/* ROW 2 → 3 cards */}
+          <div className="grid grid-cols-3 gap-6">
+            {features.slice(2, 5).map((item, i) => (
+              <FeatureCardComponent key={i} {...item} />
+            ))}
+          </div>
+
+        </div>
+
 
         {/* Feature Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+        {/* <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           {features.map((feature, idx) => (
             <FeatureCardComponent key={idx} {...feature} highlighted={idx === 0} />
           ))}
-        </div>
+        </div> */}
       </div>
     </section>
   );
