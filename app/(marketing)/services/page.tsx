@@ -1,11 +1,18 @@
 
+import ServicesHero from "@/app/components/sections/services/ServicesHero";
+import PowerfulFeatures from "@/app/components/sections/services/PowerfulFeatures";
+import ServicesOverview from "@/app/components/sections/services/ServicesOverview";
+import ServicesCTA from "@/app/components/sections/services/ServicesCTA";
+import ServicesTestimonials from "@/app/components/sections/services/ServicesTestimonials";
 
-const page = () => {
+export default function ServicesPage() {
   return (
-    <div>
-      Services
-    </div>
-  )
+    <>
+      <ServicesHero />
+      <PowerfulFeatures />
+      <ServicesOverview />
+      <ServicesCTA />
+      <ServicesTestimonials />
+    </>
+  );
 }
-
-export default page
