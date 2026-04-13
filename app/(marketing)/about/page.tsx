@@ -1,11 +1,18 @@
 
+import AboutHero from "@/app/components/sections/about/AboutHero";
+import AboutCards from "@/app/components/sections/about/AboutCards";
+import WhyChooseUs from "@/app/components/sections/about/WhyChooseUs";
+import WhatSetsUsApart from "@/app/components/sections/about/WhatSetsUsApart";
+import Leadership from "@/app/components/sections/about/Leadership";
 
-const page = () => {
+export default function AboutPage() {
   return (
-    <div>
-      About
-    </div>
-  )
+    <>
+      <AboutHero />
+      <AboutCards />
+      <WhyChooseUs />
+      <WhatSetsUsApart />
+      <Leadership />
+    </>
+  );
 }
-
-export default page
