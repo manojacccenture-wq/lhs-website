@@ -65,8 +65,8 @@ export default function PowerfulFeatures() {
         {/* Section Header */}
         <div className="text-center mb-12">
           <p 
-            className="text-primary mx-auto uppercase "
-           
+            className="text-sm font-bold tracking-[2.24px] uppercase mb-4"
+            style={{ color: "var(--color-primary-1)" }}
           >
             Features
           </p>
