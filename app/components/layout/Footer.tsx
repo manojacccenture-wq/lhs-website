@@ -4,7 +4,7 @@ import "@/app/styles/components/footer.css";
 
 export default function Footer() {
   return (
-    <footer className="footer mt-20">
+    <footer className="footer mt-[3%]">
       <div className="max-w-7xl mx-auto px-6 py-12">
 
         {/* TOP GRID */}

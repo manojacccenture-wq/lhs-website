@@ -3,6 +3,15 @@
 export default function ProductsSplitSection() {
   return (
     <section className="py-16 md:py-24 px-6">
+
+
+      <div className="grid grid-cols-2 grid-rows-1 gap-4">
+        <div >
+          
+        </div>
+        <div >2</div>
+      </div>
+
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           {/* Left Column - Purple Card */}
@@ -22,7 +31,7 @@ export default function ProductsSplitSection() {
             <h2 className="text-4xl md:text-5xl font-bold leading-tight" style={{ color: "var(--color-text-title)" }}>
               Simplify <span style={{ color: "var(--color-primary-1)" }}>Workflows</span>, Amplify <span style={{ color: "var(--color-primary-1)" }}>Productivity</span>.
             </h2>
-            
+
             <p className="text-lg leading-relaxed" style={{ color: "var(--color-text-subtitle)" }}>
               We've unified F&B operations into a single platform that eliminates silos, reduces manual work, and lets your team focus on what matters—delighting customers.
             </p>

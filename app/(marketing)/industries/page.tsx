@@ -1,11 +1,14 @@
 
 
-const page = () => {
-  return (
-    <div>
-      Industries
-    </div>
-  )
-}
+import IndustriesHero from "@/app/components/sections/industries/IndustriesHero";
+import IndustriesContent from "@/app/components/sections/industries/IndustriesContent";
 
-export default page
+export default function IndustriesPage() {
+  return (
+    <>
+      <IndustriesHero />
+      <IndustriesContent />
+
+    </>
+  );
+}

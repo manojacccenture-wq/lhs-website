@@ -77,7 +77,7 @@ export default function Leadership() {
                       width={24}
                       height={24}
                       // className="w-6 h-6"
-                      style={{ filter: "brightness(0) saturate(100%) invert(47%) sepia(78%) saturate(597%) hue-rotate(120deg)" }}
+                      // style={{ filter: "brightness(0) saturate(100%) invert(47%) sepia(78%) saturate(597%) hue-rotate(120deg)" }}
                     />
                   </div>
                   <p className="text-sm md:text-base" style={{ color: "var(--color-text-body)" }}>
