@@ -1,6 +1,7 @@
 'use client';
 
-import Image from "next/image";
+import IndustryCard from "../../common/ui/IndustryCard";
+
 const manufacturingImage = "/Industries/Image_1.svg";
 
 const utilitiesImage = "/Industries/Image_2.svg";
@@ -52,117 +53,6 @@ const industries = [
 
 ];
 
-function IndustryCard({ industry }: { industry: typeof industries[0] }) {
-    const isImageLeft = industry.imagePosition === "left";
-
-    return (
-        <div className="w-full">
-            {/* Industry Card Container */}
-            <div
-                className="rounded-3xl "
-            // style={{ backgroundColor: "var(--color-neutral-200)" }}
-            >
-                <div className="flex flex-col lg:flex-row gap-16 lg:gap-20">
-                    {/* Image Section */}
-                    <div className={`flex-1 min-w-0 ${isImageLeft ? "lg:order-1" : "lg:order-2"}`}>
-                        <div className="flex flex-col h-full">
-
-                            <div
-                                className="relative w-full h-[300px] mb-8 rounded-3xl"
-                                style={{
-                                    background: "linear-gradient(180deg, #FDF9FF 0%, rgba(253,249,255,0) 100%)"
-                                }}
-                            >
-                                <Image
-                                    src={industry.image}
-                                    alt={industry.name}
-                                    fill
-                                    className="object-none rounded-3xl"
-                                />
-                            </div>
-                            {/* Industry Name and Description */}
-                            <div>
-                                <h3
-                                    className="text-2xl lg:text-3xl font-bold mb-4 leading-tight text-primary"
-                                    
-                                >
-                                    {industry.name}
-                                </h3>
-                                <p
-                                    className="text-base lg:text-lg leading-relaxed"
-                                    
-                                >
-                                    {industry.description}
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-
-                    {/* Content Section - Deliverables */}
-                    <div className={`flex-1 min-w-0 flex flex-col justify-start gap-10 ${isImageLeft ? "lg:order-2" : "lg:order-1"}`}>
-                        {/* Badge */}
-                        <div
-                            className="inline-block w-fit px-4 py-2 border rounded-2xl text-xs font-semibold tracking-wide"
-                            style={{
-                                borderColor: "var(--color-neutral-500)",
-                                color: "var(--color-text-body)"
-                            }}
-                        >
-                            IMPROVE PRODUCTIVITY
-                        </div>
-
-                        {/* Title */}
-                        <h2
-                            className="text-3xl lg:text-4xl font-bold leading-tight"
-                            style={{ color: "var(--color-text-title)" }}
-                        >
-                            What we deliver
-                        </h2>
-
-                        {/* Description */}
-                        <p
-                            className="text-base lg:text-lg leading-relaxed"
-                            style={{ color: "var(--color-text-body)" }}
-                        >
-                            Get rid of endless spreadsheets and binders collecting dust, or hours wasted on searching and emailing.
-                        </p>
-
-                        {/* Deliverables List */}
-                        <div className="space-y-7">
-                            {industry.deliverables.map((deliverable, idx) => (
-                                <div key={idx} className="flex gap-5 items-start">
-                                    <span
-                                        className="font-bold text-3xl shrink-0 leading-tight"
-                                        style={{ color: "var(--color-primary-1)" }}
-                                    >
-                                        {String(idx + 1).padStart(2, '0')}
-                                    </span>
-                                    <p
-                                        className="text-base lg:text-lg leading-relaxed pt-1"
-                                        style={{ color: "var(--color-text-body)" }}
-                                    >
-                                        {deliverable}
-                                    </p>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            {/* Divider Section - "Less paper work, more people work!" */}
-            <div className="my-20 text-center">
-                <h2
-                    className="text-3xl lg:text-5xl font-bold leading-tight"
-                    style={{ color: "var(--color-text-title)" }}
-                >
-                    Less paper work, more{" "}
-                    <span style={{ color: "var(--color-primary-1)" }}>people work!</span>
-                </h2>
-            </div>
-        </div>
-    );
-}
 
 export default function IndustriesContent() {
     return (

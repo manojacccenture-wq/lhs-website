@@ -15,6 +15,22 @@ interface DifferencePoint {
   description: string;
 }
 
+interface TabContent {
+  badge: string;
+  title: string;
+  description: string;
+  differencePoints: DifferencePoint[];
+  features: {
+    title: string;
+    description: string;
+  }[];
+}
+
+type Props = {
+  content: TabContent;
+};
+
+
 const tabs: Tab[] = [
   {
     id: 'it-services',
@@ -55,6 +71,89 @@ const differencePoints: DifferencePoint[] = [
     description: 'monthly scorecards, quarterly alignment',
   },
 ];
+
+const tabContentMap: Record<string, TabContent> = {
+  "it-services": {
+    badge: "IMPROVE PRODUCTIVITY",
+    title: "Your Critical Systems Staffed by Engineers Who Know What Downtime Costs",
+    description:
+      "SAP support, infrastructure administration...",
+    differencePoints,
+    features: [
+      { title: "Dedicated Engineers", description: "Always available" },
+      { title: "SLA Monitoring", description: "Measured performance" },
+      { title: "Escalation Control", description: "No downtime risk" },
+      { title: "Monthly Reports", description: "Full visibility" },
+    ],
+  },
+
+  "analytics": {
+    badge: "REALTIME INSIGHTS",
+    title: "Analytics that drive decisions instantly",
+    description: "Live dashboards and predictive insights...",
+    differencePoints,
+    features: [
+      { title: "Live Dashboards", description: "Real-time metrics" },
+      { title: "Alerts", description: "Instant notifications" },
+    ],
+  },
+};
+
+function TabContentSection({ content }: Props) {
+  return (
+    <div className="bg-white rounded-3xl border border-neutral-300 p-8 md:p-12">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+
+        {/* LEFT */}
+        <div className="space-y-8">
+
+          <div className="inline-block px-4 py-2 rounded-2xl text-sm font-semibold bg-primary text-white">
+            {content.badge}
+          </div>
+
+          <h3 className="text-2xl md:text-3xl font-bold">
+            {content.title}
+          </h3>
+
+          <p className="text-base">
+            {content.description}
+          </p>
+
+          <div>
+            <h4 className="text-xl font-bold text-primary mb-4">
+              What makes us different
+            </h4>
+
+            <div className="space-y-4">
+              {content.differencePoints.map((point, i) => (
+                <div key={i} className="flex gap-4">
+                  <span className="text-primary font-bold text-xl">
+                    {point.number}
+                  </span>
+                  <div>
+                    <p className="font-semibold">{point.title}</p>
+                    <p className="text-sm">{point.description}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* RIGHT */}
+        <div className="space-y-6">
+          {content.features.map((f, i) => (
+            <div key={i} className="border rounded-xl p-5">
+              <p className="font-bold">{f.title}</p>
+              <p className="text-sm">{f.description}</p>
+            </div>
+          ))}
+        </div>
+
+      </div>
+    </div>
+  );
+}
 
 export default function PowerfulFeatures() {
   const [activeTab, setActiveTab] = useState('it-services');
