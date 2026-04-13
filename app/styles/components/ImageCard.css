@@ -1,0 +1,63 @@
+@layer components {
+
+  /* ================= BASE CARD ================= */
+  .card {
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-radius: 24px;
+    transition: all 0.3s ease;
+
+    /* default shadow */
+    box-shadow: var(--shadow-card-sm);
+  }
+
+  /* ================= SIZE-AWARE SHADOW ================= */
+
+  /* medium & large cards get stronger base shadow */
+  .card-medium,
+  .card-long {
+    box-shadow: var(--shadow-card-md);
+  }
+
+  /* ================= HOVER ================= */
+  .card:hover {
+    box-shadow: var(--shadow-card-lg);
+    transform: translateY(-4px);
+  }
+
+  /* ================= TECH CARD ================= */
+  .card-tech {
+    width: 82px;
+    height: 72px;
+    padding: 16px;
+
+    /* keep small shadow */
+    box-shadow: var(--shadow-card-sm);
+  }
+
+  .card-tech:hover {
+    transform: translateY(-3px) scale(1.04);
+  }
+
+  /* ================= IMAGE CARD ================= */
+  .card-image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+  /* ================= HEIGHT VARIANTS ================= */
+  .card-short {
+    height: 180px;
+  }
+
+  .card-medium {
+    height: 220px;
+  }
+
+  .card-long {
+    height: 260px;
+  }
+
+}
