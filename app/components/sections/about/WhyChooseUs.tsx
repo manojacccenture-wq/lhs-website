@@ -55,7 +55,7 @@ export default function WhyChooseUs() {
         {/* Timeline */}
         <div className="relative">
           {/* Vertical line with gradient */}
-          <div className="absolute left-1/2 -translate-x-1/2 md:left-1/2 md:translate-x-0 top-0 bottom-0 w-0.5 bg-primary-vertical-gradient" />
+          <div className="absolute left-1/2 -translate-x-1/2 md:left-1/2 md:translate-x-0 top-0 bottom-0 w-0.5 bg-neutral-vertical-gradient md:bg-primary-vertical-gradient" />
 
           {/* Timeline Items */}
           <div className="space-y-8 md:space-y-12">
@@ -84,12 +84,12 @@ export default function WhyChooseUs() {
                   <div className="flex flex-col items-center md:hidden mt-6">
 
                     {/* PERIOD */}
-                    <span className="px-6 py-2 rounded-md text-xs font-bold text-white bg-primary-gradient mt-[5%]">
+                    <span className="px-6 py-2 rounded-md text-xs font-bold text-white -translate-x-10 bg-primary-gradient mt-[8%]">
                       {item.period}
                     </span>
 
                     {/* YEAR */}
-                    <p className="text-primary font-bold text-lg mt-2">
+                    <p className="text-2xl text-primary font-bold md:text-lg mt-2 -translate-x-10 ">
                       {item.year}
                     </p>
 

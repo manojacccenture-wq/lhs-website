@@ -22,6 +22,15 @@
         transparent);
   }
 
+  .bg-neutral-vertical-gradient {
+  background: linear-gradient(
+    to bottom,
+    var(--color-neutral-300),
+    var(--color-neutral-300),
+    transparent
+  );
+}
+
   /* OPTIONAL (future-safe) */
   .bg-neutral-300 {
     background-color: var(--color-neutral-300);
