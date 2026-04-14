@@ -12,7 +12,7 @@ function TestimonialCard({ name, title, quote, image }: Testimonial) {
     <div className="bg-white rounded-2xl overflow-hidden border border-neutral-300 shadow-sm hover:shadow-md transition">
       {/* Quote and Content */}
       <div className="p-6 h-full flex flex-col">
-        <p 
+        <p
           className="font-bold text-base mb-4 leading-relaxed"
           style={{ color: "var(--color-text-title)" }}
         >
@@ -25,13 +25,13 @@ function TestimonialCard({ name, title, quote, image }: Testimonial) {
             <img src={image} alt={name} className="w-full h-full object-cover" />
           </div>
           <div>
-            <p 
+            <p
               className="font-bold text-sm"
               style={{ color: "var(--color-primary-1)" }}
             >
               {name}
             </p>
-            <p 
+            <p
               className="text-xs"
               style={{ color: "var(--color-text-subtitle)" }}
             >
@@ -84,12 +84,16 @@ export default function ServicesTestimonials() {
     },
   ];
 
+  const row1 = [...testimonials.slice(0, 3), ...testimonials.slice(0, 3)];
+  const row2 = [...testimonials.slice(3, 6), ...testimonials.slice(3, 6)];
+
   return (
     <section className="py-16 md:py-24 px-6">
       <div className="max-w-7xl mx-auto">
+
         {/* Section Header */}
         <div className="text-center mb-12">
-          <h2 
+          <h2
             className="text-3xl md:text-4xl font-bold"
             style={{ color: "var(--color-text-title)" }}
           >
@@ -97,12 +101,33 @@ export default function ServicesTestimonials() {
           </h2>
         </div>
 
-        {/* Testimonials Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {testimonials.map((testimonial, idx) => (
-            <TestimonialCard key={idx} {...testimonial} />
-          ))}
+        {/* Testimonials Layout */}
+        <div className="space-y-6 overflow-hidden pause-on-hover">
+
+          {/* ROW 1 → RIGHT */}
+          <div className="overflow-hidden">
+            <div className="flex gap-6 w-max scroll-right">
+              {row1.map((t, i) => (
+                <div key={i} className="w-[320px] shrink-0">
+                  <TestimonialCard {...t} />
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* ROW 2 → LEFT */}
+          <div className="overflow-hidden">
+            <div className="flex gap-6 w-max scroll-left">
+              {row2.map((t, i) => (
+                <div key={i} className="w-[320px] shrink-0">
+                  <TestimonialCard {...t} />
+                </div>
+              ))}
+            </div>
+          </div>
+
         </div>
+
       </div>
     </section>
   );

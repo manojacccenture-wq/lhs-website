@@ -9,12 +9,6 @@ interface Tab {
   description?: string;
 }
 
-interface DifferencePoint {
-  number: string;
-  title: string;
-  description: string;
-}
-
 interface TabContent {
   badge: string;
   title: string;
@@ -26,8 +20,25 @@ interface TabContent {
   }[];
 }
 
+
+
+type DifferencePoint = {
+  number: string;
+  title: string;
+  description: string;
+};
+
+type Feature = {
+  title: string;
+  description: string;
+};
+
 type Props = {
-  content: TabContent;
+  badge: string;
+  title: string;
+  description: string;
+  differencePoints: DifferencePoint[];
+  features: Feature[];
 };
 
 
@@ -99,40 +110,81 @@ const tabContentMap: Record<string, TabContent> = {
   },
 };
 
-function TabContentSection({ content }: Props) {
+
+
+function TabContentCard({
+  badge,
+  title,
+  description,
+  differencePoints,
+  features,
+}: Props) {
   return (
     <div className="bg-white rounded-3xl border border-neutral-300 p-8 md:p-12">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
 
-        {/* LEFT */}
+        {/* Left Column - Text Content */}
         <div className="space-y-8">
 
-          <div className="inline-block px-4 py-2 rounded-2xl text-sm font-semibold bg-primary text-white">
-            {content.badge}
+          {/* Badge */}
+          <div
+            className="inline-block px-4 py-2 rounded-2xl font-semibold text-sm"
+            style={{
+              backgroundColor: "var(--color-primary-1)",
+              color: "white",
+            }}
+          >
+            {badge}
           </div>
 
-          <h3 className="text-2xl md:text-3xl font-bold">
-            {content.title}
+          {/* Title */}
+          <h3
+            className="text-2xl md:text-3xl font-bold"
+            style={{ color: "var(--color-text-title)" }}
+          >
+            {title}
           </h3>
 
-          <p className="text-base">
-            {content.description}
+          {/* Description */}
+          <p
+            className="text-base leading-relaxed"
+            style={{ color: "var(--color-text-subtitle)" }}
+          >
+            {description}
           </p>
 
-          <div>
-            <h4 className="text-xl font-bold text-primary mb-4">
+          {/* What makes us different */}
+          <div className="pt-4">
+            <h4
+              className="text-xl font-bold mb-6"
+              style={{ color: "var(--color-primary-1)" }}
+            >
               What makes us different
             </h4>
 
             <div className="space-y-4">
-              {content.differencePoints.map((point, i) => (
-                <div key={i} className="flex gap-4">
-                  <span className="text-primary font-bold text-xl">
+              {differencePoints.map((point, idx) => (
+                <div key={idx} className="flex gap-4">
+                  <span
+                    className="text-2xl font-bold"
+                    style={{ color: "var(--color-primary-1)" }}
+                  >
                     {point.number}
                   </span>
+
                   <div>
-                    <p className="font-semibold">{point.title}</p>
-                    <p className="text-sm">{point.description}</p>
+                    <p
+                      className="font-semibold"
+                      style={{ color: "var(--color-text-subtitle)" }}
+                    >
+                      {point.title}
+                    </p>
+                    <p
+                      className="text-sm"
+                      style={{ color: "var(--color-text-subtitle)" }}
+                    >
+                      {point.description}
+                    </p>
                   </div>
                 </div>
               ))}
@@ -140,12 +192,38 @@ function TabContentSection({ content }: Props) {
           </div>
         </div>
 
-        {/* RIGHT */}
+        {/* Right Column - Feature Cards */}
         <div className="space-y-6">
-          {content.features.map((f, i) => (
-            <div key={i} className="border rounded-xl p-5">
-              <p className="font-bold">{f.title}</p>
-              <p className="text-sm">{f.description}</p>
+          {features.map((feature, idx) => (
+            <div
+              key={idx}
+              className="bg-white border border-neutral-300 rounded-2xl p-6 shadow-sm"
+            >
+              <div className="flex items-start gap-4">
+                <div
+                  className="w-10 h-10 rounded-xl shrink-0"
+                  style={{
+                    backgroundColor: "var(--color-primary-1)",
+                    opacity: 0.1,
+                  }}
+                />
+
+                <div>
+                  <p
+                    className="text-sm md:text-base font-bold"
+                    style={{ color: "var(--color-text-title)" }}
+                  >
+                    {feature.title}
+                  </p>
+
+                  <p
+                    className="text-xs md:text-sm"
+                    style={{ color: "var(--color-text-subtitle)" }}
+                  >
+                    {feature.description}
+                  </p>
+                </div>
+              </div>
             </div>
           ))}
         </div>
@@ -158,20 +236,22 @@ function TabContentSection({ content }: Props) {
 export default function PowerfulFeatures() {
   const [activeTab, setActiveTab] = useState('it-services');
 
+  const activeContent = tabContentMap[activeTab];
+
   return (
     <section className="py-16 md:py-24 px-6">
       <div className="max-w-6xl mx-auto">
         {/* Section Header */}
         <div className="text-center mb-12">
-          <p 
-            className="text-sm font-bold tracking-[2.24px] uppercase mb-4"
-            style={{ color: "var(--color-primary-1)" }}
+          <p
+            className="text-primary uppercase mb-4 mx-auto font-bold"
+
           >
             Features
           </p>
-          <h2 
-            className="text-3xl md:text-4xl font-bold"
-            style={{ color: "var(--color-text-title)" }}
+          <h2
+            className="text-3xl md:text-4xl font-bold mx-auto"
+
           >
             Powerful features to supercharge your productivity
           </h2>
@@ -183,11 +263,10 @@ export default function PowerfulFeatures() {
             <button
               key={tab.id}
               onClick={() => setActiveTab(tab.id)}
-              className={`px-7 py-4 rounded-2xl font-bold text-sm transition-all flex items-center gap-2 ${
-                activeTab === tab.id
-                  ? 'border-2 bg-white text-primary-1'
-                  : 'border border-neutral-300 bg-white text-text-subtitle'
-              }`}
+              className={`px-7 py-4 rounded-2xl font-bold text-sm transition-all flex items-center gap-2 ${activeTab === tab.id
+                ? 'border-2 bg-white text-primary-1'
+                : 'border border-neutral-300 bg-white text-text-subtitle'
+                }`}
               style={activeTab === tab.id ? {
                 borderColor: "var(--color-primary-1)",
                 color: "var(--color-primary-1)"
@@ -199,101 +278,14 @@ export default function PowerfulFeatures() {
           ))}
         </div>
 
-        {/* Tab Content */}
-        <div className="bg-white rounded-3xl border border-neutral-300 p-8 md:p-12">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            {/* Left Column - Text Content */}
-            <div className="space-y-8">
-              {/* Badge */}
-              <div className="inline-block px-4 py-2 rounded-2xl font-semibold text-sm" style={{ backgroundColor: "var(--color-primary-1)", color: "white" }}>
-                IMPROVE PRODUCTIVITY
-              </div>
-
-              {/* Title */}
-              <h3 
-                className="text-2xl md:text-3xl font-bold"
-                style={{ color: "var(--color-text-title)" }}
-              >
-                Your Critical Systems Staffed by Engineers Who Know What Downtime Costs
-              </h3>
-
-              {/* Description */}
-              <p 
-                className="text-base leading-relaxed"
-                style={{ color: "var(--color-text-subtitle)" }}
-              >
-                SAP support, infrastructure administration, network monitoring, helpdesk operations — deployed under structured SLA governance with measurable performance reporting. Our manpower engagements are built for continuity, not coverage.
-              </p>
-
-              {/* What makes us different */}
-              <div className="pt-4">
-                <h4 
-                  className="text-xl font-bold mb-6"
-                  style={{ color: "var(--color-primary-1)" }}
-                >
-                  What makes us different
-                </h4>
-                <div className="space-y-4">
-                  {differencePoints.map((point, idx) => (
-                    <div key={idx} className="flex gap-4">
-                      <span 
-                        className="text-2xl font-bold"
-                        style={{ color: "var(--color-primary-1)" }}
-                      >
-                        {point.number}
-                      </span>
-                      <div>
-                        <p 
-                          className="font-semibold"
-                          style={{ color: "var(--color-text-subtitle)" }}
-                        >
-                          {point.title}
-                        </p>
-                        <p 
-                          className="text-sm"
-                          style={{ color: "var(--color-text-subtitle)" }}
-                        >
-                          {point.description}
-                        </p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-
-            {/* Right Column - Feature Cards */}
-            <div className="space-y-6">
-              {[1, 2, 3, 4].map((idx) => (
-                <div
-                  key={idx}
-                  className="bg-white border border-neutral-300 rounded-2xl p-6 shadow-sm"
-                >
-                  <div className="flex items-start gap-4">
-                    <div 
-                      className="w-10 h-10 rounded-xl shrink-0"
-                      style={{ backgroundColor: "var(--color-primary-1)", opacity: 0.1 }}
-                    />
-                    <div>
-                      <p 
-                        className="text-sm md:text-base font-bold"
-                        style={{ color: "var(--color-text-title)" }}
-                      >
-                        Feature {idx}
-                      </p>
-                      <p 
-                        className="text-xs md:text-sm"
-                        style={{ color: "var(--color-text-subtitle)" }}
-                      >
-                        Description text
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
+        <TabContentCard
+          badge={activeContent.badge}
+          title={activeContent.title}
+          description={activeContent.description}
+          differencePoints={activeContent.differencePoints}
+          features={activeContent.features}
+        />
+        
       </div>
     </section>
   );
