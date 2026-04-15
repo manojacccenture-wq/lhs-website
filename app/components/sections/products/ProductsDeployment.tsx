@@ -1,97 +1,72 @@
 'use client';
+import Image from "next/image";
 
-interface DeploymentOption {
-  id: string;
-  title: string;
-  description: string;
-  features: string[];
-  bgColor: string;
-}
+const deploymentIcon = "/products/terminal-pc.svg";
+
+const deploymentOptions = [
+  { id: 'on-premise', label: 'On-Premise' },
+  { id: 'private-cloud', label: 'Private Cloud' },
+  { id: 'managed-saas', label: 'Managed SaaS' },
+];
 
 export default function ProductsDeployment() {
-  const deploymentOptions: DeploymentOption[] = [
-    {
-      id: 'on-premise',
-      title: 'On-Premise',
-      description: 'Deploy on your own infrastructure for maximum control and security.',
-      features: ['Full Data Control', 'Maximum Security', 'Custom Configuration'],
-      bgColor: 'from-blue-500 to-blue-600',
-    },
-    {
-      id: 'private-cloud',
-      title: 'Private Cloud',
-      description: 'Dedicated cloud infrastructure with enterprise-grade reliability.',
-      features: ['Dedicated Resources', 'High Availability', 'Automatic Backups'],
-      bgColor: 'from-pink-500 to-pink-600',
-    },
-    {
-      id: 'managed-saas',
-      title: 'Managed SaaS',
-      description: 'Enterprise SaaS solution with ongoing support and updates.',
-      features: ['Always Up-to-Date', 'Zero Maintenance', '24/7 Support'],
-      bgColor: 'from-teal-400 to-teal-500',
-    },
-  ];
-
   return (
-    <section className="py-16 md:py-24 px-6 bg-neutral-50">
-      <div className="max-w-7xl mx-auto">
-        {/* Section Header */}
-        <div className="mb-12">
-          <h2
-            className="text-4xl md:text-5xl font-bold text-center"
-            style={{ color: "var(--color-text-title)" }}
-          >
-            Multiple Ways to Deploy
-          </h2>
-          <p
-            className="text-lg text-center mt-4 max-w-2xl mx-auto"
-            style={{ color: "var(--color-text-subtitle)" }}
-          >
-            Choose the deployment model that best fits your business needs and infrastructure requirements.
-          </p>
-        </div>
+    <section className="w-full py-20 px-6 bg-white">
+      <div className="max-w-6xl mx-auto">
+        <div
+          className="rounded-3xl p-12 md:p-16 relative overflow-hidden"
+          style={{ backgroundColor: "#F5FBFA" }}
+        >
+          {/* Fade gradients */}
+          <div className="absolute inset-y-0 left-0 w-48 bg-gradient-to-r from-primary/10 to-transparent rounded-3xl pointer-events-none" />
+          <div className="absolute inset-y-0 right-0 w-48 bg-gradient-to-l from-primary/10 to-transparent rounded-3xl pointer-events-none" />
 
-        {/* Deployment Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {deploymentOptions.map((option) => (
-            <div
-              key={option.id}
-              className="rounded-3xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300"
-            >
-              {/* Card Header - Colored Background */}
-              <div className={`bg-linear-to-br ${option.bgColor} p-8 text-white`}>
-                <h3 className="text-2xl font-bold">{option.title}</h3>
-              </div>
+          <div className="relative z-10">
+            {/* Title */}
+            <h2 className="text-center text-4xl md:text-5xl font-bold mb-16 leading-tight">
+              <span style={{ color: "var(--color-neutral-800)" }}>Deployment </span>
+              <span style={{ color: "var(--color-primary-1)" }}>options</span>
+            </h2>
 
-              {/* Card Body */}
-              <div className="bg-white p-8 space-y-4">
-                <p className="text-base leading-relaxed" style={{ color: "var(--color-text-subtitle)" }}>
-                  {option.description}
-                </p>
+            {/* Deployment Cards */}
+            <div className="flex flex-col md:flex-row gap-12 justify-center items-end">
+              {deploymentOptions.map((option) => (
+                <div key={option.id} className="flex flex-col items-center gap-6">
+                  {/* Icon */}
+                  <div
+                    className="w-16 h-16 rounded-2xl flex items-center justify-center"
+                    style={{
+                      background: "linear-gradient(135deg, var(--color-primary-1) 0%, #005c50 100%)"
+                    }}
+                  >
+                    <Image
+                      src={deploymentIcon}
+                      alt={option.label}
+                      width={32}
+                      height={32}
+                      className="object-contain"
+                    />
+                  </div>
 
-                {/* Features List */}
-                <div className="space-y-2 pt-4 border-t border-neutral-200">
-                  {option.features.map((feature, idx) => (
-                    <div key={idx} className="flex items-center gap-2">
-                      <span
-                        className="w-2 h-2 rounded-full"
-                        style={{ backgroundColor: "var(--color-primary-1)" }}
-                      />
-                      <span
-                        className="text-sm"
-                        style={{ color: "var(--color-text-subtitle)" }}
-                      >
-                        {feature}
-                      </span>
-                    </div>
-                  ))}
+                  {/* Label */}
+                  <h3
+                    className="text-2xl font-bold text-center"
+                    style={{ color: "var(--color-neutral-800)" }}
+                  >
+                    {option.label}
+                  </h3>
                 </div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
+              ))}
+
+            </div> {/* Deployment Cards */}
+          </div> {/* relative z-10 */}
+        </div> {/* card container */}
+      </div> {/* max-w */}
     </section>
   );
 }
+
+
+
+
+

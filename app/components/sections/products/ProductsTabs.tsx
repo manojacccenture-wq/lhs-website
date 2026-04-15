@@ -2,79 +2,62 @@
 
 import { useState } from 'react';
 import Button from '../../ui/Button';
-import clsx from 'clsx';
 import Image from 'next/image';
+import clsx from 'clsx';
 
-interface TabItem {
+interface Tab {
   id: string;
   label: string;
-  icon: string;
+  icon:string;
 }
 
 interface TabContent {
   title: string;
+  icon: string;
   description: string;
-  features: string[];
-  image: string;
 }
 
-const tabs: TabItem[] = [
-  { id: 'enterprise-pos', label: 'Enterprise POS', icon: '/products/Enterpise_POS_Icon.svg' },
-  { id: 'franchise-mgmt', label: 'Franchise Management', icon: '/products/Enterpise_POS_Icon.svg' },
-  { id: 'central-kitchen', label: 'Central Kitchen', icon: '/products/Enterpise_POS_Icon.svg' },
-  { id: 'vendor-settlement', label: 'Vendor Settlement', icon: '/products/Enterpise_POS_Icon.svg' },
-  { id: 'bi-reporting', label: 'BI Reporting', icon: '/products/Enterpise_POS_Icon.svg' },
+const tabs: Tab[] = [
+  { id: 'enterprise-pos', label: 'Enterprise POS' ,icon: '/products/Enterpise_POS_Icon.svg'},
+  { id: 'franchise-mgmt', label: 'franchise management',icon: '/products/Enterpise_POS_Icon.svg' },
+  { id: 'central-kitchen', label: 'central kitchen' ,icon: '/products/Enterpise_POS_Icon.svg'},
+  { id: 'vendor-settlement', label: 'vendor settlement' ,icon: '/products/Enterpise_POS_Icon.svg'},
+  { id: 'bi-reporting', label: 'BI reporting',icon: '/products/Enterpise_POS_Icon.svg' },
 ];
 
-const tabContents: Record<string, TabContent> = {
+const tabContents: Record<string, any> = {
   'enterprise-pos': {
-    title: 'Enterprise Point of Sale',
-    description: 'Real-time order management and payment processing across all outlets',
-    features: [
-      'Multi-outlet operations',
-      'Real-time inventory sync',
-      'Customer loyalty integration',
-    ],
+    title: 'Enterprise POS',
+    icon: '/products/Enterpise_POS_Icon.svg',
+    description: 'Real-time order management',
     image: '/products/Enterprise POS.svg',
   },
+
   'franchise-mgmt': {
     title: 'Franchise Management',
-    description: 'Centralized control with local autonomy for franchise networks',
-    features: [
-      'Unit-level profitability',
-      'Compliance tracking',
-      'Performance dashboards',
-    ],
+    icon: '/products/Enterpise_POS_Icon.svg',
+    description: 'Centralized control',
     image: '/products/Enterprise POS.svg',
   },
+
   'central-kitchen': {
     title: 'Central Kitchen Operations',
+    icon: '/products/Enterpise_POS_Icon.svg',
     description: 'Production planning and ingredient management at scale',
-    features: [
-      'Recipe management',
-      'Production scheduling',
-      'Quality assurance',
-    ],
     image: '/products/Enterprise POS.svg',
   },
+
   'vendor-settlement': {
     title: 'Vendor Settlement',
-    description: 'Automated accounting for supplier payments and settlements',
-    features: [
-      'Invoice matching',
-      'Payment automation',
-      'Audit trails',
-    ],
+    icon: '/products/Enterpise_POS_Icon.svg',
+    description: 'Automated accounting for supplier payments',
     image: '/products/Enterprise POS.svg',
   },
+
   'bi-reporting': {
     title: 'BI & Analytics',
-    description: 'Executive dashboards with operational insights and forecasting',
-    features: [
-      'Real-time metrics',
-      'Predictive analytics',
-      'Custom reporting',
-    ],
+    icon: '/products/Enterpise_POS_Icon.svg',
+    description: 'Executive dashboards with insights',
     image: '/products/Enterprise POS.svg',
   },
 };

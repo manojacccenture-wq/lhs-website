@@ -81,10 +81,10 @@ export default function Footer() {
           <div className="flex flex-col gap-10">
             <h3 className="text-xl font-bold text-neutral-800">Company</h3>
             <nav className="flex flex-col gap-5 text-neutral-600">
-              <a href="#" className="hover:text-primary transition-colors text-lg">
+              <a href="/technology" className="hover:text-primary transition-colors text-lg">
                 Technology
               </a>
-              <a href="#" className="hover:text-primary transition-colors text-lg">
+              <a href="/delivery-framework" className="hover:text-primary transition-colors text-lg">
                 Delivery Framework
               </a>
               <Link href="/career" className="hover:text-primary transition-colors text-lg">
