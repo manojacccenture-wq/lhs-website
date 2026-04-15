@@ -23,14 +23,14 @@ export default function Trusted() {
           {/* ORIGINAL */}
           {logos.map((src, i) => (
             <div key={`logo-${i}`} className="flex-shrink-0">
-              <Image src={src} alt="company" width={160} height={80} />
+              <Image src={src} alt="company" width={160} height={80}  className="w-auto h-auto" />
             </div>
           ))}
 
           {/* DUPLICATE (IMPORTANT FOR LOOP) */}
           {logos.map((src, i) => (
             <div key={`logo-dup-${i}`} className="flex-shrink-0">
-              <Image src={src} alt="company" width={160} height={80} />
+              <Image src={src} alt="company" width={160} height={80}   className="w-auto h-auto"/>
             </div>
           ))}
 

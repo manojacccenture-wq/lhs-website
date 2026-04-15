@@ -9,7 +9,7 @@ interface BlogDetailProps {
 }
 
 export default function BlogDetail({ data }: BlogDetailProps) {
-  console.log('data: ', data)
+
   return (
     <>
       {/* Hero Section */}

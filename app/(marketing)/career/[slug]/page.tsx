@@ -58,7 +58,7 @@ export default function ApplyPage() {
   const jobDetails = jobDetailsMap[slug?.toLowerCase()?.replace(/ /g, "-")] || jobDetailsMap["full-stack-developer"];
 
   const handleFormSubmit = (formData: any) => {
-    console.log("Form submitted:", formData);
+
     // Handle form submission - redirect or show success message
     alert("Application submitted successfully!");
   };

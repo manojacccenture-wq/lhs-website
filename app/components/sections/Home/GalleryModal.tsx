@@ -14,22 +14,34 @@ const slides = [
   },
   {
     variant: "blue",
-    title: "Year founded",
+    title: "Manage Communities with Digital Infrastructure",
     description:
-      "First enterprise deployment in industry. SAP integration capability established.",
+      " Enable seamless operations across security, utilities, complaints, and facility management through a unified smart platform.",
   },
   {
     variant: "yellow",
-    title: "Card 3",
+    title: "Simplify Workforce Management",
     description:
-      "First enterprise deployment in industry. SAP integration capability established.",
+      "Handle attendance, payroll, performance, and employee lifecycle with a structured system built for growing teams.",
+  },
+  {
+    variant: "yellow",
+    title: "Simplify Workforce Management",
+    description:
+      "Handle attendance, payroll, performance, and employee lifecycle with a structured system built for growing teams.",
   },
 ] as const;
 
 // ✅ reusable icon
 const Icon = () => (
   <span className="relative block w-10 h-10">
-    <Image src="/Circle.png" alt="icon" fill className="object-contain" />
+    <Image
+      src="/Circle.png"
+      alt="icon"
+      fill
+      sizes="40px" // ✅ FIX
+      className="object-contain"
+    />
   </span>
 );
 
@@ -44,6 +56,7 @@ const Phones = () => (
           width={180}
           height={360}
           className="h-[260px] w-auto object-contain"
+          style={{ height: "260px", width: "auto" }} // ✅ FIX
         />
       </div>
     ))}
