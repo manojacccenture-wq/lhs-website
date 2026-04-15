@@ -298,7 +298,7 @@ export default function PowerfulFeatures() {
                 leftIcon={
                   <Image
                     src={tab.icon}
-                    // alt={tab.label}
+                    alt={tab.label}
                     width={20}
                     height={20}
                   />

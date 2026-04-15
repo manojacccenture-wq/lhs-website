@@ -32,7 +32,7 @@ export default function ProductsSplitSection() {
             name: "Simplify Workflows",
             description:
               "We've unified F&B operations into a single platform that eliminates silos and reduces manual work.",
-            // image: "/Industries/Image_1.svg",
+            image: "/Industries/Image_1.svg",
             deliverables: [
               "Real-time visibility into operations",
               "Streamlined workflows",
