@@ -1,11 +1,16 @@
 
+import CareerHero from "@/app/components/sections/career/CareerHero";
+import CareerTestimonials from "@/app/components/sections/career/CareerTestimonials";
+import CareerProcess from "@/app/components/sections/career/CareerProcess";
+import CareerOpenings from "@/app/components/sections/career/CareerOpenings";
 
-const page = () => {
+export default function CareerPage() {
   return (
-    <div>
-      Career
-    </div>
-  )
+    <>
+      <CareerHero />
+      <CareerTestimonials />
+      <CareerProcess />
+      <CareerOpenings />
+    </>
+  );
 }
-
-export default page

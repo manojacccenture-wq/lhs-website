@@ -42,7 +42,7 @@ export default function BlogDetail({ data }: BlogDetailProps) {
             {data.authorImage && (
               <div className="relative w-12 h-12 flex-shrink-0">
                 <Image
-                  src={""}
+                  src={null}
                   alt={data.author}
                   fill
                   className="rounded-full object-cover"

@@ -14,7 +14,7 @@ const nav = [
   { name: "Services", href: "/services" },
   { name: "Products", href: "/products" },
   { name: "Industries we serve", href: "/industries" },
-  { name: "Career", href: "/careers" },
+  { name: "Career", href: "/career" },
   { name: "Contact us", href: "/contact" },
 ];
 
@@ -38,7 +38,7 @@ export default function Header() {
             <Image
               src="/logo.svg"
               alt="LHS Logo"
-              width={120}
+              width={90}
               height={40}
               priority
               className="object-contain"
