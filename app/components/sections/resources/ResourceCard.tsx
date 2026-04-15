@@ -44,13 +44,13 @@ export default function ResourceCard({
     >
       {/* Image Container */}
       <div className="relative w-full h-[227px] overflow-hidden rounded-[20px] m-[5px]">
-        {/* <Image
+        <Image
           src={image}
           alt={title}
           width={400}
           height={227}
           className="w-full h-full object-cover"
-        /> */}
+        />
         {type === "video" && (
           <div className="absolute inset-0 flex items-center justify-center bg-black/30 hover:bg-black/40 transition-colors">
             <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center">
