@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import Image from "next/image";
+import React, { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Button from "../ui/Button";
@@ -33,78 +34,84 @@ export default function Header() {
         <div className="navbar">
 
           {/* Logo */}
-          <Link href="/" className="nav-logo">
-            <span style={{ color: "var(--color-brand)" }}>●●●</span>
-            Logo
+          <Link href="/" className="nav-logo flex items-center">
+            <Image
+              src="/logo.svg"
+              alt="LHS Logo"
+              width={120}
+              height={40}
+              priority
+              className="object-contain"
+            />
           </Link>
 
           {/* Navigation */}
-     <nav className="hidden md:flex items-center gap-8">
-  {nav.map((item) => {
-    const isActive = pathname === item.href;
+          <nav className="hidden md:flex items-center gap-8">
+            {nav.map((item) => {
+              const isActive = pathname === item.href;
 
-    return (
-      <>
-        {/* Normal Nav Item */}
-        <Link
-          key={item.name}
-          href={item.href}
-          className={clsx(
-            "nav-link",
-            isActive && "nav-link-active"
-          )}
-        >
-          {item.name}
-        </Link>
+              return (
+                <React.Fragment key={item.name}>
+                  {/* Normal Nav Item */}
+                  <Link
+                    key={item.name}
+                    href={item.href}
+                    className={clsx(
+                      "nav-link",
+                      isActive && "nav-link-active"
+                    )}
+                  >
+                    {item.name}
+                  </Link>
 
-        {/* 👉 Inject Resources AFTER Industries */}
-        {item.name === "Industries we serve" && (
-          <div
-            key="resources"
-            className="relative group"
-          >
-            <button
-              onClick={() => setIsResourcesOpen(!isResourcesOpen)}
-              onMouseEnter={() => setIsResourcesOpen(true)}
-              onMouseLeave={() => setIsResourcesOpen(false)}
-              className={clsx(
-                "nav-link flex items-center gap-1",
-                (pathname?.includes("/resources") || isResourcesOpen) &&
-                  "text-primary-1"
-              )}
-            >
-              Resources
-            </button>
+                  {/* 👉 Inject Resources AFTER Industries */}
+                  {item.name === "Industries we serve" && (
+                    <div
+                      key="resources"
+                      className="relative group"
+                    >
+                      <button
+                        onClick={() => setIsResourcesOpen(!isResourcesOpen)}
+                        onMouseEnter={() => setIsResourcesOpen(true)}
+                        onMouseLeave={() => setIsResourcesOpen(false)}
+                        className={clsx(
+                          "nav-link flex items-center gap-1",
+                          (pathname?.includes("/resources") || isResourcesOpen) &&
+                          "text-primary-1"
+                        )}
+                      >
+                        Resources
+                      </button>
 
-            {/* Dropdown Menu */}
-            <div
-              className={clsx(
-                "dropdown-menu",
-                isResourcesOpen ? "dropdown-open" : ""
-              )}
-              onMouseEnter={() => setIsResourcesOpen(true)}
-              onMouseLeave={() => setIsResourcesOpen(false)}
-            >
-              {resourcesDropdown.map((item) => (
-                <Link
-                  key={item.name}
-                  href={item.href}
-                  className={clsx(
-                    "dropdown-item",
-                    pathname === item.href && "dropdown-item-active"
+                      {/* Dropdown Menu */}
+                      <div
+                        className={clsx(
+                          "dropdown-menu",
+                          isResourcesOpen ? "dropdown-open" : ""
+                        )}
+                        onMouseEnter={() => setIsResourcesOpen(true)}
+                        onMouseLeave={() => setIsResourcesOpen(false)}
+                      >
+                        {resourcesDropdown.map((item) => (
+                          <Link
+                            key={item.name}
+                            href={item.href}
+                            className={clsx(
+                              "dropdown-item",
+                              pathname === item.href && "dropdown-item-active"
+                            )}
+                            onClick={() => setIsResourcesOpen(false)}
+                          >
+                            {item.name}
+                          </Link>
+                        ))}
+                      </div>
+                    </div>
                   )}
-                  onClick={() => setIsResourcesOpen(false)}
-                >
-                  {item.name}
-                </Link>
-              ))}
-            </div>
-          </div>
-        )}
-      </>
-    );
-  })}
-</nav>
+                </React.Fragment>
+              );
+            })}
+          </nav>
 
           {/* CTA */}
           <Button variant="primary" size="sm">

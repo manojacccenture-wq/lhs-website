@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 import VideoModal from "./VideoModal";
 
@@ -24,17 +24,18 @@ export default function ResourceCard({
   type,
   videoUrl,
 }: ResourceCardProps) {
+  const router = useRouter();
   const [isVideoOpen, setIsVideoOpen] = useState(false);
 
-  const handleCardClick = (e: React.MouseEvent) => {
+  const handleCardClick = () => {
     if (type === "video" && videoUrl) {
-      e.preventDefault();
       setIsVideoOpen(true);
+    } else if (type === "case-study") {
+      router.push(`/resources/case-studies/${id}`);
+    } else if (type === "blog") {
+      router.push(`/resources/blogs/${id}`);
     }
   };
-
-  const navigationPrefix = type === "case-study" ? "/resources/case-studies" : "/resources/blogs";
-  const href = type === "video" ? "#" : `${navigationPrefix}/${id}`;
 
   const cardContent = (
     <div
@@ -95,5 +96,5 @@ export default function ResourceCard({
     );
   }
 
-  return <Link href={href}>{cardContent}</Link>;
+  return cardContent;
 }

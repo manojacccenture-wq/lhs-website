@@ -14,7 +14,7 @@ const afacad = Afacad({
 export const metadata = {
   title: {
     template: 'LHS', // Template for page titles
-    default: 'LHS | Home', // Fallback for pages without a title
+    default: 'LHS ', // Fallback for pages without a title
   },
 }
 
