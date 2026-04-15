@@ -1,6 +1,8 @@
 'use client';
 
+import Image from "next/image";
 import { useState } from 'react';
+import Button from '../../ui/Button';
 
 interface Tab {
   id: string;
@@ -99,6 +101,26 @@ const tabContentMap: Record<string, TabContent> = {
   },
 
   "analytics": {
+    badge: "REALTIME INSIGHTS",
+    title: "Analytics that drive decisions instantly",
+    description: "Live dashboards and predictive insights...",
+    differencePoints,
+    features: [
+      { title: "Live Dashboards", description: "Real-time metrics" },
+      { title: "Alerts", description: "Instant notifications" },
+    ],
+  },
+  "projects": {
+    badge: "REALTIME INSIGHTS",
+    title: "Analytics that drive decisions instantly",
+    description: "Live dashboards and predictive insights...",
+    differencePoints,
+    features: [
+      { title: "Live Dashboards", description: "Real-time metrics" },
+      { title: "Alerts", description: "Instant notifications" },
+    ],
+  },
+  "reports": {
     badge: "REALTIME INSIGHTS",
     title: "Analytics that drive decisions instantly",
     description: "Live dashboards and predictive insights...",
@@ -259,23 +281,33 @@ export default function PowerfulFeatures() {
 
         {/* Tabs */}
         <div className="flex gap-6 justify-center mb-8 flex-wrap">
-          {tabs.map((tab) => (
-            <button
-              key={tab.id}
-              onClick={() => setActiveTab(tab.id)}
-              className={`px-7 py-4 rounded-2xl font-bold text-sm transition-all flex items-center gap-2 ${activeTab === tab.id
-                ? 'border-2 bg-white text-primary-1'
-                : 'border border-neutral-300 bg-white text-text-subtitle'
-                }`}
-              style={activeTab === tab.id ? {
-                borderColor: "var(--color-primary-1)",
-                color: "var(--color-primary-1)"
-              } : {}}
-            >
-              <img src={tab.icon} alt="" className="w-6 h-6" />
-              {tab.label}
-            </button>
-          ))}
+          {tabs.map((tab) => {
+            const isActive = activeTab === tab.id;
+
+            return (
+              <Button
+                key={tab.id}
+                variant="outline"
+                size="md"
+                onClick={() => setActiveTab(tab.id)}
+                className={`
+          !rounded-2xl !px-7 !py-4 !font-bold !text-sm
+          flex items-center gap-3 transition-all
+          ${isActive ? "btn-tab-active" : "btn-tab"}
+        `}
+                leftIcon={
+                  <Image
+                    src={tab.icon}
+                    // alt={tab.label}
+                    width={20}
+                    height={20}
+                  />
+                }
+              >
+                {tab.label}
+              </Button>
+            );
+          })}
         </div>
 
         <TabContentCard
@@ -285,7 +317,7 @@ export default function PowerfulFeatures() {
           differencePoints={activeContent.differencePoints}
           features={activeContent.features}
         />
-        
+
       </div>
     </section>
   );

@@ -20,7 +20,7 @@
   }
 
   .btn-outline {
-  
+
     color: var(--btn-outline-text);
     background: transparent;
   }
@@ -52,20 +52,36 @@
   .btn-disabled {
     opacity: var(--btn-disabled-opacity);
     pointer-events: none;
-    cursor: not-allowed; /* ✅ UX FIX */
+    cursor: not-allowed;
+    /* ✅ UX FIX */
   }
 
   .btn-accordion {
-  background: var(--color-bg-card);
-  border: 1px solid var(--color-border);
-  border-radius: 16px;
-  width: 100%;
-  text-align: left;
-  transition: all 0.3s ease;
-}
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-radius: 16px;
+    width: 100%;
+    text-align: left;
+    transition: all 0.3s ease;
+  }
 
-.btn-accordion-active {
-  border: 1.5px solid var(--color-brand);
-  box-shadow: 0 8px 30px rgba(0, 194, 168, 0.08);
-}
+  .btn-accordion-active {
+    border: 1.5px solid var(--color-brand);
+    box-shadow: 0 8px 30px rgba(0, 194, 168, 0.08);
+  }
+
+  /* TAB DEFAULT */
+  .btn-tab {
+    border: 1px solid var(--color-border);
+    background: var(--color-bg-card);
+    color: var(--color-text-body);
+  }
+
+  /* TAB ACTIVE */
+  .btn-tab-active {
+    border: 2px solid var(--color-brand);
+    background: var(--color-bg-card);
+    color: var(--color-brand);
+    box-shadow: 0 8px 24px rgba(0, 194, 168, 0.08);
+  }
 }
