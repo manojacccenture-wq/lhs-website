@@ -38,10 +38,10 @@ export default function Header() {
             <Image
               src="/logo.svg"
               alt="LHS Logo"
-              width={90}
+              width={150}
               height={40}
               priority
-              className="object-contain"
+              className="object-none"
             />
           </Link>
 

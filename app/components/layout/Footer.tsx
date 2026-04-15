@@ -15,12 +15,12 @@ export default function Footer() {
             {/* Logo Section */}
             <Link href="/" className="w-fit">
               <Image
-                src="/logo.svg"
+                src="/logo.svg"   // put your logo inside /public
                 alt="LHS Logo"
-                width={90}
+                width={100}
                 height={40}
                 priority
-                className="object-contain w-auto h-auto"
+                className="object-contain"
               />
             </Link>
 
@@ -81,9 +81,9 @@ export default function Footer() {
           <div className="flex flex-col gap-10">
             <h3 className="text-xl font-bold text-neutral-800">Company</h3>
             <nav className="flex flex-col gap-5 text-neutral-600">
-              <Link href="/technology" className="hover:text-primary transition-colors text-lg">
+              <a href="#" className="hover:text-primary transition-colors text-lg">
                 Technology
-              </Link>
+              </a>
               <a href="#" className="hover:text-primary transition-colors text-lg">
                 Delivery Framework
               </a>
