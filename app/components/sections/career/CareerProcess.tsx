@@ -33,14 +33,14 @@ export default function CareerProcess() {
     <section className="py-20 px-4 md:px-8 ">
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
-        <div className="mb-16 max-w-2xl text-center">
-          <h4 className="text-primary uppercase text-sm font-semibold tracking-widest mb-4">
+        <div className=" text-center mb-16 max-w-2xl mx-auto ">
+          <h4 className="text-primary uppercase text-sm font-semibold tracking-widest mb-4  ">
             Process
           </h4>
           <h2 className="mb-4">
             How to apply ?
           </h2>
-          <p className="text-neutral-600 mx-auto text-center">
+          <p className="text-neutral-600 mx-auto ">
             Discover top remote tech opportunities and land your next role with ease, through our streamlined process.
           </p>
         </div>

@@ -4,6 +4,7 @@ import CareerCard from "./CareerCard";
 
 interface JobOpening {
   id: string;
+  slug: string;
   experience: string;
   title: string;
   description: string;
@@ -13,6 +14,7 @@ interface JobOpening {
 const jobOpenings: JobOpening[] = [
   {
     id: "full-stack",
+    slug: "full-stack-developer",
     experience: "2 years Experience",
     title: "Full-Stack Developer",
     description: "Discover top remote tech opportunities and land your next role with ease.",
@@ -20,6 +22,7 @@ const jobOpenings: JobOpening[] = [
   },
   {
     id: "frontend",
+    slug: "front-end-developer",
     experience: "Fresher",
     title: "Front end developer",
     description: "Discover top remote tech opportunities and land your next role with ease.",
@@ -27,6 +30,7 @@ const jobOpenings: JobOpening[] = [
   },
   {
     id: "uiux",
+    slug: "ui-ux-designer",
     experience: "2 years Experience",
     title: "UI/UX Designer",
     description: "Discover top remote tech opportunities and land your next role with ease.",
@@ -56,6 +60,7 @@ export default function CareerOpenings() {
           {jobOpenings.map((job) => (
             <CareerCard
               key={job.id}
+              slug={job.slug}
               experience={job.experience}
               title={job.title}
               description={job.description}

@@ -1,6 +1,8 @@
 "use client";
 
 import "@/app/styles/components/footer.css";
+import Image from "next/image";
+import Link from "next/link";
 
 export default function Footer() {
   return (
@@ -12,7 +14,16 @@ export default function Footer() {
 
           {/* LOGO + DESC */}
           <div>
-            <h2 className="footer-logo">Logo</h2>
+            <Link href="/" >
+              <Image
+                src="/logo.svg"
+                alt="LHS Logo"
+                width={90}
+                height={40}
+                priority
+                className="object-contain"
+              />
+            </Link>
             <p className="footer-text">
               Building practical systems that work in the real world.
             </p>
