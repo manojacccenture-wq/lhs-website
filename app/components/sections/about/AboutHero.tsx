@@ -1,5 +1,6 @@
 import Button from "@/app/components/ui/Button";
 import HeroWrapper from "../Home/HeroWrapper";
+import AboutCards from "./AboutCards";
 
 export default function AboutHero() {
   return (
@@ -30,6 +31,7 @@ export default function AboutHero() {
             </Button>
           </div>
         </div>
+        <AboutCards/>
       </section>
     </HeroWrapper>
   );

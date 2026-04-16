@@ -97,15 +97,8 @@ export default function AboutCards() {
   return (
     <section className="py-12 md:py-16 px-4 md:px-6">
       <div className="max-w-6xl mx-auto">
-        {/* MOBILE: Single Column */}
-        <div className="flex md:hidden flex-col gap-6">
-          {cards.map((card, idx) => (
-            <AboutCard key={idx} {...card} index={idx} />
-          ))}
-        </div>
-
-        {/* DESKTOP: Horizontal Scroll with Stacking */}
-        <div className="hidden md:flex gap-9 overflow-x-auto scrollbar-hide">
+        {/* MOBILE & DESKTOP: Horizontal Scroll with Stacking */}
+        <div className="flex gap-6 md:gap-9 overflow-x-auto scrollbar-hide">
           {cards.map((card, idx) => (
             <AboutCard key={idx} {...card} index={idx} />
           ))}
