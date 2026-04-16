@@ -2,6 +2,7 @@
 
 import Image from 'next/image';
 import Button from '@/app/components/ui/Button';
+import IndustriesHeroVisual from './IndustriesHeroVisual';
 
 const logos = [
   '/TICL_Company.svg',
@@ -19,8 +20,8 @@ export default function IndustriesHero() {
       <div className="relative z-10 max-w-2xl mx-auto px-6 text-center pt-16 md:pt-32 pb-8 md:pb-10">
         {/* Subtitle */}
         <p
-          className="text-xs md:text-sm font-semibold uppercase tracking-[2.24px] mb-5 md:mb-7"
-          style={{ color: 'var(--color-primary-1)' }}
+          className="text-xs md:text-sm font-semibold uppercase tracking-[2.24px] mb-5 md:mb-7 text-primary"
+          
         >
           From Concept to Scalable Code
         </p>
@@ -28,15 +29,15 @@ export default function IndustriesHero() {
         {/* Heading */}
         <h1
           className="text-3xl md:text-5xl font-bold mb-5 md:mb-7 leading-tight"
-          style={{ color: 'var(--color-neutral-800)' }}
+          
         >
           Industries We Serve
         </h1>
 
         {/* Description */}
         <p
-          className="text-base md:text-lg leading-relaxed mb-8 md:mb-10 max-w-lg mx-auto"
-          style={{ color: 'var(--color-neutral-600)' }}
+          className="text-base md:text-lg leading-relaxed mb-8 md:mb-10 max-w-lg mx-auto text-neutral-600"
+          
         >
           Domain depth, not breadth. We deliver in environments where operational
           failure is not an option.
@@ -52,7 +53,7 @@ export default function IndustriesHero() {
       <div className="relative z-10 overflow-hidden py-6 md:py-10 mb-6 md:mb-10">
         <div className="pointer-events-none absolute left-0 top-0 h-full w-20 md:w-40 bg-linear-to-r from-white to-transparent z-10" />
         <div className="pointer-events-none absolute right-0 top-0 h-full w-20 md:w-40 bg-linear-to-l from-white to-transparent z-10" />
-        <div className="flex w-max animate-marquee gap-12 md:gap-20 opacity-50">
+        <div className="flex w-max animate-marquee gap-12 md:gap-20 opacity-50 mx-auto">
           {[...logos, ...logos].map((src, i) => (
             <div key={i} className="shrink-0 flex items-center h-10 md:h-14">
               <Image
@@ -66,6 +67,7 @@ export default function IndustriesHero() {
           ))}
         </div>
       </div>
+      {/* <IndustriesHeroVisual/> */}
     </section>
   );
 }

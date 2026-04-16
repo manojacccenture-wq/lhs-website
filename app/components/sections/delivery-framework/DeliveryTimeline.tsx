@@ -69,33 +69,45 @@ interface StepCardProps {
 
 function StepCard({ step, isActive }: StepCardProps) {
   return (
-    <div className={`bg-white border rounded-3xl p-8 shadow-sm transition-all duration-300 ${
-      isActive
-        ? "border-primary/30 shadow-lg shadow-primary/10"
-        : "border-neutral-300"
-    }`}>
-      {/* Title */}
-      <h3 className={`text-2xl font-bold leading-[28px] mb-2 transition-colors duration-300 ${
-        isActive ? "text-neutral-800" : "text-neutral-600"
-      }`}>
-        {step.title}
-      </h3>
+    <div
+      className={`rounded-3xl p-6 md:p-8 transition-all duration-300 backdrop-blur-sm w-full ${isActive
+          ? "bg-white/90 shadow-xl shadow-neutral-200/60 border border-neutral-200"
+          : "bg-white/70 border border-neutral-200"
+        }`}
+    >
+      {/* HEADER */}
+      <div className="flex items-center justify-between mb-5">
+        <h3 className="text-xl md:text-2xl font-semibold text-neutral-800">
+          {step.title}
+        </h3>
 
-      {/* Duration Badge */}
-      <div className="inline-block bg-primary/10 rounded-full px-4 py-1 mb-6">
-        <p className="text-primary text-sm font-medium">{step.duration}</p>
+        {/* Duration Badge */}
+        <div className="px-4 py-1  w-half  text-center rounded-full bg-emerald-100 text-primary text-sm font-medium">
+          {step.duration}
+        </div>
       </div>
 
-      {/* What Happens */}
-      <div className="mb-6">
-        <p className="text-neutral-800 text-sm font-bold mb-2">What Happens</p>
-        <p className="text-neutral-600 text-sm leading-6">{step.whatHappens}</p>
+      {/* Divider */}
+      <div className="h-px w-full bg-neutral-200 mb-5" />
+
+      {/* WHAT HAPPENS */}
+      <div className="mb-5">
+        <p className="text-sm font-semibold text-neutral-800 mb-2">
+          What Happens
+        </p>
+        <p className="text-sm text-neutral-600 leading-6">
+          {step.whatHappens}
+        </p>
       </div>
 
-      {/* Output */}
+      {/* OUTPUT */}
       <div>
-        <p className="text-neutral-800 text-sm font-bold mb-2">Output</p>
-        <p className="text-neutral-600 text-sm leading-6">{step.output}</p>
+        <p className="text-sm font-semibold text-neutral-800 mb-2">
+          Output
+        </p>
+        <p className="text-sm text-neutral-600 leading-6">
+          {step.output}
+        </p>
       </div>
     </div>
   );
@@ -117,24 +129,25 @@ const StepRow = React.forwardRef<HTMLDivElement, StepRowProps>(
 
           {/* Center - Timeline Marker */}
           <div className="absolute left-1/2 top-0 -translate-x-1/2 hidden lg:flex justify-center -mt-6">
-            <div className={`w-12 h-12 rounded-full border-4 transition-all duration-300 ${
-              isActive
-                ? "bg-primary border-primary shadow-lg shadow-primary/40"
-                : "bg-white border-neutral-300"
-            }`} />
+            <div
+              className={`w-12 h-12 rounded-full  flex items-center justify-center text-sm font-semibold transition-all duration-300 ${isActive
+                ? "bg-primary-gradient border-transparent text-white shadow-lg shadow-primary/40"
+                : "bg-white border-neutral-300 text-neutral-400"
+                }`}
+            >
+              {String(step.phase).padStart(2, "0")}
+            </div>
           </div>
 
           {/* Right card */}
           <div className="flex justify-start lg:pl-8">
-            <div className={`max-w-sm w-full transform transition-all duration-500 ${
-              isActive 
-                ? "opacity-100 translate-y-0" 
-                : "opacity-60 translate-y-5"
-            }`}>
-              {/* Phase number */}
-              <p className={`text-5xl font-bold leading-none mb-4 transition-colors duration-300 ${
-                isActive ? "text-neutral-200" : "text-neutral-300"
+            <div className={`w-full md:max-w-md lg:max-w-lg xl:max-w-xl transform transition-all duration-500 ${isActive
+              ? "opacity-100 translate-y-0"
+              : "opacity-60 translate-y-5"
               }`}>
+              {/* Phase number */}
+              <p className={`text-5xl font-bold leading-none mb-4 transition-colors duration-300 ${isActive ? "text-neutral-200" : "text-neutral-300"
+                }`}>
                 Phase {String(step.phase).padStart(2, "0")}
               </p>
 
@@ -151,15 +164,13 @@ const StepRow = React.forwardRef<HTMLDivElement, StepRowProps>(
       <div ref={ref} className="relative grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-0 items-start">
         {/* Left card */}
         <div className="flex justify-end lg:pr-8">
-          <div className={`max-w-sm w-full transform transition-all duration-500 ${
-            isActive 
-              ? "opacity-100 translate-y-0" 
-              : "opacity-60 translate-y-5"
-          }`}>
-            {/* Phase number */}
-            <p className={`text-5xl font-bold leading-none mb-4 transition-colors duration-300 ${
-              isActive ? "text-neutral-200" : "text-neutral-300"
+          <div className={`w-full md:max-w-md lg:max-w-lg xl:max-w-xl transform transition-all duration-500 ${isActive
+            ? "opacity-100 translate-y-0"
+            : "opacity-60 translate-y-5"
             }`}>
+            {/* Phase number */}
+            <p className={`text-5xl font-bold leading-none mb-4 transition-colors duration-300 ${isActive ? "text-neutral-200" : "text-neutral-300"
+              }`}>
               Phase {String(step.phase).padStart(2, "0")}
             </p>
 
@@ -170,11 +181,14 @@ const StepRow = React.forwardRef<HTMLDivElement, StepRowProps>(
 
         {/* Center - Timeline Marker */}
         <div className="absolute left-1/2 top-0 -translate-x-1/2 hidden lg:flex justify-center -mt-6">
-          <div className={`w-12 h-12 rounded-full border-4 transition-all duration-300 ${
-            isActive
-              ? "bg-primary border-primary shadow-lg shadow-primary/40"
-              : "bg-white border-neutral-300"
-          }`} />
+          <div
+            className={`w-12 h-12 rounded-full  flex items-center justify-center text-sm font-semibold transition-all duration-300 ${isActive
+              ? "bg-primary-gradient border-transparent text-white shadow-lg shadow-primary/40"
+              : "bg-white border-neutral-300 text-neutral-400"
+              }`}
+          >
+            {String(step.phase).padStart(2, "0")}
+          </div>
         </div>
 
         {/* Right spacer */}
@@ -191,28 +205,38 @@ export default function DeliveryTimeline() {
   const containerRef = useRef<HTMLDivElement>(null);
   const stepsRefs = useRef<(HTMLDivElement | null)[]>([]);
 
-  const updateProgress = useCallback(() => {
-    if (!containerRef.current) return;
+const updateProgress = useCallback(() => {
+  if (!containerRef.current) return;
 
-    const rect = containerRef.current.getBoundingClientRect();
-    const windowHeight = window.innerHeight;
-    
-    // Calculate progress from top of timeline to bottom of viewport
-    const distanceFromTop = -rect.top;
-    const containerHeight = containerRef.current.offsetHeight;
-    
-    const progress = Math.max(0, Math.min(1, distanceFromTop / containerHeight));
-    
-    setFillPercentage(progress * 100);
+  const rect = containerRef.current.getBoundingClientRect();
+  const windowHeight = window.innerHeight;
 
-    // Update active steps
-    const newActiveSteps = stepsRefs.current.map((ref) => {
-      if (!ref) return false;
-      const stepRect = ref.getBoundingClientRect();
-      return stepRect.top < windowHeight * 0.6; // 60% of viewport height
-    });
-    setActiveSteps(newActiveSteps);
-  }, []);
+  const totalHeight = rect.height;
+
+  // Start when top hits bottom of viewport
+  const start = windowHeight;
+
+  // End when bottom hits top of viewport
+  const end = -totalHeight;
+
+  // Current position
+  const current = rect.top;
+
+  const progress = (start - current) / (start - end);
+
+  const clampedProgress = Math.max(0, Math.min(1, progress));
+
+  setFillPercentage(clampedProgress * 100);
+
+  // ✅ Active steps (this part is fine, just slightly improved)
+  const newActiveSteps = stepsRefs.current.map((ref) => {
+    if (!ref) return false;
+    const stepRect = ref.getBoundingClientRect();
+    return stepRect.top < windowHeight * 0.6 && stepRect.bottom > 0;
+  });
+
+  setActiveSteps(newActiveSteps);
+}, []);
 
   useEffect(() => {
     // Initial update
@@ -251,10 +275,11 @@ export default function DeliveryTimeline() {
 
             {/* Fill Line (Active Progress) */}
             <div
-              className="absolute top-0 left-0 right-0 bg-primary will-change-[height]"
-              style={{ 
+              className="absolute top-0 left-0 right-0 will-change-[height]"
+              style={{
                 height: `${fillPercentage}%`,
-                transition: "height 0.1s linear"
+                transition: "height 0.35s cubic-bezier(0.22, 1, 0.36, 1)",
+                background: "linear-gradient(180deg, #10b981 0%, #059669 100%)",
               }}
             />
           </div>
@@ -283,48 +308,4 @@ interface StepCardProps {
   isActive: boolean;
 }
 
-// function StepCard({ step, isActive }: StepCardProps) {
-//   return (
-//     <div className="w-full max-w-sm">
-//       {/* Phase Number */}
-//       <div className="mb-4">
-//         <p className={`text-5xl font-bold leading-none transition-colors duration-300 ${
-//           isActive ? "text-neutral-200" : "text-neutral-300"
-//         }`}>
-//           Phase {String(step.phase).padStart(2, "0")}
-//         </p>
-//       </div>
 
-//       {/* Card */}
-//       <div className={`bg-white border rounded-3xl p-8 shadow-sm transition-all duration-300 ${
-//         isActive
-//           ? "border-primary/30 shadow-lg shadow-primary/10"
-//           : "border-neutral-300"
-//       }`}>
-//         {/* Title */}
-//         <h3 className={`text-2xl font-bold leading-[28px] mb-2 transition-colors duration-300 ${
-//           isActive ? "text-neutral-800" : "text-neutral-600"
-//         }`}>
-//           {step.title}
-//         </h3>
-
-//         {/* Duration Badge */}
-//         <div className="inline-block bg-primary/10 rounded-full px-4 py-1 mb-6">
-//           <p className="text-primary text-sm font-medium">{step.duration}</p>
-//         </div>
-
-//         {/* What Happens */}
-//         <div className="mb-6">
-//           <p className="text-neutral-800 text-sm font-bold mb-2">What Happens</p>
-//           <p className="text-neutral-600 text-sm leading-6">{step.whatHappens}</p>
-//         </div>
-
-//         {/* Output */}
-//         <div>
-//           <p className="text-neutral-800 text-sm font-bold mb-2">Output</p>
-//           <p className="text-neutral-600 text-sm leading-6">{step.output}</p>
-//         </div>
-//       </div>
-//     </div>
-//   );
-// }
