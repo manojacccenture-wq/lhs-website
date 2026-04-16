@@ -94,7 +94,7 @@ export default function Footer() {
           </div>
 
           {/* PRODUCTS COLUMN */}
-          <div className="flex flex-col gap-10">
+          {/* <div className="flex flex-col gap-10">
             <h3 className="text-xl font-bold text-neutral-800">Products</h3>
             <nav className="flex flex-col gap-5 text-neutral-600">
               <a href="#" className="hover:text-primary transition-colors text-lg">
@@ -107,7 +107,7 @@ export default function Footer() {
                 Products 3
               </a>
             </nav>
-          </div>
+          </div> */}
 
           {/* CONTACTS COLUMN */}
           <div className="flex flex-col gap-10">

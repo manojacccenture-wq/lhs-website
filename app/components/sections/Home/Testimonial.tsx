@@ -18,8 +18,7 @@ function TestimonialCard({
       className="
         card
         relative
-        overflow-hidden
-        p-8 md:p-12
+        p-8 md:p-36
         rounded-[32px]
       "
       style={{
@@ -51,9 +50,9 @@ function TestimonialCard({
       </div>
 
       {/* QUOTE */}
-      <p className="text-xl md:text-2xl font-semibold leading-relaxed max-w-4xl" style={{ color: "var(--color-neutral-800)" }}>
+      <h2 className="text-neutral-500 text-2xl" >
         {quote}
-      </p>
+      </h2>
     </div>
   );
 }
@@ -64,8 +63,8 @@ export default function Testimonial() {
       <TestimonialCard
         name="Jankiraman"
         role="Managing Director at Livelihood System"
-        image="/user.jpg"
-        quote="Technology is easy. Making it work consistently on the field is the real problem we solve."
+        image="/Janakai_Ramana.svg"
+        quote={`"Technology is easy. Making it work consistently on the field is the real problem we solve."`}
       />
     </section>
   );

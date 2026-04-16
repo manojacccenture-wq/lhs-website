@@ -45,7 +45,7 @@ function ServiceCard({
         {/* TEXT */}
         <div>
           <h3 className="text-md font-semibold">{title}</h3>
-          <p className="text-xs text-neutral-600 mt-1">
+          <p className="text-xs md:text-lg text-neutral-600 mt-1">
             {description}
           </p>
         </div>
@@ -95,8 +95,8 @@ export default function Services() {
       {/* HEADER */}
       <div className="text-center mb-12 md:mb-16">
         <h3 
-          className="text-xs md:text-sm font-bold uppercase tracking-wider mb-2 md:mb-3"
-          style={{ color: "var(--color-primary-1)" }}
+          className="text-xs md:text-lg font-bold uppercase tracking-wider mb-2 md:mb-3 text-primary"
+          
         >
           — Scaling With
         </h3>

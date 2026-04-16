@@ -3,13 +3,13 @@ import ImageCard from "../../ui/ImageCard";
 
 
 const techStack = [
-  { name: "Next.js", icon: "/tech/next.svg" },
-  { name: "React", icon: "/tech/react.svg" },
-  { name: "Flutter", icon: "/tech/flutter.svg" },
-  { name: "Angular", icon: "/tech/angular.svg" },
-  { name: "MySQL", icon: "/tech/mysql.svg" },
-  { name: "MongoDB", icon: "/tech/mongodb.svg" },
-  { name: "JavaScript", icon: "/tech/js.svg" },
+  { name: "Next.js", icon: "/next.svg" },
+  { name: "React", icon: "/React.svg" },
+  { name: "Flutter", icon: "/Flutter.svg" },
+  { name: "Angular", icon: "/Angular.svg" },
+  { name: "MySQL", icon: "/sql.svg" },
+  { name: "MongoDB", icon: "/mongodb.svg" },
+  // { name: "JavaScript", icon: "/js.svg" },
 ];
 
 export default function TechStack() {
@@ -40,6 +40,7 @@ export default function TechStack() {
             icon={tech.icon}
             label={tech.name}
             variant="tech"
+
           />
         ))}
       </div>

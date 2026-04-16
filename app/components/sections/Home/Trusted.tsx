@@ -7,15 +7,14 @@ export default function Trusted() {
     <section className="text-center py-12 md:py-20 overflow-hidden">
       {/* HEADER */}
       <div className="mb-8 md:mb-12">
-        <h3 
-          className="text-xs md:text-sm font-bold uppercase tracking-wider mb-2 md:mb-3"
-          style={{ color: "var(--color-primary-1)" }}
+        <h3
+          className="text-xs md:text-lg font-bold uppercase tracking-wider mb-2 md:mb-3 text-primary"
+
         >
           — Trusted By
         </h3>
-        <h2 
+        <h2
           className="text-2xl md:text-4xl font-bold"
-          style={{ color: "var(--color-neutral-800)" }}
         >
           Don&apos;t take our word for it
         </h2>
@@ -34,12 +33,17 @@ export default function Trusted() {
           {/* ORIGINAL */}
           {logos.map((src, i) => (
             <div key={`logo-${i}`} className="flex-shrink-0 flex items-center h-16">
-              <Image 
-                src={src} 
-                alt="company" 
-                width={160} 
+              <Image
+                src={src}
+                alt="company"
+                width={160}
                 height={64}
-                className="w-auto h-auto max-h-16"
+                className="
+    w-auto h-auto max-h-16
+    opacity-40 grayscale
+    hover:opacity-100 hover:grayscale-0 hover:scale-105
+    transition-all duration-700 ease-in-out
+  "
               />
             </div>
           ))}
@@ -47,12 +51,17 @@ export default function Trusted() {
           {/* DUPLICATE (IMPORTANT FOR LOOP) */}
           {logos.map((src, i) => (
             <div key={`logo-dup-${i}`} className="flex-shrink-0 flex items-center h-16">
-              <Image 
-                src={src} 
-                alt="company" 
-                width={160} 
+              <Image
+                src={src}
+                alt="company"
+                width={160}
                 height={64}
-                className="w-auto h-auto max-h-16"
+                className="
+    w-auto h-auto max-h-16
+    opacity-40 grayscale
+    hover:opacity-100 hover:grayscale-0 hover:scale-105
+    transition-all duration-700 ease-in-out
+  "
               />
             </div>
           ))}

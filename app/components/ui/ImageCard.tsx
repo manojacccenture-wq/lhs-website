@@ -24,13 +24,15 @@ export default function ImageCard({
       )}
     >
       {icon ? (
-        <Image
-          src={icon}
-          alt={label || "icon"}
-          width={32}
-          height={32}
-          className="object-contain"
-        />
+        <div className="relative w-full h-full">
+          <Image
+            src={icon}
+            alt={label || "icon"}
+            fill
+            sizes="120px"
+           className="object-none scale-100"
+          />
+        </div>
       ) : (
         <p className="font-medium">{label}</p>
       )}

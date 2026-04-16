@@ -67,26 +67,26 @@ export default function AboutCards() {
 
   const cards: AboutCardProps[] = [
     {
-      title: "Clarity Through Data",
-      description: "Measure, track, improve",
+      title: "Built on Experience",
+      description: "Two decades of enterprise work shaping how we approach every problem today.",
       image: testImage1,
       icon: imgIcon1
     },
     {
-      title: "Designed to Scale",
-      description: "Built to scale seamlessly",
+      title: "People Who Execute",
+      description: " A team that takes ownership beyond ideas — focused on making things work on ground.",
       image: testImage2,
       icon: imgIcon2
     },
     {
-      title: "Built on Experience",
-      description: "20 years shaping solutions",
+      title: " Clarity Through Data",
+      description: " We track what matters, measure what works, and improve continuously.",
       image: testImage4,
       icon: imgIcon3
     },
     {
-      title: "People Who Execute",
-      description: "Ownership beyond ideas",
+      title: " Designed to Scale",
+      description: "Every system is built to handle growth — more users, more complexity, more impact.",
       image: testImage3,
       icon: imgIcon4
     },
