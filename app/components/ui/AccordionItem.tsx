@@ -27,17 +27,16 @@ export default function AccordionItem({
       )}
     >
       {/* HEADER */}
-      <Button
+<button
         onClick={onClick}
-        variant="outline"
-        className="w-full flex items-center justify-between p-3 md:p-5 text-left"
+        className="w-full flex items-center justify-between p-3 md:p-5 text-left bg-transparent border-none cursor-pointer outline-none"
       >
         <div className="flex items-center gap-2 md:gap-4">
           <div className="w-10 md:w-12 h-10 md:h-12 rounded-lg md:rounded-xl bg-neutral-200 flex items-center justify-center flex-shrink-0">
             <Image src={icon} alt="icon" width={65} height={44} />
           </div>
 
-          <h4 className="text-sm md:text-base">{title}</h4>
+          <h4 className="text-sm md:text-base font-semibold">{title}</h4>
         </div>
 
         {/* ARROW */}
@@ -49,7 +48,7 @@ export default function AccordionItem({
         >
           ▼
         </span>
-      </Button>
+      </button>
 
       {/* CONTENT */}
       <div

@@ -5,32 +5,7 @@ import Button from "../../ui/Button";
 import FeatureCard from "../../ui/FeatureCard";
 import Image from "next/image";
 
-const slides = [
-  {
-    variant: "green",
-    title: "Run Smarter Food Operations Across Every Outlet.",
-    description:
-      "Streamline kitchen, inventory, and sales with a single ERP solution that scales with your franchise.",
-  },
-  {
-    variant: "blue",
-    title: "Digitize and Monitor Daily Waste Collection Operations",
-    description:
-      " Enable seamless operations across security, utilities, complaints, and facility management through a unified smart platform.",
-  },
-  {
-    variant: "yellow",
-    title: "Manage Communities with Integrated Digital Infrastructure",
-    description:
-      "Enable seamless operations across security, utilities, complaints, and facility management through a unified smart platform.",
-  },
-  {
-    variant: "purple",
-    title: "Simplify Workforce Management with One Unified System",
-    description:
-      "Handle attendance, payroll, performance, and employee lifecycle with a structured system built for growing teams.",
-  },
-] as const;
+
 
 // ✅ reusable icon
 const Icon = () => (
@@ -77,9 +52,75 @@ const Card = ({
     description={slide.description}
     icon={<Icon />}
   >
-    {children}
+    {slide.visual}
   </FeatureCard>
 );
+const VisualWrapper = ({ children }: { children: React.ReactNode }) => (
+  <div className="absolute -top-16 flex justify-center w-full z-10 pointer-events-none">
+    {children}
+  </div>
+);
+
+const slides = [
+  {
+    variant: "green",
+    title: "Run Smarter Food Operations Across Every Outlet.",
+    description:
+      "Streamline kitchen, inventory, and sales with a single ERP solution that scales with your franchise.",
+    visual: <Phones />
+  },
+  {
+    variant: "blue",
+    title: "Digitize and Monitor Daily Waste Collection Operations",
+    description:
+      " Enable seamless operations across security, utilities, complaints, and facility management through a unified smart platform.",
+    visual: (
+      <VisualWrapper>
+        <Image
+          src="/Ipad.svg"
+          alt="ipad"
+          width={200}
+          height={400}
+          className="h-[300px] w-auto object-contain"
+        />
+      </VisualWrapper>
+    )
+  },
+  {
+    variant: "yellow",
+    title: "Manage Communities with Integrated Digital Infrastructure",
+    description:
+      "Enable seamless operations across security, utilities, complaints, and facility management through a unified smart platform.",
+    visual: (
+      <VisualWrapper>
+        <Image
+          src="/Ipad2.svg"
+          alt="ipad"
+          width={200}
+          height={400}
+          className="h-[300px] w-auto object-contain"
+        />
+      </VisualWrapper>
+    )
+  },
+  {
+    variant: "purple",
+    title: "Simplify Workforce Management with One Unified System",
+    description:
+      "Handle attendance, payroll, performance, and employee lifecycle with a structured system built for growing teams.",
+    visual: (
+      <VisualWrapper>
+        <Image
+          src="/Ipad.svg"
+          alt="ipad"
+          width={200}
+          height={400}
+          className="h-[300px] w-auto object-contain"
+        />
+      </VisualWrapper>
+    )
+  },
+] as const;
 
 export default function GalleryModal() {
   const [index, setIndex] = useState(0);

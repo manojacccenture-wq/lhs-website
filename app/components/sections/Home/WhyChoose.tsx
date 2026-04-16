@@ -155,19 +155,21 @@ export default function WhyChoose() {
       </h2>
 
       {/* GRID */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+<div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 items-start">
 
-        {items.map((item, i) => (
-          <AccordionItem
-            key={i}
-            title={item.title}
-            icon={item.icon}
-            isOpen={activeIndex === i}
-            onClick={() => setActiveIndex(i)}
-          >
-            {item.content}
-          </AccordionItem>
-        ))}
+        {items.map((item, i) => {
+          return (
+            <AccordionItem
+              key={i}
+              title={item.title}
+              icon={item.icon}
+              isOpen={activeIndex === i}
+         onClick={() => setActiveIndex(activeIndex === i ? -1 : i)}
+            >
+              {item.content}
+            </AccordionItem>
+          );
+        })}
 
       </div>
     </section>
