@@ -56,7 +56,7 @@ const industries = [
 
 export default function IndustriesContent() {
     return (
-        <section className="w-full py-24 px-6 md:px-12">
+        <section className="w-full py-12 px-6 md:px-12">
             <div className="max-w-7xl mx-auto">
 
                 {/* Industries Stack */}
