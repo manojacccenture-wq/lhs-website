@@ -90,7 +90,7 @@ export default function GalleryModal() {
   return (
     <>
       {/* CAROUSEL */}
-      <div className="relative flex justify-center items-center mt-10">
+      <div className="relative flex justify-center items-center mt-6 md:mt-10">
 
         {/* LEFT */}
         <div className="hidden md:block absolute left-[10%] lg:left-[15%] scale-90 opacity-50 blur-[1px]">
@@ -98,7 +98,7 @@ export default function GalleryModal() {
         </div>
 
         {/* CENTER */}
-        <div key={index} className="z-10 animate-[fade_0.6s_ease]">
+        <div key={index} className="z-10 animate-[fade_0.6s_ease] w-full md:w-auto px-2 md:px-0">
           <Card slide={slides[index]}>
             <Phones />
           </Card>
@@ -111,7 +111,7 @@ export default function GalleryModal() {
       </div>
 
       {/* NAVIGATION */}
-      <div className="mt-10 flex justify-center gap-4">
+      <div className="mt-6 md:mt-10 flex justify-center gap-3 md:gap-4">
         {[
           { dir: -1, path: "M15 19l-7-7 7-7" },
           { dir: 1, path: "M9 5l7 7-7 7" },
@@ -121,10 +121,10 @@ export default function GalleryModal() {
             onClick={() =>
               setIndex((i) => (i + dir + slides.length) % slides.length)
             }
-            className="w-12 h-12 rounded-full bg-primary flex items-center justify-center shadow-lg hover:scale-105 transition active:scale-95"
+            className="w-10 md:w-12 h-10 md:h-12 rounded-full bg-primary flex items-center justify-center shadow-lg hover:scale-105 transition active:scale-95"
           >
             <svg
-              className="w-5 h-5 text-white"
+              className="w-4 md:w-5 h-4 md:h-5 text-white"
               fill="none"
               stroke="currentColor"
               strokeWidth="2"

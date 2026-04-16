@@ -22,22 +22,22 @@ export default function FeatureCard({
   };
 
   return (
-    <div className="w-full max-w-4xl rounded-3xl shadow-xl transition-all duration-500">
+    <div className="w-full max-w-4xl rounded-2xl md:rounded-3xl shadow-xl transition-all duration-500">
 
       {/* TOP */}
       <div
-        className={`relative h-[220px] bg-gradient-to-r ${gradientMap[variant]} rounded-t-3xl overflow-visible flex items-center justify-center transition-all duration-700`}
+        className={`relative h-[160px] md:h-[220px] bg-gradient-to-r ${gradientMap[variant]} rounded-t-2xl md:rounded-t-3xl overflow-visible flex items-center justify-center transition-all duration-700`}
       >
         {children}
       </div>
 
       {/* BOTTOM */}
-      <div className="grid grid-cols-[auto_1fr] gap-4 items-start bg-white p-6 rounded-b-3xl">
-        <div>{icon}</div>
+      <div className="grid grid-cols-[auto_1fr] gap-3 md:gap-4 items-start bg-white p-4 md:p-6 rounded-b-2xl md:rounded-b-3xl">
+        <div className="w-8 md:w-10 flex-shrink-0">{icon}</div>
 
         <div className="text-left">
-          <h3>{title}</h3>
-          <p>{description}</p>
+          <h3 className="text-base md:text-lg font-bold">{title}</h3>
+          <p className="text-sm md:text-base">{description}</p>
         </div>
       </div>
     </div>

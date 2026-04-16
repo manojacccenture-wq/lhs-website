@@ -85,26 +85,26 @@ const insights = [
 
 export default function Insights() {
   return (
-    <section className="py-20 px-4 relative">
+    <section className="py-16 md:py-20 px-4 md:px-6 relative">
 
       {/* BACKGROUND GLOW */}
       <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_center,rgba(0,194,168,0.1),transparent_70%)]" />
 
       {/* HEADER */}
-      <div className="text-center mb-16">
+      <div className="text-center mb-12 md:mb-16">
         <h3 
-          className="text-sm font-bold uppercase tracking-wider mb-3"
+          className="text-xs md:text-sm font-bold uppercase tracking-wider mb-2 md:mb-3"
           style={{ color: "var(--color-primary-1)" }}
         >
           — OUR NUMBERS
         </h3>
-        <h2 className="text-3xl md:text-4xl font-bold" style={{ color: "var(--color-neutral-800)" }}>
+        <h2 className="text-2xl md:text-4xl font-bold" style={{ color: "var(--color-neutral-800)" }}>
           Our Insights
         </h2>
       </div>
 
       {/* GRID */}
-      <div className="max-w-6xl mx-auto grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="max-w-6xl mx-auto grid gap-4 md:gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {insights.map((item, i) => (
           <InsightCard key={i} {...item} />
         ))}

@@ -14,21 +14,21 @@ const techStack = [
 
 export default function TechStack() {
   return (
-    <section className="relative py-20 px-4 text-center overflow-visible">
+    <section className="relative py-16 md:py-20 px-4 md:px-6 text-center overflow-visible">
 
       {/* SOFT BACKGROUND GLOW */}
       <div className="absolute inset-0 -z-10" />
 
       {/* TOP LABEL */}
       <p 
-        className="mx-auto text-sm font-bold uppercase tracking-wider mb-4"
+        className="mx-auto text-xs md:text-sm font-bold uppercase tracking-wider mb-3 md:mb-4"
         style={{ color: "var(--color-primary-1)" }}
       >
         — MODERN, SECURE, AND SCALABLE FOR ENTERPRISE-GRADE F&B OPERATIONS.
       </p>
 
       {/* TITLE */}
-      <h2 className="mb-12 text-3xl md:text-4xl font-bold" style={{ color: "var(--color-neutral-800)" }}>
+      <h2 className="mb-8 md:mb-12 text-2xl md:text-4xl font-bold" style={{ color: "var(--color-neutral-800)" }}>
         Technology Stack
       </h2>
 

@@ -4,17 +4,17 @@ const logos = Array(10).fill("/TICL_Company.svg");
 
 export default function Trusted() {
   return (
-    <section className="text-center py-20 overflow-hidden">
+    <section className="text-center py-12 md:py-20 overflow-hidden">
       {/* HEADER */}
-      <div className="mb-12">
+      <div className="mb-8 md:mb-12">
         <h3 
-          className="text-sm font-bold uppercase tracking-wider mb-3"
+          className="text-xs md:text-sm font-bold uppercase tracking-wider mb-2 md:mb-3"
           style={{ color: "var(--color-primary-1)" }}
         >
           — Trusted By
         </h3>
         <h2 
-          className="text-3xl md:text-4xl font-bold"
+          className="text-2xl md:text-4xl font-bold"
           style={{ color: "var(--color-neutral-800)" }}
         >
           Don&apos;t take our word for it

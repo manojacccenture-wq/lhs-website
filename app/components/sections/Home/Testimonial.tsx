@@ -60,7 +60,7 @@ function TestimonialCard({
 
 export default function Testimonial() {
   return (
-    <section className="max-w-6xl mx-auto px-4 py-20">
+    <section className="max-w-6xl mx-auto px-4 md:px-6 py-16 md:py-20">
       <TestimonialCard
         name="Jankiraman"
         role="Managing Director at Livelihood System"

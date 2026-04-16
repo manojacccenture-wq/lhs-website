@@ -22,7 +22,7 @@ export default function AccordionItem({
   return (
     <div
       className={clsx(
-        "rounded-2xl overflow-hidden transition-all duration-300",
+        "rounded-xl md:rounded-2xl overflow-hidden transition-all duration-300",
         isOpen ? "btn-accordion-active" : "btn-accordion"
       )}
     >
@@ -30,20 +30,20 @@ export default function AccordionItem({
       <Button
         onClick={onClick}
         variant="outline"
-        className="w-full flex items-center justify-between p-5 text-left"
+        className="w-full flex items-center justify-between p-3 md:p-5 text-left"
       >
-        <div className="flex items-center gap-4">
-          <div className="w-12 h-12 rounded-xl bg-neutral-200 flex items-center justify-center">
+        <div className="flex items-center gap-2 md:gap-4">
+          <div className="w-10 md:w-12 h-10 md:h-12 rounded-lg md:rounded-xl bg-neutral-200 flex items-center justify-center flex-shrink-0">
             <Image src={icon} alt="icon" width={65} height={44} />
           </div>
 
-          <h4>{title}</h4>
+          <h4 className="text-sm md:text-base">{title}</h4>
         </div>
 
         {/* ARROW */}
         <span
           className={clsx(
-            "transition-transform duration-300 text-neutral-600",
+            "transition-transform duration-300 text-neutral-600 flex-shrink-0",
             isOpen && "rotate-180 text-primary"
           )}
         >
@@ -54,8 +54,8 @@ export default function AccordionItem({
       {/* CONTENT */}
       <div
         className={clsx(
-          "transition-all duration-300 overflow-hidden px-5",
-          isOpen ? "max-h-[300px] pb-5" : "max-h-0"
+          "transition-all duration-300 overflow-hidden px-3 md:px-5 text-xs md:text-sm",
+          isOpen ? "max-h-[300px] pb-3 md:pb-5" : "max-h-0"
         )}
       >
         {children}

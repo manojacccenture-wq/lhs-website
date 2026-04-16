@@ -2,27 +2,27 @@ import Button from "../../ui/Button";
 
 export default function Contact() {
   return (
-    <section className="max-w-2xl mx-auto py-20 px-4">
+    <section className="max-w-2xl mx-auto py-16 md:py-20 px-4 md:px-6">
       {/* HEADER */}
-      <div className="text-center mb-12">
-        <h2 className="text-4xl md:text-5xl font-bold mb-4" style={{ color: "var(--color-neutral-800)" }}>
+      <div className="text-center mb-10 md:mb-12">
+        <h2 className="text-2xl md:text-4xl font-bold mb-2 md:mb-4" style={{ color: "var(--color-neutral-800)" }}>
           Contact Us
         </h2>
-        <p className="text-lg" style={{ color: "var(--color-neutral-600)" }}>
+        <p className="text-base md:text-lg" style={{ color: "var(--color-neutral-600)" }}>
           We&apos;d love to hear from you. Send us a message and we&apos;ll respond as soon as possible.
         </p>
       </div>
 
       {/* FORM */}
-      <form className="space-y-6 bg-white rounded-2xl p-8 shadow-sm border border-neutral-200">
+      <form className="space-y-4 md:space-y-6 bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-neutral-200">
         {/* Name Input */}
         <div>
-          <label className="block text-sm font-semibold mb-2" style={{ color: "var(--color-neutral-800)" }}>
+          <label className="block text-xs md:text-sm font-semibold mb-2" style={{ color: "var(--color-neutral-800)" }}>
             Name
           </label>
           <input 
             type="text"
-            className="w-full border border-neutral-300 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[var(--color-primary-1)] focus:border-transparent transition"
+            className="w-full border border-neutral-300 rounded-xl px-3 md:px-4 py-2 md:py-3 text-sm md:text-base focus:outline-none focus:ring-2 focus:ring-[var(--color-primary-1)] focus:border-transparent transition"
             placeholder="Your name"
             style={{ backgroundColor: "var(--color-neutral-100)" }}
           />
@@ -30,12 +30,12 @@ export default function Contact() {
 
         {/* Email Input */}
         <div>
-          <label className="block text-sm font-semibold mb-2" style={{ color: "var(--color-neutral-800)" }}>
+          <label className="block text-xs md:text-sm font-semibold mb-2" style={{ color: "var(--color-neutral-800)" }}>
             Email
           </label>
           <input 
             type="email"
-            className="w-full border border-neutral-300 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[var(--color-primary-1)] focus:border-transparent transition"
+            className="w-full border border-neutral-300 rounded-xl px-3 md:px-4 py-2 md:py-3 text-sm md:text-base focus:outline-none focus:ring-2 focus:ring-[var(--color-primary-1)] focus:border-transparent transition"
             placeholder="your@email.com"
             style={{ backgroundColor: "var(--color-neutral-100)" }}
           />
@@ -43,12 +43,12 @@ export default function Contact() {
 
         {/* Subject Input */}
         <div>
-          <label className="block text-sm font-semibold mb-2" style={{ color: "var(--color-neutral-800)" }}>
+          <label className="block text-xs md:text-sm font-semibold mb-2" style={{ color: "var(--color-neutral-800)" }}>
             Subject
           </label>
           <input 
             type="text"
-            className="w-full border border-neutral-300 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[var(--color-primary-1)] focus:border-transparent transition"
+            className="w-full border border-neutral-300 rounded-xl px-3 md:px-4 py-2 md:py-3 text-sm md:text-base focus:outline-none focus:ring-2 focus:ring-[var(--color-primary-1)] focus:border-transparent transition"
             placeholder="What is this about?"
             style={{ backgroundColor: "var(--color-neutral-100)" }}
           />
@@ -56,11 +56,11 @@ export default function Contact() {
 
         {/* Message Textarea */}
         <div>
-          <label className="block text-sm font-semibold mb-2" style={{ color: "var(--color-neutral-800)" }}>
+          <label className="block text-xs md:text-sm font-semibold mb-2" style={{ color: "var(--color-neutral-800)" }}>
             Message
           </label>
           <textarea 
-            className="w-full border border-neutral-300 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[var(--color-primary-1)] focus:border-transparent transition resize-none"
+            className="w-full border border-neutral-300 rounded-xl px-3 md:px-4 py-2 md:py-3 text-sm md:text-base focus:outline-none focus:ring-2 focus:ring-[var(--color-primary-1)] focus:border-transparent transition resize-none"
             placeholder="Your message"
             rows={6}
             style={{ backgroundColor: "var(--color-neutral-100)" }}
@@ -68,7 +68,7 @@ export default function Contact() {
         </div>
 
         {/* Submit Button */}
-        <div className="flex justify-end pt-4">
+        <div className="flex justify-center md:justify-end pt-2 md:pt-4">
           <Button variant="primary">
             Send Message
           </Button>

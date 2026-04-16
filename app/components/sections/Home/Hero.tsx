@@ -4,12 +4,12 @@ import Button from "../../ui/Button";
 export default function Hero() {
   return (
     <HeroWrapper>
-      <section className="relative w-full py-20 md:py-32 px-4 md:px-6">
+      <section className="relative w-full py-16 md:py-32 px-4 md:px-6">
         <div className="max-w-5xl mx-auto text-center">
           {/* Badge */}
-          <div className="inline-block mb-6">
+          <div className="inline-block mb-4 md:mb-6">
             <span 
-              className="text-sm font-semibold uppercase tracking-wide px-4 py-2 rounded-full"
+              className="text-xs md:text-sm font-semibold uppercase tracking-wide px-3 py-1.5 md:px-4 md:py-2 rounded-full"
               style={{
                 color: "var(--color-primary-1)",
                 backgroundColor: "var(--color-primary-1)",
@@ -22,7 +22,7 @@ export default function Hero() {
 
           {/* Main Title */}
           <h1 
-            className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight"
+            className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6 leading-tight"
             style={{ color: "var(--color-neutral-800)" }}
           >
             Turning Vision Into <br className="hidden sm:block" /> Scalable Reality
@@ -30,14 +30,14 @@ export default function Hero() {
 
           {/* Subtitle */}
           <p 
-            className="text-lg md:text-xl mb-10 max-w-2xl mx-auto leading-relaxed"
+            className="text-base sm:text-lg md:text-xl mb-8 md:mb-10 max-w-2xl mx-auto leading-relaxed"
             style={{ color: "var(--color-neutral-600)" }}
           >
             We build smart, scalable software that transforms ideas into streamlined, real-world solutions.
           </p>
 
           {/* CTA Buttons */}
-          <div className="flex items-center justify-center gap-4 flex-wrap">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 md:gap-4">
             <Button variant="primary">
               Get Started
             </Button>
