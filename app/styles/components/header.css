@@ -14,7 +14,7 @@
   } */
 
     .navbar {
-    @apply flex items-center justify-between px-6 py-3;
+    @apply flex items-center justify-between px-6 ;
 
     background: rgb(var(--color-primary-rgb) / 0.16);
     backdrop-filter: blur(12px);

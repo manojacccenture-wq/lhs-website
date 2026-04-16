@@ -14,19 +14,19 @@ const slides = [
   },
   {
     variant: "blue",
-    title: "Manage Communities with Digital Infrastructure",
+    title: "Digitize and Monitor Daily Waste Collection Operations",
     description:
       " Enable seamless operations across security, utilities, complaints, and facility management through a unified smart platform.",
   },
   {
     variant: "yellow",
-    title: "Simplify Workforce Management",
+    title: "Manage Communities with Integrated Digital Infrastructure",
     description:
-      "Handle attendance, payroll, performance, and employee lifecycle with a structured system built for growing teams.",
+      "Enable seamless operations across security, utilities, complaints, and facility management through a unified smart platform.",
   },
   {
-    variant: "yellow",
-    title: "Simplify Workforce Management",
+    variant: "purple",
+    title: "Simplify Workforce Management with One Unified System",
     description:
       "Handle attendance, payroll, performance, and employee lifecycle with a structured system built for growing teams.",
   },

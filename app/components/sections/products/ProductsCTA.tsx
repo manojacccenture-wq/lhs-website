@@ -8,6 +8,7 @@ export default function ProductsCTA() {
       <CTASection
         title="So, Are You Ready to Streamline Your Food Chain Operations?"
         buttonText="Book a Demo"
+        className="text-center mx-auto"
       />
 
     </section>

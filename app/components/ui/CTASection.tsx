@@ -47,6 +47,7 @@ export default function CTASection({
             !bg-white 
             !text-[var(--color-primary-1)]
             hover:opacity-90
+            mx-auto
           "
         >
           {buttonText}

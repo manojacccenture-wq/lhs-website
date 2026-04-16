@@ -3,7 +3,7 @@ type FeatureCardProps = {
   description: string;
   icon?: React.ReactNode;
   children?: React.ReactNode;
-  variant?: "green" | "blue" | "yellow"; // 👈 NEW
+  variant?: "green" | "blue" | "yellow"|"purple"; // 👈 NEW
 };
 
 export default function FeatureCard({
@@ -18,6 +18,7 @@ export default function FeatureCard({
     green: "from-teal-400 to-green-500",
     blue: "from-[#0F62FE] to-[#D9D9D9]",
     yellow: "from-[#F5B82E] to-[#F7F7FB]",
+    purple: "from-[#6C5CE7] to-[#EDE9FE]",
   };
 
   return (

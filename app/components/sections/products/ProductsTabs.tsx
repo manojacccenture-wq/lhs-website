@@ -67,19 +67,19 @@ export default function ProductsTabs() {
   const content = tabContents[activeTab];
 
   return (
-    <section className="py-16 md:py-24 px-6">
+    <section className="py-10 sm:py-16 md:py-24 px-4 sm:px-6">
       <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-[280px_1fr] gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-[280px_1fr] gap-4 sm:gap-6">
 
           {/* Left Column - Vertical Tabs */}
-          <div className="flex flex-col gap-4 w-full md:w-64 shrink-0">
+          <div className="flex flex-col gap-2 sm:gap-4 w-full md:w-64 shrink-0">
             {tabs.map((tab) => (
               <Button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
                 variant="ghost"
                 className={clsx(
-                  "px-7 py-5 rounded-2xl text-left w-full justify-start",
+                  "px-4 sm:px-7 py-3 sm:py-5 rounded-2xl text-left w-full justify-start text-sm sm:text-base",
                   activeTab === tab.id
                     ? "border-2 bg-white border-[var(--color-primary-1)] text-primary"
                     : "border border-neutral-300 bg-white text-[var(--color-text-subtitle)]"
