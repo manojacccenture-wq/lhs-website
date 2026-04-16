@@ -50,37 +50,37 @@ export default function ServicesTestimonials() {
       name: 'Robert B',
       title: 'CTO, CloudTech Solutions',
       quote: 'I found the perfect developer in hours, and the turnaround was fast and exceeded expectations!',
-      image: 'http://localhost:3845/assets/14f3250d1a28819823a8c3b489a426e1cfbabbde.png',
+      image: '/Janakai_Ramana.svg',
     },
     {
       name: 'Adam Smith',
       title: 'CEO, TechSolutions',
       quote: 'We scaled quickly with exceptional talent and seamless, top-notch work!',
-      image: 'http://localhost:3845/assets/1671de60e8f9df0233d1c73a5edd0c8ebee8c28d.svg',
+      image: '/Janakai_Ramana.svg',
     },
     {
       name: 'Michael T',
       title: 'Founder, Software Technologies',
       quote: 'Finding the perfect graphic designer was effortless, and the results were on-point!',
-      image: 'http://localhost:3845/assets/328dee3a042b4413be4de12060eeb45b96407ccc.png',
+      image: '/Janakai_Ramana.svg',
     },
     {
       name: 'Mike Warren',
       title: 'Founder, InnovateCo',
       quote: 'I connected with talented developers who delivered faster than expected!',
-      image: 'http://localhost:3845/assets/d6fffeae2c3bcc2cdc9911f739cbb3f4a8e5efe0.svg',
+      image: '/Janakai_Ramana.svg',
     },
     {
       name: 'Claire W',
       title: 'Head of Operations, NexGen Startups',
       quote: 'The platform made finding talented professionals easy, and the results were fantastic!',
-      image: 'http://localhost:3845/assets/da56bc495f039f1fea40c9b82bab0875d1a2c433.png',
+      image: '/Janakai_Ramana.svg',
     },
     {
       name: 'John Doe',
       title: 'CEO, Innovations Inc',
       quote: 'I got cost-effective, high-quality design work that fit my vision perfectly!',
-      image: 'http://localhost:3845/assets/cffa3c7e5984e5490bdd5cb908b382e5f24d3517.svg',
+      image: '/Janakai_Ramana.svg',
     },
   ];
 

@@ -1,47 +1,71 @@
-'use client';
+﻿'use client';
 
-import Button from "@/app/components/ui/Button";
-import HeroWrapper from "../Home/HeroWrapper";
+import Image from 'next/image';
+import Button from '@/app/components/ui/Button';
+
+const logos = [
+  '/TICL_Company.svg',
+  '/TCS-logo-black-CMYK.svg',
+  '/TICL_Company.svg',
+  '/TCS-logo-black-CMYK.svg',
+  '/TICL_Company.svg',
+  '/TCS-logo-black-CMYK.svg',
+];
 
 export default function IndustriesHero() {
   return (
-    <HeroWrapper>
-      <section className="relative w-full py-16 md:py-32 px-6 md:px-12 overflow-hidden">
-        <div className="max-w-7xl mx-auto">
-          {/* Badge */}
-          <div className="flex justify-center mb-7">
-            <h2 
-              className="text-primary"
-              
-            >
-              “Our Advantage: Multi-Domain Knowledge”
-            </h2>
-          </div>
+    <section className="hero-bg w-full relative overflow-hidden">
+      {/* Hero text content */}
+      <div className="relative z-10 max-w-2xl mx-auto px-6 text-center pt-16 md:pt-32 pb-8 md:pb-10">
+        {/* Subtitle */}
+        <p
+          className="text-xs md:text-sm font-semibold uppercase tracking-[2.24px] mb-5 md:mb-7"
+          style={{ color: 'var(--color-primary-1)' }}
+        >
+          From Concept to Scalable Code
+        </p>
 
-          {/* Main Title */}
-          <h1 
-            className="mx-auto"
-            
-          >
-            Industries We Serve
-          </h1>
+        {/* Heading */}
+        <h1
+          className="text-3xl md:text-5xl font-bold mb-5 md:mb-7 leading-tight"
+          style={{ color: 'var(--color-neutral-800)' }}
+        >
+          Industries We Serve
+        </h1>
 
-          {/* Subtitle */}
-          <p 
-            className="mx-auto"
-            
-          >
-            Domain depth, not breadth. We deliver in environments where operational failure is not an option.
-          </p>
+        {/* Description */}
+        <p
+          className="text-base md:text-lg leading-relaxed mb-8 md:mb-10 max-w-lg mx-auto"
+          style={{ color: 'var(--color-neutral-600)' }}
+        >
+          Domain depth, not breadth. We deliver in environments where operational
+          failure is not an option.
+        </p>
 
-          {/* Buttons */}
-          <div className="flex items-center justify-center gap-6 flex-wrap mt-[5%]">
-            <Button variant="primary">
-              Get started
-            </Button>
-          </div>
+        {/* CTA */}
+        <div className="flex justify-center">
+          <Button variant="primary">Get started</Button>
         </div>
-      </section>
-    </HeroWrapper>
+      </div>
+
+      {/* Logo Strip */}
+      <div className="relative z-10 overflow-hidden py-6 md:py-10 mb-6 md:mb-10">
+        <div className="pointer-events-none absolute left-0 top-0 h-full w-20 md:w-40 bg-linear-to-r from-white to-transparent z-10" />
+        <div className="pointer-events-none absolute right-0 top-0 h-full w-20 md:w-40 bg-linear-to-l from-white to-transparent z-10" />
+        <div className="flex w-max animate-marquee gap-12 md:gap-20 opacity-50">
+          {[...logos, ...logos].map((src, i) => (
+            <div key={i} className="shrink-0 flex items-center h-10 md:h-14">
+              <Image
+                src={src}
+                alt="partner logo"
+                width={128}
+                height={56}
+                className="w-auto h-full object-contain grayscale"
+              />
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
   );
 }
