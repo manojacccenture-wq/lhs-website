@@ -51,6 +51,10 @@ export default function Leadership() {
                 Over two decades of leading enterprise system deployments across complex environments
               </p>
 
+              <p className="text-sm md:text-base mb-[4%]" >
+                Focused on building solutions that don’t just get approved but work consistently on ground.
+              </p>
+
               {/* Experience List */}
               <div className="space-y-4">
                 <div className="flex gap-3">
@@ -63,7 +67,7 @@ export default function Leadership() {
                       style={{ filter: "brightness(0) saturate(100%) invert(47%) sepia(78%) saturate(597%) hue-rotate(120deg)" }}
                     />
                   </div>
-                  <p className="text-sm md:text-base" style={{ color: "var(--color-text-body)" }}>
+                  <p className="text-sm md:text-base" >
                     Led long-term engagements within the Tata ecosystem, including JUSCO and Tata Steel
                   </p>
                 </div>
@@ -75,12 +79,27 @@ export default function Leadership() {
                       alt=""
                       width={24}
                       height={24}
-                      // className="w-6 h-6"
-                      // style={{ filter: "brightness(0) saturate(100%) invert(47%) sepia(78%) saturate(597%) hue-rotate(120deg)" }}
+                    // className="w-6 h-6"
+                    // style={{ filter: "brightness(0) saturate(100%) invert(47%) sepia(78%) saturate(597%) hue-rotate(120deg)" }}
                     />
                   </div>
                   <p className="text-sm md:text-base" style={{ color: "var(--color-text-body)" }}>
                     Delivered and maintained systems across multi-location, high-dependency operations
+                  </p>
+                </div>
+                <div className="flex gap-3">
+                  <div className="shrink-0 mt-1">
+                    <Image
+                      src={imgReport}
+                      alt=""
+                      width={24}
+                      height={24}
+                    // className="w-6 h-6"
+                    // style={{ filter: "brightness(0) saturate(100%) invert(47%) sepia(78%) saturate(597%) hue-rotate(120deg)" }}
+                    />
+                  </div>
+                  <p className="text-sm md:text-base" >
+                    Built teams and processes capable of handling large-scale, real-world execution
                   </p>
                 </div>
 

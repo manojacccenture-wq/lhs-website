@@ -12,43 +12,45 @@ function AboutCard({ title, description, image, icon, index }: AboutCardProps) {
   return (
     <div
       className={`
-        min-w-[260px] md:min-w-[300px] lg:min-w-[320px]
-        border-neutral-300
-        rounded-xl overflow-hidden bg-white border shadow-sm hover:shadow-md transition
+        min-w-[260px] md:min-w-[280px] lg:min-w-[240px]
+        rounded-2xl overflow-hidden bg-white border shadow-sm hover:shadow-md transition
         ${index !== undefined && index % 2 !== 0 ? "lg:mt-8" : "lg:-mt-0"}
       `}
-      
+      style={{
+        borderColor: "var(--color-neutral-300)",
+      }}
     >
       {/* Image Container */}
-      <div className="relative w-full h-[200px] md:h-[240px] flex items-center justify-center">
+      <div className="relative w-full h-[180px] md:h-[200px] flex items-center justify-center">
         <Image
           src={image}
           alt={title}
-          width={180}
-          height={180}
+          width={160}
+          height={160}
           className="object-contain"
         />
       </div>
 
       {/* Content */}
-<div className="px-0 pb-4 pt-2 mx-auto relative text-center">
+      <div className="flex items-start justify-between gap-3 p-4 md:p-5">
+        {/* Text Content */}
+        <div className="flex-1 flex flex-col gap-1">
+          {/* TITLE */}
+          <h3 className="font-bold text-sm md:text-base" style={{ color: "var(--color-neutral-800)" }}>
+            {title}
+          </h3>
 
-  {/* ICON - absolute right */}
-  <div className="absolute top-2 right-4 p-2 rounded-full bg-teal-500/10">
-    <Image src={icon} alt={title} width={40} height={40} />
-  </div>
+          {/* DESCRIPTION */}
+          <p className="text-xs md:text-sm leading-relaxed" style={{ color: "var(--color-neutral-600)" }}>
+            {description}
+          </p>
+        </div>
 
-  {/* TITLE */}
-  <h3 className="font-bold text-base md:text-lg">
-    {title}
-  </h3>
-
-  {/* DESCRIPTION */}
-  <p className="text-sm md:text-base mt-1">
-    {description}
-  </p>
-
-</div>
+        {/* ICON BUTTON */}
+        <div className="shrink-0 inline-flex items-center justify-center w-9 h-9 md:w-10 md:h-10 rounded-full border-2" style={{ backgroundColor: "var(--color-primary-1)", borderColor: "var(--color-primary-1)" }}>
+          <Image src={icon} alt={title} width={18} height={18} className="w-4 md:w-5 h-4 md:h-5" />
+        </div>
+      </div>
     </div>
   );
 }
@@ -93,10 +95,17 @@ export default function AboutCards() {
   ];
 
   return (
-    <section className="p-3">
-      <div className=" ">
-        {/* SCROLL CONTAINER */}
-        <div className="flex gap-3 md:gap-9 overflow-x-auto scrollbar-hide">
+    <section className="py-12 md:py-16 px-4 md:px-6">
+      <div className="max-w-6xl mx-auto">
+        {/* MOBILE: Single Column */}
+        <div className="flex md:hidden flex-col gap-6">
+          {cards.map((card, idx) => (
+            <AboutCard key={idx} {...card} index={idx} />
+          ))}
+        </div>
+
+        {/* DESKTOP: Horizontal Scroll with Stacking */}
+        <div className="hidden md:flex gap-9 overflow-x-auto scrollbar-hide">
           {cards.map((card, idx) => (
             <AboutCard key={idx} {...card} index={idx} />
           ))}
