@@ -10,10 +10,9 @@ interface FeatureCard {
 function FeatureCardComponent({ title, description, icon, highlighted = false }: FeatureCard) {
   return (
     <div
-      className="rounded-xl overflow-hidden shadow-sm hover:shadow-md transition p-6 md:p-8 h-full flex flex-col"
+      className="rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition p-6 md:p-8 h-full flex flex-col"
       style={{
-        backgroundColor: highlighted ? "transparent" : "var(--color-neutral-100)",
-        background: highlighted ? "linear-gradient(135deg, var(--color-primary-1), #005c50)" : undefined,
+        backgroundColor: highlighted ? "var(--color-primary-1)" : "var(--color-neutral-100)",
         borderColor: "var(--color-neutral-300)",
         border: highlighted ? "none" : "1px solid var(--color-neutral-300)",
         color: highlighted ? "white" : undefined,
@@ -23,26 +22,24 @@ function FeatureCardComponent({ title, description, icon, highlighted = false }:
       <div
         className="w-12 h-12 rounded-lg flex items-center justify-center mb-4"
         style={{
-          backgroundColor: highlighted ? "rgba(255, 255, 255, 0.1)" : "var(--color-primary-1)",
-          opacity: highlighted ? 1 : 1,
+          backgroundColor: highlighted ? "rgba(255, 255, 255, 0.2)" : "var(--color-primary-1)",
         }}
       >
-        
         <Image
           src={icon}
           alt=""
           width={28}
           height={28}
           className="w-7 h-7"
-          style={{ filter: highlighted ? "brightness(0) invert(1)" : undefined }}
+          style={{ filter: highlighted ? "brightness(0) invert(1)" : "brightness(0) saturate(100%) invert(47%) sepia(78%) saturate(597%) hue-rotate(120deg)" }}
         />
       </div>
 
       {/* Content */}
-      <h3 className="font-bold text-lg md:text-xl mb-3" style={{ color: highlighted ? "white" : "var(--color-text-title)" }}>
+      <h3 className="font-bold text-lg md:text-xl mb-3" style={{ color: highlighted ? "white" : "var(--color-neutral-800)" }}>
         {title}
       </h3>
-      <p className="text-sm md:text-base leading-relaxed" style={{ color: highlighted ? "rgba(255, 255, 255, 0.9)" : "var(--color-text-body)" }}>
+      <p className="text-sm md:text-base leading-relaxed" style={{ color: highlighted ? "rgba(255, 255, 255, 0.9)" : "var(--color-neutral-600)" }}>
         {description}
       </p>
     </div>
@@ -54,7 +51,7 @@ export default function WhatSetsUsApart() {
 
   const features: FeatureCard[] = [
     {
-      title: "Domain Depth:",
+      title: "Domain Depth",
       description: "When your plant needs an MIS that reads SAP data, surfaces production exceptions, and routes approval workflows — you need someone who has built that before. Repeatedly.",
       icon: imgIcon4,
       highlighted: true,
@@ -65,12 +62,12 @@ export default function WhatSetsUsApart() {
       icon: imgIcon4,
     },
     {
-      title: "Systems Integration Maturity:",
+      title: "Systems Integration Maturity",
       description: "SAP R3, Oracle, .NET/Java, IoT devices, QR/RFID hardware, cloud and on-prem architectures — we operate across the full stack, not within a single layer of it.",
       icon: imgIcon4,
     },
     {
-      title: "Platform Experience:",
+      title: "Platform Experience",
       description: "Three enterprise platforms in production. Not in beta. Not in 'pilot.' In live, operational environments serving real clients with real accountability.",
       icon: imgIcon4,
     },
@@ -82,17 +79,22 @@ export default function WhatSetsUsApart() {
   ];
 
   return (
-    <section className="">
+    <section className="py-16 md:py-20 px-4 md:px-6">
       <div className="max-w-6xl mx-auto">
         {/* Section Header */}
         <div className="text-center mb-12 md:mb-16">
-          <h3 className="text-primary font-bold tight tracking-widest uppercase mx-auto">
-            {"we exceed them. Here's what sets us apart:"}
+          <h3 
+            className="text-xs md:text-sm font-bold uppercase tracking-wider mb-3 md:mb-4"
+            style={{ color: "var(--color-primary-1)" }}
+          >
+            What Sets us apart
           </h3>
-          <h2 className=" font-bold mt-[2%]" >
+          <h2 className="text-2xl md:text-4xl font-bold" style={{ color: "var(--color-neutral-800)" }}>
             What Sets us apart
           </h2>
         </div>
+
+        {/* MOBILE */}
         <div className="mt-10 flex flex-col gap-6 lg:hidden">
           {features.map((item, i) => (
             <FeatureCardComponent key={i} {...item} />
@@ -101,7 +103,6 @@ export default function WhatSetsUsApart() {
 
         {/* DESKTOP */}
         <div className="hidden lg:flex flex-col gap-6 mt-10">
-
           {/* ROW 1 → 2 cards */}
           <div className="grid grid-cols-2 gap-6">
             {features.slice(0, 2).map((item, i) => (
@@ -115,16 +116,7 @@ export default function WhatSetsUsApart() {
               <FeatureCardComponent key={i} {...item} />
             ))}
           </div>
-
         </div>
-
-
-        {/* Feature Grid */}
-        {/* <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-          {features.map((feature, idx) => (
-            <FeatureCardComponent key={idx} {...feature} highlighted={idx === 0} />
-          ))}
-        </div> */}
       </div>
     </section>
   );

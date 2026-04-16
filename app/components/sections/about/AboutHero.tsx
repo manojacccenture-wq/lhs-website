@@ -1,15 +1,12 @@
 import Button from "@/app/components/ui/Button";
 import HeroWrapper from "../Home/HeroWrapper";
-import AboutCards from "./AboutCards";
 
 export default function AboutHero() {
   return (
     <HeroWrapper>
-      <section className="relative w-full md:py-32 overflow-hidden mx-auto" >
-
-
+      <section className="relative w-full py-16 md:py-32 px-4 md:px-6 overflow-hidden mx-auto">
         {/* Content */}
-        <div className="relative z-10 max-w-4xl mx-auto text-center ">
+        <div className="relative z-10 max-w-4xl mx-auto text-center">
           {/* Subtitle */}
           <h3 className="text-primary mx-auto mb-[2%]">
             From Concept to Scalable Code
@@ -26,21 +23,14 @@ export default function AboutHero() {
           </p>
 
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+          <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center items-center">
             <Button variant="primary">Get started</Button>
-            <Button variant="outline" >
+            <Button variant="outline">
               Learn more →
             </Button>
           </div>
         </div>
-
-
       </section>
-
-        <AboutCards/>
-
-
-
     </HeroWrapper>
   );
 }

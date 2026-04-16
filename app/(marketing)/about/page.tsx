@@ -9,7 +9,7 @@ export default function AboutPage() {
   return (
     <>
       <AboutHero />
-      {/* <AboutCards /> */}
+      <AboutCards />
       <WhyChooseUs />
       <WhatSetsUsApart />
       <Leadership />

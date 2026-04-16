@@ -6,7 +6,7 @@ export default function Leadership() {
   const imgReport = "/about/Leader_Icon.svg";
 
   return (
-    <section className="py-16 md:py-11 px-6" >
+    <section className="py-16 md:py-20 px-4 md:px-6">
       <div className="max-w-6xl mx-auto">
         {/* Section Header */}
         <div className="text-center mb-12 md:mb-16">
@@ -60,7 +60,6 @@ export default function Leadership() {
                       alt=""
                       width={24}
                       height={24}
-                      // className="w-6 h-6"
                       style={{ filter: "brightness(0) saturate(100%) invert(47%) sepia(78%) saturate(597%) hue-rotate(120deg)" }}
                     />
                   </div>

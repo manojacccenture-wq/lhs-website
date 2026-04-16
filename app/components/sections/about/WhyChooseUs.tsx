@@ -55,97 +55,79 @@ export default function WhyChooseUs() {
         {/* Timeline */}
         <div className="relative">
           {/* Vertical line with gradient */}
-          <div className="absolute left-1/2 -translate-x-1/2 md:left-1/2 md:translate-x-0 top-0 bottom-0 w-0.5 bg-neutral-vertical-gradient md:bg-primary-vertical-gradient" />
+          <div className="absolute left-1/2 -translate-x-1/2 md:left-1/2 md:translate-x-0 top-0 bottom-0 w-0.5 bg-gradient-to-b" style={{ backgroundImage: "linear-gradient(to bottom, var(--color-primary-1), var(--color-primary-1))" }} />
 
           {/* Timeline Items */}
           <div className="space-y-8 md:space-y-12">
             {timelineItems.map((item, idx) => {
-
               const isLeft = idx % 2 == 0;
               const cardLeft = idx % 2 !== 0;
-
 
               return (
                 <div
                   key={idx}
-                  className={`relative pl-20 md:pl-0 ${isLeft ? "md:pr-1/2" : "md:pl-1/2"
-                    }`}
+                  className={`relative pl-20 md:pl-0 ${isLeft ? "md:pr-1/2" : "md:pl-1/2"}`}
                 >
-
                   {/* DOT */}
                   <div className="absolute left-1/2 -translate-x-1/2 top-4 flex items-center justify-center">
-
-                    <div className="absolute w-10 h-10 rounded-full bg-primary-soft" />
-
-                    <div className="relative w-4 h-4 rounded-full border-4 border-primary bg-white" />
-
+                    <div className="absolute w-10 h-10 rounded-full" style={{ backgroundColor: "var(--color-primary-1)", opacity: 0.1 }} />
+                    <div className="relative w-4 h-4 rounded-full border-4 border-white" style={{ backgroundColor: "var(--color-primary-1)" }} />
                   </div>
+
                   {/* MOBILE VIEW */}
                   <div className="flex flex-col items-center md:hidden mt-6">
-
                     {/* PERIOD */}
-                    <span className="px-6 py-2 rounded-md text-xs font-bold text-white -translate-x-10 bg-primary-gradient mt-[8%]">
+                    <span className="px-4 py-2 rounded-md text-xs font-bold text-white -translate-x-10" style={{ background: "linear-gradient(135deg, var(--color-primary-1), #005c50)" }}>
                       {item.period}
                     </span>
 
                     {/* YEAR */}
-                    <p className="text-2xl text-primary font-bold md:text-lg mt-2 -translate-x-10 ">
+                    <p className="text-2xl font-bold md:text-lg mt-2 -translate-x-10" style={{ color: "var(--color-primary-1)" }}>
                       {item.year}
                     </p>
-
                   </div>
 
                   {/* LEFT SIDE (Period OR Year) */}
                   <div
-                    className={`
-          hidden md:block absolute top-2 text-primary font-bold text-sm md:text-base
-${isLeft
-                        ? "left-0 md:left-[calc(50%-24px)] md:-translate-x-full text-right pr-4"
-                        : "left-0 md:left-[calc(50%-24px)] md:-translate-x-full text-right pr-4"}
-        `}
+                    className={`hidden md:block absolute top-2 text-sm md:text-base ${
+                      isLeft ? "left-0 md:left-[calc(50%-24px)] md:-translate-x-full text-right pr-4" : "left-0 md:left-[calc(50%-24px)] md:-translate-x-full text-right pr-4"
+                    }`}
                   >
                     {isLeft ? (
-                      <span className="px-6 py-2 rounded-md text-xs font-bold text-white bg-primary-gradient">
+                      <span className="px-4 py-2 rounded-md text-xs font-bold text-white" style={{ background: "linear-gradient(135deg, var(--color-primary-1), #005c50)" }}>
                         {item.period}
                       </span>
                     ) : (
-                      item.year
+                      <span className="font-bold" style={{ color: "var(--color-primary-1)" }}>{item.year}</span>
                     )}
                   </div>
 
                   {/* RIGHT SIDE (Year OR Period) */}
-
                   <div
-                    className={`
-hidden md:block absolute top-2 text-primary font-bold text-sm md:text-base
-          ${isLeft
-                        ? "left-0 md:left-[calc(50%+24px)] pl-4"
-                        : "left-0 md:left-[calc(50%+24px)] pl-4"}
-        `}
+                    className={`hidden md:block absolute top-2 text-sm md:text-base ${
+                      isLeft ? "left-0 md:left-[calc(50%+24px)] pl-4" : "left-0 md:left-[calc(50%+24px)] pl-4"
+                    }`}
                   >
                     {isLeft ? (
-                      item.year
+                      <span className="font-bold" style={{ color: "var(--color-primary-1)" }}>{item.year}</span>
                     ) : (
-                      <span className="px-6 py-2 rounded-md text-xs font-bold  text-white bg-primary-gradient">
+                      <span className="px-4 py-2 rounded-md text-xs font-bold text-white" style={{ background: "linear-gradient(135deg, var(--color-primary-1), #005c50)" }}>
                         {item.period}
                       </span>
                     )}
                   </div>
 
                   {/* CARD */}
-                  <div
-                    className={`pt-10  md:pt-12 w-full md:w-5/12 ${cardLeft ? "md:mr-auto" : "md:ml-auto"}`}
-                  >
-                    <div className="p-4 md:p-6 rounded-xl bg-white border border-neutral-300 shadow-sm ">
-                      <h3 className="font-bold text-lg md:text-xl mb-2">
+                  <div className={`pt-10 md:pt-12 w-full md:w-5/12 ${cardLeft ? "md:mr-auto" : "md:ml-auto"}`}>
+                    <div className="p-4 md:p-6 rounded-xl bg-white border shadow-sm" style={{ borderColor: "var(--color-neutral-300)" }}>
+                      <h3 className="font-bold text-lg md:text-xl mb-2" style={{ color: "var(--color-neutral-800)" }}>
                         {item.title}
                       </h3>
-                      <p className="text-sm md:text-base">
+                      <p className="text-sm md:text-base" style={{ color: "var(--color-neutral-600)" }}>
                         {item.description}
                       </p>
                     </div>
                   </div>
-
                 </div>
               );
             })}
