@@ -17,15 +17,20 @@ export default function TechStack() {
     <section className="relative py-20 px-4 text-center overflow-visible">
 
       {/* SOFT BACKGROUND GLOW */}
-      <div className="absolute inset-0 -z-10 " />
+      <div className="absolute inset-0 -z-10" />
 
       {/* TOP LABEL */}
-      <p className="text-primary mx-auto">
+      <p 
+        className="mx-auto text-sm font-bold uppercase tracking-wider mb-4"
+        style={{ color: "var(--color-primary-1)" }}
+      >
         — MODERN, SECURE, AND SCALABLE FOR ENTERPRISE-GRADE F&B OPERATIONS.
       </p>
 
       {/* TITLE */}
-      <h2 className="mb-12">Technology Stack</h2>
+      <h2 className="mb-12 text-3xl md:text-4xl font-bold" style={{ color: "var(--color-neutral-800)" }}>
+        Technology Stack
+      </h2>
 
       {/* TECH ITEMS */}
       <div className="flex flex-wrap justify-center gap-6 max-w-4xl mx-auto">

@@ -88,12 +88,19 @@ export default function Insights() {
     <section className="py-20 px-4 relative">
 
       {/* BACKGROUND GLOW */}
-      <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_center,rgba(0,194,168,0.15),transparent_60%)]" />
+      <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_center,rgba(0,194,168,0.1),transparent_70%)]" />
 
       {/* HEADER */}
-      <div className="text-center mb-12">
-        <h3 className="text-primary ">— OUR NUMBERS</h3>
-        <h2 className="mt-2">Our’s Insight</h2>
+      <div className="text-center mb-16">
+        <h3 
+          className="text-sm font-bold uppercase tracking-wider mb-3"
+          style={{ color: "var(--color-primary-1)" }}
+        >
+          — OUR NUMBERS
+        </h3>
+        <h2 className="text-3xl md:text-4xl font-bold" style={{ color: "var(--color-neutral-800)" }}>
+          Our Insights
+        </h2>
       </div>
 
       {/* GRID */}

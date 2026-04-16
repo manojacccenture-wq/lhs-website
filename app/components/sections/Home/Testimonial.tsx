@@ -40,8 +40,8 @@ function TestimonialCard({
         </div>
 
         <div className="text-left">
-          <p className="font-semibold">{name}</p>
-          <p className="text-sm text-neutral-600">{role}</p>
+          <p className="font-semibold" style={{ color: "var(--color-neutral-800)" }}>{name}</p>
+          <p className="text-sm" style={{ color: "var(--color-neutral-600)" }}>{role}</p>
         </div>
       </div>
 
@@ -51,7 +51,7 @@ function TestimonialCard({
       </div>
 
       {/* QUOTE */}
-      <p className="text-xl md:text-2xl font-semibold leading-relaxed max-w-4xl">
+      <p className="text-xl md:text-2xl font-semibold leading-relaxed max-w-4xl" style={{ color: "var(--color-neutral-800)" }}>
         {quote}
       </p>
     </div>
@@ -60,10 +60,10 @@ function TestimonialCard({
 
 export default function Testimonial() {
   return (
-    <section className="max-w-6xl mx-auto px-4 py-16">
+    <section className="max-w-6xl mx-auto px-4 py-20">
       <TestimonialCard
         name="Jankiraman"
-        role="Managing Director at livelihood System"
+        role="Managing Director at Livelihood System"
         image="/user.jpg"
         quote="Technology is easy. Making it work consistently on the field is the real problem we solve."
       />
