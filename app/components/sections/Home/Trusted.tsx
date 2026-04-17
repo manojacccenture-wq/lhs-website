@@ -1,6 +1,19 @@
 import Image from "next/image";
 
-const logos = Array(10).fill("/TICL_Company.svg");
+const logos = [
+  { src: "/krpl.png", name: "TICL" },
+  { src: "/js.png", name: "Google" },
+  { src: "/tatasteellogo.png", name: "Amazon" },
+
+  { src: "/krpl.png", name: "TICL" },
+  { src: "/js.png", name: "Google" },
+  { src: "/tatasteellogo.png", name: "Amazon" },
+
+  { src: "/krpl.png", name: "TICL" },
+  { src: "/js.png", name: "Google" },
+  { src: "/tatasteellogo.png", name: "Amazon" },
+
+];
 
 export default function Trusted() {
   return (
@@ -21,7 +34,7 @@ export default function Trusted() {
       </div>
 
       {/* MARQUEE WRAPPER */}
-      <div className="relative mt-12">
+      <div className="relative mt-12 pause-on-hover">
         {/* LEFT BLUR */}
         <div className="pointer-events-none absolute left-0 top-0 h-full w-24 bg-gradient-to-r from-white to-transparent z-10" />
 
@@ -29,42 +42,25 @@ export default function Trusted() {
         <div className="pointer-events-none absolute right-0 top-0 h-full w-24 bg-gradient-to-l from-white to-transparent z-10" />
 
         {/* TRACK */}
-        <div className="flex w-max animate-marquee gap-12 opacity-60 py-6">
-          {/* ORIGINAL */}
-          {logos.map((src, i) => (
-            <div key={`logo-${i}`} className="flex-shrink-0 flex items-center h-16">
-              <Image
-                src={src}
-                alt="company"
-                width={160}
-                height={64}
-                className="
-    w-auto h-auto max-h-16
-    opacity-40 grayscale
-    hover:opacity-100 hover:grayscale-0 hover:scale-105
-    transition-all duration-700 ease-in-out
-  "
-              />
-            </div>
-          ))}
-
-          {/* DUPLICATE (IMPORTANT FOR LOOP) */}
-          {logos.map((src, i) => (
-            <div key={`logo-dup-${i}`} className="flex-shrink-0 flex items-center h-16">
-              <Image
-                src={src}
-                alt="company"
-                width={160}
-                height={64}
-                className="
-    w-auto h-auto max-h-16
-    opacity-40 grayscale
-    hover:opacity-100 hover:grayscale-0 hover:scale-105
-    transition-all duration-700 ease-in-out
-  "
-              />
-            </div>
-          ))}
+        <div className="relative mt-12 pause-on-hover">
+          <div className="flex w-max scroll-left gap-12 opacity-100 py-6">
+            {[...logos, ...logos].map((logo, i) => (
+              <div key={i} className="flex-shrink-0 flex items-center h-16">
+                <Image
+                  src={logo.src}
+                  alt={logo.name}
+                  width={160}
+                  height={64}
+                  className="
+            h-12 md:h-16 lg:h-16 w-auto
+            opacity-40 grayscale
+            hover:opacity-100 hover:grayscale-0 hover:scale-105
+            transition-all duration-700 ease-in-out
+          "
+                />
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

@@ -34,7 +34,7 @@ function TestimonialCard({
             alt={name}
             width={48}
             height={48}
-            className="object-cover"
+            className="object-cover w-auto h-10"
           />
         </div>
 
