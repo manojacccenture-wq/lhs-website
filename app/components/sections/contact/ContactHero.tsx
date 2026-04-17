@@ -1,13 +1,20 @@
 "use client";
 
-import { useState } from "react";
+import Button from "../../ui/Button";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { z } from "zod";
+import { submitContact } from "@/lib/api/contact";
 
-interface FormData {
-  name: string;
-  email: string;
-  phone: string;
-  message: string;
-}
+// ✅ Schema
+const contactSchema = z.object({
+  name: z.string().min(2, { message: "Name is required" }),
+  email: z.email({ message: "Invalid email" }),
+  phone: z.string().min(10, { message: "Invalid phone number" }),
+  message: z.string().min(10, { message: "Message is too short" }),
+});
+
+type ContactFormData = z.infer<typeof contactSchema>;
 
 interface ContactInfoCardProps {
   title: string;
@@ -24,35 +31,34 @@ function ContactInfoCard({ title, description }: ContactInfoCardProps) {
 }
 
 export default function ContactHero() {
-  const [formData, setFormData] = useState<FormData>({
-    name: "",
-    email: "",
-    phone: "",
-    message: "",
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors, isSubmitting },
+  } = useForm<ContactFormData>({
+    resolver: zodResolver(contactSchema),
   });
 
-  const handleInputChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
-  };
+  const onSubmit = async (data: ContactFormData) => {
+    try {
+      await submitContact(data);
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
+      reset();
+
+      alert("Message sent successfully!");
+    } catch (error) {
+      alert("Something went wrong. Please try again.");
+    }
   };
 
   return (
     <section className="w-full py-20 px-6 relative bg-gradient-to-b from-primary/5 to-transparent mt-[5%]">
       <div className="max-w-7xl mx-auto">
-        {/* 2-Column Grid: Content Left, Form Right */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+          
           {/* LEFT COLUMN */}
           <div className="flex flex-col gap-12">
-            {/* Main Heading */}
             <div className="flex flex-col gap-6">
               <h1 className="text-primary text-4xl font-bold leading-[46px]">Contact US</h1>
               <p className="text-neutral-600 text-lg leading-7 max-w-md">
@@ -60,7 +66,6 @@ export default function ContactHero() {
               </p>
             </div>
 
-            {/* Contact Info (Email + Phone) */}
             <div className="flex flex-col gap-5">
               <div className="flex gap-3 items-start">
                 <div className="w-6 h-6 bg-primary/10 rounded flex items-center justify-center flex-shrink-0 mt-1">
@@ -80,7 +85,6 @@ export default function ContactHero() {
               </div>
             </div>
 
-            {/* Info Cards Grid */}
             <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
               <ContactInfoCard
                 title="Reach out"
@@ -93,26 +97,27 @@ export default function ContactHero() {
             </div>
           </div>
 
-          {/* RIGHT COLUMN - FORM CARD */}
+          {/* RIGHT COLUMN */}
           <div className="bg-white rounded-3xl border border-neutral-300 p-8 shadow-sm h-fit sticky top-20">
             <div className="mb-8">
               <h2 className="text-primary text-2xl font-bold leading-[35px] mb-2">Get in touch here</h2>
               <p className="text-neutral-600 text-lg leading-7">You can reach us any time</p>
             </div>
 
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+              
               {/* Name */}
               <div className="flex flex-col gap-3">
                 <label className="text-neutral-800 text-sm font-normal">Name</label>
                 <input
                   type="text"
-                  name="name"
                   placeholder="John Carter"
-                  value={formData.name}
-                  onChange={handleInputChange}
+                  {...register("name")}
                   className="border border-neutral-300 rounded-2xl px-4 py-3 text-base placeholder-neutral-500 focus:outline-none focus:border-primary transition-colors"
-                  required
                 />
+                {errors.name?.message && (
+                  <p className="text-red-500 text-xs">{String(errors.name.message)}</p>
+                )}
               </div>
 
               {/* Email */}
@@ -120,50 +125,51 @@ export default function ContactHero() {
                 <label className="text-neutral-800 text-sm font-normal">Email</label>
                 <input
                   type="email"
-                  name="email"
                   placeholder="john@example.com"
-                  value={formData.email}
-                  onChange={handleInputChange}
+                  {...register("email")}
                   className="border border-neutral-300 rounded-2xl px-4 py-3 text-base placeholder-neutral-500 focus:outline-none focus:border-primary transition-colors"
-                  required
                 />
+                {errors.email?.message && (
+                  <p className="text-red-500 text-xs">{String(errors.email.message)}</p>
+                )}
               </div>
 
-              {/* Phone Number */}
+              {/* Phone */}
               <div className="flex flex-col gap-3">
                 <label className="text-neutral-800 text-sm font-normal">Phone Number</label>
                 <input
                   type="tel"
-                  name="phone"
                   placeholder="+1 (555) 000-0000"
-                  value={formData.phone}
-                  onChange={handleInputChange}
+                  {...register("phone")}
                   className="border border-neutral-300 rounded-2xl px-4 py-3 text-base placeholder-neutral-500 focus:outline-none focus:border-primary transition-colors"
-                  required
                 />
+                {errors.phone?.message && (
+                  <p className="text-red-500 text-xs">{String(errors.phone.message)}</p>
+                )}
               </div>
 
               {/* Message */}
               <div className="flex flex-col gap-3">
                 <label className="text-neutral-800 text-sm font-normal">Message</label>
                 <textarea
-                  name="message"
                   placeholder="Tell us about your project..."
-                  value={formData.message}
-                  onChange={handleInputChange}
                   rows={3}
+                  {...register("message")}
                   className="border border-neutral-300 rounded-2xl px-4 py-3 text-base placeholder-neutral-500 focus:outline-none focus:border-primary transition-colors resize-none"
-                  required
                 />
+                {errors.message?.message && (
+                  <p className="text-red-500 text-xs">{String(errors.message.message)}</p>
+                )}
               </div>
 
-              {/* Submit Button */}
-              <button
+              {/* Button */}
+              <Button
                 type="submit"
+                disabled={isSubmitting}
                 className="w-full bg-primary hover:bg-primary/90 text-white font-bold py-3 px-6 rounded-full transition-colors text-lg"
               >
-                Apply Now
-              </button>
+                {isSubmitting ? "Sending..." : "Apply Now"}
+              </Button>
             </form>
           </div>
         </div>
