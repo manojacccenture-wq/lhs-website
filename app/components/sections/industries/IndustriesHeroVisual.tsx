@@ -72,7 +72,8 @@ export default function IndustriesHeroVisual() {
             alt=""
             width={48}
             height={48}
-            className="w-10 h-10 md:w-12 md:h-12"
+            className=" md:w-12 md:h-12 object-cover"
+            style={{ width: "auto", height: "auto" }} // Added fix
           />
         </div>
 
@@ -83,7 +84,8 @@ export default function IndustriesHeroVisual() {
             alt=""
             width={48}
             height={48}
-            className="w-10 h-10 md:w-12 md:h-12"
+            className=" md:w-12 md:h-12 object-cover"
+            style={{ width: "auto", height: "auto" }} // Added fix
           />
         </div>
 
@@ -94,7 +96,8 @@ export default function IndustriesHeroVisual() {
             alt=""
             width={48}
             height={48}
-            className="w-10 h-10 md:w-12 md:h-12"
+            className=" md:w-12 md:h-12 object-cover"
+            style={{ width: "auto", height: "auto" }} // Added fix
           />
         </div>
 
@@ -112,7 +115,8 @@ export default function IndustriesHeroVisual() {
             alt=""
             width={48}
             height={48}
-            className="w-10 h-10 md:w-12 md:h-12"
+            className=" md:w-12 md:h-12 object-cover"
+            style={{ width: "auto", height: "auto" }} // Added fix
           />
         </div>
 
@@ -128,7 +132,8 @@ export default function IndustriesHeroVisual() {
             alt=""
             width={48}
             height={48}
-            className="w-10 h-10 md:w-12 md:h-12"
+            className=" md:w-12 md:h-12 object-cover"
+            style={{ width: "auto", height: "auto" }} // Added fix
           />
         </div>
 

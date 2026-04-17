@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import Button from '@/app/components/ui/Button';
-import IndustriesHeroVisual from './IndustriesHeroVisual';
+
 
 const logos = [
   '/TICL_Company.svg',
@@ -61,7 +61,7 @@ export default function IndustriesHero() {
                 alt="partner logo"
                 width={128}
                 height={56}
-                className="w-auto h-full object-contain grayscale"
+                className="w-auto h-28 object-contain grayscale"
               />
             </div>
           ))}

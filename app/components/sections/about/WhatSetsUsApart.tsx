@@ -22,7 +22,7 @@ function FeatureCardComponent({ title, description, icon, highlighted = false }:
       <div
         className="w-12 h-12 rounded-lg flex items-center justify-center mb-4"
         style={{
-          backgroundColor: highlighted ? "rgba(255, 255, 255, 0.2)" : "var(--color-primary-1)",
+          backgroundColor: highlighted ? "rgba(255, 255, 255, 0.2)" : "var(--color-neutral-800-rgb)",
         }}
       >
         <Image
@@ -31,7 +31,7 @@ function FeatureCardComponent({ title, description, icon, highlighted = false }:
           width={28}
           height={28}
           className="w-7 h-7"
-          style={{ filter: highlighted ? "brightness(0) invert(1)" : "brightness(0) saturate(100%) invert(47%) sepia(78%) saturate(597%) hue-rotate(120deg)" }}
+          style={{ filter: highlighted ? "brightness(0) invert(1)" : "brightness(100%) saturate(100%) invert(47%) sepia(78%) saturate(597%) hue-rotate(120deg)" }}
         />
       </div>
 
@@ -79,15 +79,15 @@ export default function WhatSetsUsApart() {
   ];
 
   return (
-    <section className="py-16 md:py-20 px-4 md:px-6">
+    <section className="py-16 md:py-14 px-4 md:px-6">
       <div className="max-w-6xl mx-auto">
         {/* Section Header */}
         <div className="text-center mb-12 md:mb-16">
           <h3 
-            className="text-xs md:text-sm font-bold uppercase tracking-wider mb-3 md:mb-4"
-            style={{ color: "var(--color-primary-1)" }}
+            className="text-xs md:text-xl font-bold uppercase tracking-wider mb-3 md:mb-4 text-primary"
+            
           >
-            What Sets us apart
+        we exceed them. Here’s what sets us apart:"
           </h3>
           <h2 className="text-2xl md:text-4xl font-bold" style={{ color: "var(--color-neutral-800)" }}>
             What Sets us apart

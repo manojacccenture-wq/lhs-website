@@ -6,7 +6,7 @@ import Link from "next/link";
 export default function Footer() {
   return (
     <footer className="bg-white border-t border-neutral-300 py-20 px-6">
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-7xl text-left mx-auto">
         {/* MAIN FOOTER GRID */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 mb-16 lg:gap-12">
 
@@ -20,7 +20,8 @@ export default function Footer() {
                 width={100}
                 height={40}
                 priority
-                className="object-contain"
+                className="object-contain w-auto h-20"
+
               />
             </Link>
 
@@ -36,9 +37,13 @@ export default function Footer() {
                   <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
                 </svg>
               </a>
-              <a href="#" aria-label="Twitter" className="text-neutral-600 hover:text-primary transition-colors">
-                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M23.953 4.57a10 10 0 002.856-3.905 10 10 0 01-2.856-3.905 10 10 0 01-2.856 3.905 10 10 0 01-2.856-3.905 10 10 0 012.856 3.905zm-2.477 2.477a10 10 0 01-5.56 1.423A10 10 0 0110 8a10 10 0 014 1z" />
+              <a href="#" aria-label="X (Twitter)" className="text-neutral-600 hover:text-primary transition-colors">
+                <svg
+                  className="w-5 h-5"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M18.244 2H21l-6.56 7.5L22.5 22h-6.64l-5.2-6.8L4.5 22H1.75l7.02-8.02L1.5 2h6.7l4.7 6.2L18.244 2zm-2.32 18h1.84L7.6 4H5.65l10.274 16z" />
                 </svg>
               </a>
               <a href="#" aria-label="Instagram" className="text-neutral-600 hover:text-primary transition-colors">
@@ -48,12 +53,12 @@ export default function Footer() {
                   <circle cx="17.5" cy="6.5" r="1" fill="currentColor" />
                 </svg>
               </a>
-              <a href="#" aria-label="LinkedIn" className="text-neutral-600 hover:text-primary transition-colors">
+              <a href="https://www.linkedin.com/company/livelihood-system" target="blank" aria-label="LinkedIn" className="text-neutral-600 hover:text-primary transition-colors">
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.475-2.236-1.986-2.236-1.081 0-1.722.722-2.004 1.418-.103.249-.129.597-.129.946v5.441h-3.554s.05-8.807 0-9.728h3.554v1.375c.427-.659 1.191-1.592 2.897-1.592 2.117 0 3.704 1.385 3.704 4.362v5.583zM5.337 8.855c-1.144 0-1.915-.758-1.915-1.704 0-.951.77-1.704 1.957-1.704 1.188 0 1.915.753 1.94 1.704 0 .946-.752 1.704-1.982 1.704zm1.582 11.597H3.635V9.124h3.284v11.328zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
                 </svg>
               </a>
-              <a href="#" aria-label="YouTube" className="text-neutral-600 hover:text-primary transition-colors">
+              <a href="https://www.youtube.com/@LHS-LivelihoodSystem" aria-label="YouTube" target="blank" className="text-neutral-600 hover:text-primary transition-colors">
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
                 </svg>
