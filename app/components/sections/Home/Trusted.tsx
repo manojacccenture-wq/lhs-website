@@ -41,6 +41,7 @@ export default function Trusted() {
         {/* RIGHT BLUR */}
         <div className="pointer-events-none absolute right-0 top-0 h-full w-24 bg-gradient-to-l from-white to-transparent z-10" />
 
+
         {/* TRACK */}
         <div className="relative mt-12 pause-on-hover">
           <div className="flex w-max scroll-left gap-12 opacity-100 py-6">
