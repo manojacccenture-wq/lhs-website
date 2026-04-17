@@ -24,7 +24,7 @@ export default function ImageCard({
       )}
     >
       {icon ? (
-        <div className="w-full h-full flex items-center justify-center opacity-50">
+        <div className="w-full h-full flex items-center justify-center opacity-75">
           <Image
             src={icon}
             alt={label || "icon"}
