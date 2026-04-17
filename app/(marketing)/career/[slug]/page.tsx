@@ -57,14 +57,8 @@ export default function ApplyPage() {
 
   const jobDetails = jobDetailsMap[slug?.toLowerCase()?.replace(/ /g, "-")] || jobDetailsMap["full-stack-developer"];
 
-  const handleFormSubmit = (formData: any) => {
-
-    // Handle form submission - redirect or show success message
-    alert("Application submitted successfully!");
-  };
-
   return (
-    <div className="w-full min-h-screen bg-white flex flex-col">
+    <div className="w-full min-h-screen bg-white flex flex-col p-28">
       <main className="flex-1 w-full">
         {/* Go Back Link */}
         <div className="max-w-7xl mx-auto px-4 md:px-8 pt-8 pb-4">
@@ -123,7 +117,7 @@ export default function ApplyPage() {
 
             {/* Right Side - Apply Form */}
             <div className="lg:col-span-2">
-              <ApplyForm jobTitle={jobDetails.title} onSubmit={handleFormSubmit} />
+              <ApplyForm jobTitle={jobDetails.title} />
             </div>
           </div>
         </section>

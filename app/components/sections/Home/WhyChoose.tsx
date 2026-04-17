@@ -28,7 +28,7 @@ const items = [
   },
   {
     title: "Skilled & Passionate Team",
-    icon: "/WhyChooseUs_2.svg",
+    icon: "/Insights_Two.svg",
     content: (
       <>
         <p className="text-primary font-medium">

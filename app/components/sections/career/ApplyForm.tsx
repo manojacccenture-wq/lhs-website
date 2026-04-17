@@ -1,52 +1,38 @@
 "use client";
 
-import { useState } from "react";
 import Button from "../../ui/Button";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { applySchema } from "@/lib/validations/apply";
+import { submitApplication } from "@/lib/api/apply";
+import { z } from "zod";
 
 interface ApplyFormProps {
   jobTitle?: string;
-  onSubmit?: (formData: FormData) => void;
 }
 
-interface FormData {
-  name: string;
-  email: string;
-  phone: string;
-  resume: File | null;
-  coverLetter: string;
-}
+type ApplyFormData = z.infer<typeof applySchema>;
 
-export default function ApplyForm({ jobTitle = "Position", onSubmit }: ApplyFormProps) {
-  const [formData, setFormData] = useState<FormData>({
-    name: "",
-    email: "",
-    phone: "",
-    resume: null,
-    coverLetter: "",
+export default function ApplyForm({ jobTitle = "Position" }: ApplyFormProps) {
+  const {
+    register,
+    handleSubmit,
+    reset,
+    setValue,
+    formState: { errors, isSubmitting },
+  } = useForm<ApplyFormData>({
+    resolver: zodResolver(applySchema),
   });
 
-  const handleInputChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
-  };
+  const onSubmit = async (data: ApplyFormData) => {
+    try {
+      await submitApplication(data);
 
-  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0] || null;
-    setFormData((prev) => ({
-      ...prev,
-      resume: file,
-    }));
-  };
+      reset(); // ✅ Reset form
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (onSubmit) {
-      onSubmit(formData);
+      alert("Application submitted successfully!");
+    } catch (error) {
+      alert("Something went wrong. Please try again.");
     }
   };
 
@@ -57,19 +43,21 @@ export default function ApplyForm({ jobTitle = "Position", onSubmit }: ApplyForm
         Discover top remote tech opportunities and land your next role with ease, through our streamlined process.
       </p>
 
-      <form onSubmit={handleSubmit} className="space-y-6">
+      <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
         {/* Name */}
         <div className="flex flex-col gap-2">
           <label className="text-neutral-700 text-sm font-medium">Name</label>
           <input
             type="text"
-            name="name"
             placeholder="John Carter"
-            value={formData.name}
-            onChange={handleInputChange}
+            {...register("name")}
             className="border border-neutral-300 rounded-lg px-4 py-3 text-base placeholder-neutral-500 focus:outline-none focus:border-primary"
-            required
           />
+          {errors.name?.message && (
+            <p className="text-red-500 text-xs">
+              {String(errors.name.message)}
+            </p>
+          )}
         </div>
 
         {/* Email */}
@@ -77,51 +65,66 @@ export default function ApplyForm({ jobTitle = "Position", onSubmit }: ApplyForm
           <label className="text-neutral-700 text-sm font-medium">Email</label>
           <input
             type="email"
-            name="email"
             placeholder="John Carter"
-            value={formData.email}
-            onChange={handleInputChange}
+            {...register("email")}
             className="border border-neutral-300 rounded-lg px-4 py-3 text-base placeholder-neutral-500 focus:outline-none focus:border-primary"
-            required
           />
+          {errors.email?.message && (
+            <p className="text-red-500 text-xs">
+              {String(errors.email.message)}
+            </p>
+          )}
         </div>
 
         {/* Phone Number */}
         <div className="flex flex-col gap-2">
-          <label className="text-neutral-700 text-sm font-medium">Phone Number</label>
+          <label className="text-neutral-700 text-sm font-medium">
+            Phone Number
+          </label>
           <input
             type="tel"
-            name="phone"
             placeholder="John Carter"
-            value={formData.phone}
-            onChange={handleInputChange}
+            {...register("phone")}
             className="border border-neutral-300 rounded-lg px-4 py-3 text-base placeholder-neutral-500 focus:outline-none focus:border-primary"
-            required
           />
+          {errors.phone?.message && (
+            <p className="text-red-500 text-xs">
+              {String(errors.phone.message)}
+            </p>
+          )}
         </div>
 
         {/* Upload Resume */}
         <div className="flex flex-col gap-2">
-          <label className="text-neutral-700 text-sm font-medium">Upload your resume</label>
+          <label className="text-neutral-700 text-sm font-medium">
+            Upload your resume
+          </label>
           <input
             type="file"
-            name="resume"
-            onChange={handleFileChange}
-            className="border border-neutral-300 rounded-lg px-4 py-3 text-base file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-medium file:bg-primary file:text-white cursor-pointer"
             accept=".pdf,.doc,.docx"
+            onChange={(e) => {
+              const file = e.target.files?.[0];
+              setValue("resume", file);
+            }}
+            className="border border-neutral-300 rounded-lg px-4 py-3 text-base file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-medium file:bg-primary file:text-white cursor-pointer"
           />
-          <span className="text-neutral-500 text-xs">No file chooser</span>
+          {errors.resume?.message && (
+            <p className="text-red-500 text-xs">
+              {String(errors.resume.message)}
+            </p>
+          )}
+          <span className="text-neutral-500 text-xs">No file chosen</span>
         </div>
 
         {/* Cover Letter */}
         <div className="flex flex-col gap-2">
-          <label className="text-neutral-700 text-sm font-medium">Cover Letter</label>
+          <label className="text-neutral-700 text-sm font-medium">
+            Cover Letter
+          </label>
           <textarea
-            name="coverLetter"
             placeholder="Enter your message"
-            value={formData.coverLetter}
-            onChange={handleInputChange}
             rows={5}
+            {...register("coverLetter")}
             className="border border-neutral-300 rounded-lg px-4 py-3 text-base placeholder-neutral-500 focus:outline-none focus:border-primary resize-none"
           />
         </div>
@@ -129,10 +132,12 @@ export default function ApplyForm({ jobTitle = "Position", onSubmit }: ApplyForm
         {/* Submit Button */}
         <div className="pt-4">
           <Button
+            type="submit"
             variant="primary"
+            disabled={isSubmitting}
             className="w-full bg-primary text-white px-6 py-4 rounded-full font-medium text-base hover:opacity-90 transition-opacity"
           >
-            Apply now
+            {isSubmitting ? "Submitting..." : "Apply now"}
           </Button>
         </div>
       </form>

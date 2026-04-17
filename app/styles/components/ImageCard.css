@@ -5,6 +5,7 @@
     background: var(--color-bg-card);
     border: 1px solid var(--color-border);
     border-radius: 24px;
+    padding: 20px;
     transition: all 0.3s ease;
 
     /* default shadow */
@@ -26,14 +27,10 @@
   }
 
   /* ================= TECH CARD ================= */
-  .card-tech {
-    width: 82px;
-    height: 72px;
-    padding: 16px;
-
-    /* keep small shadow */
-    box-shadow: var(--shadow-card-sm);
-  }
+.card-tech {
+  width: 96px;
+  height: 80px;
+}
 
   .card-tech:hover {
     transform: translateY(-3px) scale(1.04);
