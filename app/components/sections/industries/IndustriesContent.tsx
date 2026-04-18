@@ -15,10 +15,10 @@ const industries = [
         image: manufacturingImage,
         deliverables: [
             "SAP-integrated MIS",
-            "production monitoring platforms",
-            "procurement intelligence",
+            "Production monitoring platforms",
+            "Procurement intelligence",
             "IT manpower under SLA governance",
-            "executive dashboards that surface operational exceptions in real time."
+            "Executive dashboards that surface operational exceptions in real time."
         ],
         imagePosition: "left" as const
     },
@@ -29,10 +29,10 @@ const industries = [
         image: commercialFoodImage,
         deliverables: [
             "Food ERP Platform — POS, vendor settlement",
-            "inventory management",
-            "franchise management",
-            "full mobile app ecosystem",
-            "executive dashboards that surface operational exceptions in real time."
+            "Inventory management",
+            "Franchise management",
+            "Full mobile app ecosystem",
+            "Executive dashboards that surface operational exceptions in real time."
         ],
         imagePosition: "left" as const
     },
@@ -43,10 +43,10 @@ const industries = [
         image: utilitiesImage,
         deliverables: [
             "IoT device integration",
-            "field asset monitoring",
-            "infrastructure IT manpower",
+            "Field asset monitoring",
+            "Infrastructure IT manpower",
             "IT manpower under SLA governance",
-            "executive dashboards that surface operational exceptions in real time."
+            "Executive dashboards that surface operational exceptions in real time."
         ],
         imagePosition: "right" as const
     },
