@@ -53,12 +53,12 @@ export default function Trusted() {
                   width={160}
                   height={64}
                   className="
-            h-12 md:h-16 lg:h-16 w-auto
+            h-12 md:h-13 lg:h-13 w-auto
             opacity-40 grayscale
             hover:opacity-100 hover:grayscale-0 hover:scale-105
             transition-all duration-700 ease-in-out
           "
-          style={{width:"auto",height:"auto"}}
+          // style={{width:"auto",height:"auto"}}
                 />
               </div>
             ))}
