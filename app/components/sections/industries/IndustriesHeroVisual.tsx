@@ -3,16 +3,16 @@
 import Image from 'next/image';
 
 const avatarImages = [
-  '/Janakai_Ramana.svg',
-  '/Janakai_Ramana.svg',
-  '/Janakai_Ramana.svg',
-  '/Janakai_Ramana.svg',
+  '/Janakai_Ramana.png',
+  '/Janakai_Ramana.png',
+  '/Janakai_Ramana.png',
+  '/Janakai_Ramana.png',
 ];
 
 const iconImages = [
-  '/Janakai_Ramana.svg',
-  '/Janakai_Ramana.svg',
-  '/Janakai_Ramana.svg',
+  '/Janakai_Ramana.png',
+  '/Janakai_Ramana.png',
+  '/Janakai_Ramana.png',
 ];
 
 
@@ -68,7 +68,7 @@ export default function IndustriesHeroVisual() {
         {/* Top */}
         <div className="absolute left-1/2 top-[8%] -translate-x-1/2">
           <Image
-            src="/Janakai_Ramana.svg"
+            src="/Janakai_Ramana.png"
             alt=""
             width={48}
             height={48}
@@ -80,7 +80,7 @@ export default function IndustriesHeroVisual() {
         {/* Left */}
         <div className="absolute left-[12%] top-[35%]">
           <Image
-            src="/Janakai_Ramana.svg"
+            src="/Janakai_Ramana.png"
             alt=""
             width={48}
             height={48}
@@ -92,7 +92,7 @@ export default function IndustriesHeroVisual() {
         {/* Right */}
         <div className="absolute right-[12%] top-[35%]">
           <Image
-            src="/Janakai_Ramana.svg"
+            src="/Janakai_Ramana.png"
             alt=""
             width={48}
             height={48}
@@ -111,7 +111,7 @@ export default function IndustriesHeroVisual() {
           }}
         >
           <Image
-            src="/Janakai_Ramana.svg"
+            src="/Janakai_Ramana.png"
             alt=""
             width={48}
             height={48}
@@ -128,7 +128,7 @@ export default function IndustriesHeroVisual() {
           }}
         >
           <Image
-            src="/Janakai_Ramana.svg"
+            src="/Janakai_Ramana.png"
             alt=""
             width={48}
             height={48}

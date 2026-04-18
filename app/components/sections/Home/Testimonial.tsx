@@ -63,7 +63,7 @@ export default function Testimonial() {
       <TestimonialCard
         name="Jankiraman"
         role="Managing Director at Livelihood System"
-        image="/Janakai_Ramana.svg"
+        image="/Janakai_Ramana.png"
         quote={`"Technology is easy. Making it work consistently on the field is the real problem we solve."`}
       />
     </section>
