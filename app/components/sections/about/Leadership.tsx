@@ -2,7 +2,7 @@
 import Image from "next/image";
 
 export default function Leadership() {
-  const imgImage4 = "/about/Leader.svg";
+  const imgImage4 = "/Janakai_Ramana.png";
   const imgReport = "/about/Leader_Icon.svg";
 
   return (
@@ -27,7 +27,7 @@ export default function Leadership() {
                 src={imgImage4}
                 alt="Janaki Raman"
                 fill
-                className="object-cover"
+                className="object-contain"
               />
             </div>
 

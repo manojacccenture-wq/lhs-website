@@ -58,6 +58,7 @@ export default function Trusted() {
             hover:opacity-100 hover:grayscale-0 hover:scale-105
             transition-all duration-700 ease-in-out
           "
+          style={{width:"auto",height:"auto"}}
                 />
               </div>
             ))}
