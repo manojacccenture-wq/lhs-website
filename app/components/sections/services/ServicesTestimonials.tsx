@@ -16,7 +16,7 @@ function TestimonialCard({ name, title, quote, image }: Testimonial) {
           className="font-bold text-base mb-4 leading-relaxed"
           style={{ color: "var(--color-text-title)" }}
         >
-          "{quote}"
+          &quot;{quote}&quot;
         </p>
 
         {/* Author Info */}
@@ -45,44 +45,44 @@ function TestimonialCard({ name, title, quote, image }: Testimonial) {
 }
 
 export default function ServicesTestimonials() {
-  const testimonials: Testimonial[] = [
-    {
-      name: 'Robert B',
-      title: 'CTO, CloudTech Solutions',
-      quote: 'I found the perfect developer in hours, and the turnaround was fast and exceeded expectations!',
-      image: '/Janakai_Ramana.svg',
-    },
-    {
-      name: 'Adam Smith',
-      title: 'CEO, TechSolutions',
-      quote: 'We scaled quickly with exceptional talent and seamless, top-notch work!',
-      image: '/Janakai_Ramana.svg',
-    },
-    {
-      name: 'Michael T',
-      title: 'Founder, Software Technologies',
-      quote: 'Finding the perfect graphic designer was effortless, and the results were on-point!',
-      image: '/Janakai_Ramana.svg',
-    },
-    {
-      name: 'Mike Warren',
-      title: 'Founder, InnovateCo',
-      quote: 'I connected with talented developers who delivered faster than expected!',
-      image: '/Janakai_Ramana.svg',
-    },
-    {
-      name: 'Claire W',
-      title: 'Head of Operations, NexGen Startups',
-      quote: 'The platform made finding talented professionals easy, and the results were fantastic!',
-      image: '/Janakai_Ramana.svg',
-    },
-    {
-      name: 'John Doe',
-      title: 'CEO, Innovations Inc',
-      quote: 'I got cost-effective, high-quality design work that fit my vision perfectly!',
-      image: '/Janakai_Ramana.svg',
-    },
-  ];
+const testimonials: Testimonial[] = [
+  {
+    name: 'Sanjay B',
+    title: 'CTO, CloudTech Solutions',
+    quote: 'I found the perfect developer in hours, and the turnaround was fast and exceeded expectations!',
+    image: '/Janakai_Ramana.svg',
+  },
+  {
+    name: 'Arjun Mehta',
+    title: 'CEO, TechSolutions',
+    quote: 'We scaled quickly with exceptional talent and seamless, top-notch work!',
+    image: '/Janakai_Ramana.svg',
+  },
+  {
+    name: 'Rohit Sharma',
+    title: 'Founder, Software Technologies',
+    quote: 'Finding the perfect graphic designer was effortless, and the results were on-point!',
+    image: '/Janakai_Ramana.svg',
+  },
+  {
+    name: 'Vikram Singh',
+    title: 'Founder, InnovateCo',
+    quote: 'I connected with talented developers who delivered faster than expected!',
+    image: '/Janakai_Ramana.svg',
+  },
+  {
+    name: 'Priya Nair',
+    title: 'Head of Operations, NexGen Startups',
+    quote: 'The platform made finding talented professionals easy, and the results were fantastic!',
+    image: '/Janakai_Ramana.svg',
+  },
+  {
+    name: 'Rahul Verma',
+    title: 'CEO, Innovations Inc',
+    quote: 'I got cost-effective, high-quality design work that fit my vision perfectly!',
+    image: '/Janakai_Ramana.svg',
+  },
+];
 
   const row1 = [...testimonials.slice(0, 3), ...testimonials.slice(0, 3)];
   const row2 = [...testimonials.slice(3, 6), ...testimonials.slice(3, 6)];

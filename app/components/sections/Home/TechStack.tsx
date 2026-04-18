@@ -24,7 +24,7 @@ export default function TechStack() {
         className="mx-auto text-xs md:text-sm font-bold uppercase tracking-wider mb-3 md:mb-4"
         style={{ color: "var(--color-primary-1)" }}
       >
-        — MODERN, SECURE, AND SCALABLE FOR ENTERPRISE-GRADE F&B OPERATIONS.
+        — MODERN, SECURE, AND SCALABLE FOR ENTERPRISE-GRADE ENTERPRISE GRADE OPERATIONS.
       </p>
 
       {/* TITLE */}

@@ -48,12 +48,10 @@ export default function Leadership() {
                 His Experience
               </p>
               <p className="text-sm md:text-base mb-[4%]" >
-                Over two decades of leading enterprise system deployments across complex environments
+                Over two decades of leading enterprise system deployments across complex environments, we are focusing on building solutions that don’t just get approved but work consistently on ground.
               </p>
 
-              <p className="text-sm md:text-base mb-[4%]" >
-                Focused on building solutions that don’t just get approved but work consistently on ground.
-              </p>
+    
 
               {/* Experience List */}
               <div className="space-y-4">

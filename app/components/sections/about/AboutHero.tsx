@@ -10,7 +10,7 @@ export default function AboutHero() {
         <div className="relative z-10 max-w-4xl mx-auto text-center">
           {/* Subtitle */}
           <h3 className="text-primary mx-auto mb-[2%]">
-            From Concept to Scalable Code
+            20+ YEARS. MULTIPLE INDUSTRIES. ONE FOCUS.
           </h3>
 
           {/* Main Heading */}
@@ -31,7 +31,7 @@ export default function AboutHero() {
             </Button>
           </div>
         </div>
-        <AboutCards/>
+        <AboutCards />
       </section>
     </HeroWrapper>
   );

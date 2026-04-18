@@ -62,23 +62,7 @@ const tabs: Tab[] = [
   },
 ];
 
-const differencePoints: DifferencePoint[] = [
-  {
-    number: '01',
-    title: 'Dedicated resource model',
-    description: 'your team, our accountability',
-  },
-  {
-    number: '02',
-    title: 'SLA-defined deliverables',
-    description: 'measurable, reported, escalation-protected',
-  },
-  {
-    number: '03',
-    title: 'Performance reviews',
-    description: 'monthly scorecards, quarterly alignment',
-  },
-];
+
 
 const tabContentMap: Record<string, TabContent> = {
   "software-development": {
@@ -107,15 +91,15 @@ const tabContentMap: Record<string, TabContent> = {
     features: [
       {
         title: "Application development",
-        description: "custom-built systems aligned to operational workflows",
+        description: "Custom-built systems aligned to operational workflows",
       },
       {
         title: "Maintenance & support",
-        description: "ongoing monitoring, bug fixes, performance tuning",
+        description: "Ongoing monitoring, bug fixes, performance tuning",
       },
       {
         title: "System upgrades",
-        description: "modernization without disrupting existing operations",
+        description: "Modernization without disrupting existing operations",
       },
     ],
   },
@@ -147,15 +131,15 @@ const tabContentMap: Record<string, TabContent> = {
     features: [
       {
         title: "Requirement to rollout",
-        description: "complete lifecycle execution under one team",
+        description: "Complete lifecycle execution under one team",
       },
       {
         title: "Multi-system integration",
-        description: "hardware, software, and operations aligned",
+        description: "Hardware, software, and operations aligned",
       },
       {
         title: "Deployment & stabilization",
-        description: "on-ground support until system runs smoothly",
+        description: "On-ground support until system runs smoothly",
       },
     ],
   },
@@ -188,15 +172,15 @@ const tabContentMap: Record<string, TabContent> = {
     features: [
       {
         title: "Workflow automation",
-        description: "approvals, task routing, and process tracking",
+        description: "Approvals, task routing, and process tracking",
       },
       {
         title: "Data automation",
-        description: "eliminating manual entry and duplication",
+        description: "Eliminating manual entry and duplication",
       },
       {
         title: "Operational efficiency",
-        description: "reduced errors, faster turnaround time",
+        description: "Reduced errors, faster turnaround time",
       },
     ],
   },

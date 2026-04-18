@@ -14,7 +14,7 @@ export default function ServicesHero() {
               className="text-primary uppercase mx-auto"
               
             >
-              From Concept to Scalable Code
+              APPROACH BASED ON FIRST PRINCIPLE
             </span>
           </div>
 
